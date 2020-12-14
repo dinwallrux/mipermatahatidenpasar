@@ -1,0 +1,16 @@
+#accordionSidebar {
+  background-color: #006d77; }
+  #accordionSidebar .sidebar-brand-text {
+    text-align: left;
+    font-size: 12px; }
+
+#register .register-image {
+  width: 100%;
+  background-position: center;
+  background-size: cover; }
+
+#login .login-image {
+  width: 100%;
+  background-size: cover; }
+
+/*# sourceMappingURL=my-style.css.map */

@@ -1,0 +1,29 @@
+$darkGreen: #006d77;
+$lightGreen: #83c5be;
+$white: #edf6f9;
+$lightBrown: #ffddd2;
+$darkBrown: #e29578;
+
+// Sidebar
+#accordionSidebar{
+    background-color: #006d77;
+    .sidebar-brand-text{
+        text-align: left;
+        font-size: 12px;
+    }
+}
+
+#register{
+    .register-image{
+        width: 100%;
+        background-position: center;
+        background-size: cover;
+    }
+}
+
+#login{
+    .login-image{
+        width: 100%;
+        background-size: cover;
+    }
+}
