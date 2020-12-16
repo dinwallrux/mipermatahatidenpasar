@@ -1,8 +1,9 @@
-@extends('layouts.table')
+@extends('layouts.table', ['title' => 'Data Siswa', 'page_title' => 'Siswa', 'link_tambah_data' => 'siswa.tambah'])
 
 @section('data_table')
 <thead>
     <tr>
+        <th>Action</th>
         <th>Nama</th>
         <th>Jenis Kelamin</th>
         <th>NISN</th>
@@ -21,6 +22,15 @@
 <tbody>
     @foreach ($siswas as $siswa)
     <tr>
+        <td align="center">
+            <a href="{{ route('siswa.proses.hapus', $siswa->id) }}" title="Hapus" class="btn btn-danger btn-circle btn-sm mr-1">
+                <i class="fas fa-trash"></i>
+            </a>
+            <span class="divider"></span>
+            <a href="{{ route('siswa.edit', $siswa->id) }}" title="Edit" class="btn btn-success btn-circle btn-sm">
+                <i class="fas fa-pencil-alt"></i>
+            </a>
+        </td>
         <td>{{$siswa->nama}}</td>
         <td>{{$siswa->jenis_kelamin}}</td>
         <td>{{$siswa->nisn}}</td>
@@ -39,6 +49,7 @@
 </tbody>
 <tfoot>
     <tr>
+        <th>Action</th>
         <th>Nama</th>
         <th>Jenis Kelamin</th>
         <th>NISN</th>

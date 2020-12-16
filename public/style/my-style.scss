@@ -27,3 +27,22 @@ $darkBrown: #e29578;
         background-size: cover;
     }
 }
+
+#dataTable{
+    a{
+        text-decoration: none;
+    }
+    .delete{
+        color: crimson;
+        margin-right: 10px;
+        &:hover{
+            color: #b81534;
+        }
+    }
+    .edit{
+        color: #1cc88a;
+        &:hover{
+            color: #17a673;
+        }
+    }
+}

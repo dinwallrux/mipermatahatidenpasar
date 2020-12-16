@@ -20,4 +20,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/beranda', 'HomeController@index')->name('beranda');
-Route::get('/siswa', 'SiswaController@index')->name('siswa');
+
+Route::prefix('siswa')->group(function(){
+    Route::get('/', 'SiswaController@index')->name('siswa');
+    Route::get('/tambah', 'SiswaController@formTambah')->name('siswa.tambah');
+    Route::post('/prosesTambah', 'SiswaController@prosesTambah')->name('siswa.proses.tambah');
+    Route::get('/prosesHapus/{id}', 'SiswaController@prosesHapus')->name('siswa.proses.hapus');
+    Route::get('/edit/{id}', 'SiswaController@formEdit')->name('siswa.edit');
+    Route::post('/prosesEdit', 'SiswaController@prosesEdit')->name('siswa.proses.edit');
+});

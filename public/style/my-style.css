@@ -13,4 +13,16 @@
   width: 100%;
   background-size: cover; }
 
+#dataTable a {
+  text-decoration: none; }
+#dataTable .delete {
+  color: crimson;
+  margin-right: 10px; }
+  #dataTable .delete:hover {
+    color: #b81534; }
+#dataTable .edit {
+  color: #1cc88a; }
+  #dataTable .edit:hover {
+    color: #17a673; }
+
 /*# sourceMappingURL=my-style.css.map */
