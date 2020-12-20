@@ -58,12 +58,6 @@
         </div>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{route('guru')}}">
-            <i class="fas fa-chalkboard-teacher"></i>
-            <span>Guru</span>
-        </a>
-    </li>
-    <li class="nav-item">
         <a class="nav-link" href="{{route('siswa')}}">
             <i class="fas fa-user-graduate"></i>
             <span>Siswa</span>
