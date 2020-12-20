@@ -46,21 +46,21 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{route('guru')}}">
             <i class="fas fa-chalkboard-teacher"></i>
-            <span>Data Guru</span>
+            <span>Guru</span>
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{route('siswa')}}">
+            <i class="fas fa-user-graduate"></i>
+            <span>Siswa</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">
             <i class="fas fa-images"></i>
             <span>Galeri</span>
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="index.html">
-            <i class="fas fa-user-graduate"></i>
-            <span>Data Siswa</span>
         </a>
     </li>
 

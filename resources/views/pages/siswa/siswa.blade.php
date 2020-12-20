@@ -3,7 +3,9 @@
 @section('data_table')
 <thead>
     <tr>
+        @if (auth()->user()->status == 'operator')
         <th>Action</th>
+        @endif
         <th>Nama</th>
         <th>Jenis Kelamin</th>
         <th>NISN</th>
@@ -22,6 +24,7 @@
 <tbody>
     @foreach ($siswas as $siswa)
     <tr>
+        @if (auth()->user()->status == 'operator')
         <td align="center">
             <a href="{{ route('siswa.proses.hapus', $siswa->id) }}" title="Hapus" class="btn btn-danger btn-circle btn-sm mr-1">
                 <i class="fas fa-trash"></i>
@@ -31,6 +34,7 @@
                 <i class="fas fa-pencil-alt"></i>
             </a>
         </td>
+        @endif
         <td>{{$siswa->nama}}</td>
         <td>{{$siswa->jenis_kelamin}}</td>
         <td>{{$siswa->nisn}}</td>
@@ -49,7 +53,9 @@
 </tbody>
 <tfoot>
     <tr>
+        @if (auth()->user()->status == 'operator')
         <th>Action</th>
+        @endif
         <th>Nama</th>
         <th>Jenis Kelamin</th>
         <th>NISN</th>

@@ -13,12 +13,14 @@
             <h6 class="m-0 font-weight-bold text-primary">{{ ucfirst($title ?? 'Data Tables') }}</h6>
         </div>
         <div class="card-body">
-            <a href="{{ route($link_tambah_data) }}" class="btn btn-primary btn-icon-split mb-3">
+            @if (auth()->user()->status == 'operator')
+            <a href="{{ $link_tambah_data != null ? route($link_tambah_data) : '#' }}" class="btn btn-primary btn-icon-split mb-3">
                 <span class="icon text-white-50">
                     <i class="fas fa-plus-square"></i>
                 </span>
                 <span class="text">Tambah</span>
             </a>
+            @endif
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     @yield('data_table')
