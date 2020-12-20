@@ -1,4 +1,4 @@
-@extends('layouts.table', ['title' => 'Data Siswa', 'page_title' => 'Siswa', 'link_tambah_data' => 'siswa.tambah'])
+@extends('layouts.table', ['title' => 'Data Siswa', 'page_title' => 'Siswa', 'link_tambah_data' => route('siswa.tambah')])
 
 @section('data_table')
 <thead>

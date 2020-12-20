@@ -46,6 +46,18 @@
         </a>
     </li>
     <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#tenaga-pendidik" aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-chart-bar"></i>
+            <span>Tenaga Pendidik</span>
+        </a>
+        <div id="tenaga-pendidik" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="{{ route('tenagaPendidik', 'gtk') }}">GTK</a>
+                <a class="collapse-item" href="{{ route('tenagaPendidik', 'ptk') }}">PTK</a>
+            </div>
+        </div>
+    </li>
+    <li class="nav-item">
         <a class="nav-link" href="{{route('guru')}}">
             <i class="fas fa-chalkboard-teacher"></i>
             <span>Guru</span>

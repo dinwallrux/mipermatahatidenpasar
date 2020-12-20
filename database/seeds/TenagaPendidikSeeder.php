@@ -11,6 +11,6 @@ class TenagaPendidikSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(\App\TenagaPendidik::class, 5)->create();
     }
 }

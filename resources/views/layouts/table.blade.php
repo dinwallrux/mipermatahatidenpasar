@@ -14,7 +14,7 @@
         </div>
         <div class="card-body">
             @if (auth()->user()->status == 'operator')
-            <a href="{{ $link_tambah_data != null ? route($link_tambah_data) : '#' }}" class="btn btn-primary btn-icon-split mb-3">
+            <a href="{{ $link_tambah_data }}" class="btn btn-primary btn-icon-split mb-3">
                 <span class="icon text-white-50">
                     <i class="fas fa-plus-square"></i>
                 </span>
