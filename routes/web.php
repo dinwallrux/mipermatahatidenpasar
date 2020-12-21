@@ -39,3 +39,16 @@ Route::prefix('tenaga-pendidik')->group(function(){
     Route::get('{jenis_tendik}/edit/{id_tenaga_pendidik}', 'TenagaPendidikController@edit')->name('tenagaPendidik.edit');
     Route::post('{jenis_tendik}/proses/update', 'TenagaPendidikController@update')->name('tenagaPendidik.proses.update');
 });
+
+Route::prefix('sarpras')->group(function(){
+    Route::get('/ruang', 'SarprasRuangController@show')->name('sarpras.ruang');
+    Route::get('/ruang/tambah', 'SarprasRuangController@create')->name('sarpras.ruang.tambah');
+    Route::post('/ruang/proses/tambah', 'SarprasRuangController@store')->name('sarpras.ruang.proses.tambah');
+    Route::get('/ruang/proses/hapus/{id}', 'SarprasRuangController@destroy')->name('sarpras.ruang.proses.hapus');
+    Route::get('/ruang/edit/{id}', 'SarprasRuangController@edit')->name('sarpras.ruang.edit');
+    Route::post('/ruang/proses/edit/', 'SarprasRuangController@update')->name('sarpras.ruang.proses.update');
+});
+
+Route::prefix('galeri')->group(function(){
+    Route::get('/', 'GaleriController@show')->name('galeri');
+});

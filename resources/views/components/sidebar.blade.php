@@ -20,20 +20,6 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#manajemenData" aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-chart-bar"></i>
-            <span>Manajemen Data</span>
-        </a>
-        <div id="manajemenData" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="#">Guru</a>
-                <a class="collapse-item" href="#">Tenaga Kependidikan</a>
-                <a class="collapse-item" href="{{route('siswa')}}">Siswa</a>
-                <a class="collapse-item" href="cards.html">Sarana & Prasarana</a>
-            </div>
-        </div>
-    </li>
-    <li class="nav-item">
         <a class="nav-link" href="index.html">
             <i class="fas fa-book"></i>
             <span>Manajemen Informasi</span>
@@ -47,7 +33,7 @@
     </li>
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#tenaga-pendidik" aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-chart-bar"></i>
+            <i class="fas fa-chalkboard-teacher"></i>
             <span>Tenaga Pendidik</span>
         </a>
         <div id="tenaga-pendidik" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -61,6 +47,12 @@
         <a class="nav-link" href="{{route('siswa')}}">
             <i class="fas fa-user-graduate"></i>
             <span>Siswa</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('sarpras.ruang') }}">
+            <i class="fas fa-school"></i>
+            <span>Sarana & Prasarana</span>
         </a>
     </li>
     <li class="nav-item">
