@@ -51,4 +51,13 @@ Route::prefix('sarpras')->group(function(){
 
 Route::prefix('galeri')->group(function(){
     Route::get('/', 'GaleriController@show')->name('galeri');
+    Route::get('/tambah', 'GaleriController@create')->name('galeri.tambah');
+    Route::post('/proses/tambah', 'GaleriController@store')->name('galeri.proses.tambah');
+    Route::get('/proses/hapus/{id}', 'GaleriController@destroy')->name('galeri.proses.hapus');
+    Route::get('/proses/edit/{id}', 'GaleriController@edit')->name('galeri.edit');
+    Route::post('/proses/update', 'GaleriController@update')->name('galeri.proses.update');
 });
+
+// Route::prefix('informasi')->group(function(){
+//     Route::get('/', )
+// })
