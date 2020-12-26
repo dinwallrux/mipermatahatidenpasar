@@ -16,3 +16,6 @@
 <script src="{{asset('/main/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
 <script src="{{asset('/main/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('/js/my-script.js')}}"></script>
+
+{{-- TiniMCE --}}
+<script src="https://cdn.tiny.cloud/1/37n2mvdlfyjzugqskc5cz27htbdhax5kozmlnnjv8aau3b0n/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>

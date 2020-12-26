@@ -20,7 +20,7 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{ route('info') }}">
             <i class="fas fa-book"></i>
             <span>Manajemen Informasi</span>
         </a>

@@ -58,6 +58,13 @@ Route::prefix('galeri')->group(function(){
     Route::post('/proses/update', 'GaleriController@update')->name('galeri.proses.update');
 });
 
-// Route::prefix('informasi')->group(function(){
-//     Route::get('/', )
-// })
+Route::prefix('informasi')->group(function(){
+    Route::get('/', 'InformasiController@index')->name('info');
+    Route::get('/lihat/{id}', 'InformasiController@show')->name('info.lihat');
+    Route::get('/tambah', 'InformasiController@create')->name('info.tambah');
+    Route::post('/proses/tambah', 'InformasiController@store')->name('info.proses.tambah');
+    Route::get('/proses/hapus/{id}', 'InformasiController@destroy')->name('info.proses.hapus');
+    Route::get('/edit/{id}', 'InformasiController@edit')->name('info.edit');
+    Route::post('/proses/update', 'InformasiController@update')->name('info.proses.update');
+
+});
