@@ -11,9 +11,9 @@
         @if (auth()->user()->status == 'operator')
         <a href="{{ $link_tambah_data }}" class="btn btn-primary btn-icon-split mb-3">
             <span class="icon text-white-50">
-                <i class="fas fa-plus-square"></i>
+                <i class="{{!isset($icon) ? 'fas fa-plus-square' : $icon}}"></i>
             </span>
-            <span class="text">Tambah</span>
+            <span class="text">{{!isset($label_button) ? 'Tambah' : $label_button}}</span>
         </a>
         @endif
         @endisset

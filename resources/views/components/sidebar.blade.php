@@ -26,7 +26,7 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{ route('profil') }}">
             <i class="fas fa-user"></i>
             <span>Profil</span>
         </a>

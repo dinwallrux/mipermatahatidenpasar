@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfilSekolahController;
 use App\TenagaPendidik;
 use Illuminate\Support\Facades\Route;
 
@@ -66,5 +67,10 @@ Route::prefix('informasi')->group(function(){
     Route::get('/proses/hapus/{id}', 'InformasiController@destroy')->name('info.proses.hapus');
     Route::get('/edit/{id}', 'InformasiController@edit')->name('info.edit');
     Route::post('/proses/update', 'InformasiController@update')->name('info.proses.update');
+});
 
+Route::prefix('profil')->group(function(){
+    Route::get('/', 'ProfilSekolahController@index')->name('profil');
+    Route::get('/edit/{id}', 'ProfilSekolahController@edit')->name('profil.edit');
+    Route::post('/proses/update', 'ProfilSekolahController@update')->name('profil.proses.update');
 });
