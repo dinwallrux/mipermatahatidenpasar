@@ -25,7 +25,7 @@
             </a>
         </td>
         @endif
-        <td><img src="{{  url('storage/'.basename($data->image)) }}" width="220" alt=""></td>
+        <td><img src="{{  url('storage/'.basename($data->image)) }}" style="width: 320px;" alt=""></td>
         <td>{{$data->nama_foto}}</td>
         <td>{{$data->kategori}}</td>
     </tr>

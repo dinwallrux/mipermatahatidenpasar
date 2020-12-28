@@ -7,11 +7,6 @@ use Illuminate\Http\Request;
 
 class InformasiController extends Controller
 {
-    // Redirect to login if user haven't login
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *

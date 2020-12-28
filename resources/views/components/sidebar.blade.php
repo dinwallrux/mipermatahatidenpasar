@@ -2,7 +2,7 @@
 <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('profil') }}">
         <div class="sidebar-brand-icon">
             <img src="{{asset('main/img/favicon/android-icon-48x48.png')}}" alt="">
         </div>
@@ -13,25 +13,26 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
+    <li class="nav-item {{ str_contains(Route::currentRouteName(), 'beranda') ? 'active' : '' }}">
         <a class="nav-link" href="{{route('beranda')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Beranda</span>
         </a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item {{ str_contains(Route::currentRouteName(), 'info') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('info') }}">
             <i class="fas fa-book"></i>
             <span>Manajemen Informasi</span>
         </a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item {{ str_contains(Route::currentRouteName(), 'profil') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('profil') }}">
             <i class="fas fa-user"></i>
             <span>Profil</span>
         </a>
     </li>
-    <li class="nav-item">
+    @if (auth()->user()->status == 'operator')
+    <li class="nav-item {{ str_contains(Route::currentRouteName(), 'tenagaPendidik') ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#tenaga-pendidik" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-chalkboard-teacher"></i>
             <span>Tenaga Pendidik</span>
@@ -43,19 +44,20 @@
             </div>
         </div>
     </li>
-    <li class="nav-item">
+    <li class="nav-item {{ str_contains(Route::currentRouteName(), 'siswa') ? 'active' : '' }}">
         <a class="nav-link" href="{{route('siswa')}}">
             <i class="fas fa-user-graduate"></i>
             <span>Siswa</span>
         </a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item {{ str_contains(Route::currentRouteName(), 'sarpras.ruang') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('sarpras.ruang') }}">
             <i class="fas fa-school"></i>
             <span>Sarana & Prasarana</span>
         </a>
     </li>
-    <li class="nav-item">
+    @endif
+    <li class="nav-item {{ str_contains(Route::currentRouteName(), 'galeri') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('galeri') }}">
             <i class="fas fa-images"></i>
             <span>Galeri</span>

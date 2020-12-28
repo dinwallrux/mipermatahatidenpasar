@@ -23,7 +23,7 @@ Auth::routes();
 
 Route::get('/beranda', 'HomeController@index')->name('beranda');
 
-Route::prefix('siswa')->group(function(){
+Route::middleware(['auth', 'admin'])->prefix('siswa')->group(function(){
     Route::get('/', 'SiswaController@index')->name('siswa');
     Route::get('/tambah', 'SiswaController@formTambah')->name('siswa.tambah');
     Route::post('/prosesTambah', 'SiswaController@prosesTambah')->name('siswa.proses.tambah');
@@ -32,7 +32,7 @@ Route::prefix('siswa')->group(function(){
     Route::get('/edit/{id}', 'SiswaController@formEdit')->name('siswa.edit');
 });
 
-Route::prefix('tenaga-pendidik')->group(function(){
+Route::middleware(['auth', 'admin'])->prefix('tenaga-pendidik')->group(function(){
     Route::get('/{jenis_tendik}', 'TenagaPendidikController@index')->name('tenagaPendidik');
     Route::get('/{jenis_tendik}/tambah', 'TenagaPendidikController@create')->name('tenagaPendidik.tambah');
     Route::post('{jenis_tendik}/proses/tambah', 'TenagaPendidikController@store')->name('tenagaPendidik.proses.tambah');
@@ -41,7 +41,7 @@ Route::prefix('tenaga-pendidik')->group(function(){
     Route::post('{jenis_tendik}/proses/update', 'TenagaPendidikController@update')->name('tenagaPendidik.proses.update');
 });
 
-Route::prefix('sarpras')->group(function(){
+Route::middleware(['auth', 'admin'])->prefix('sarpras')->group(function(){
     Route::get('/ruang', 'SarprasRuangController@show')->name('sarpras.ruang');
     Route::get('/ruang/tambah', 'SarprasRuangController@create')->name('sarpras.ruang.tambah');
     Route::post('/ruang/proses/tambah', 'SarprasRuangController@store')->name('sarpras.ruang.proses.tambah');
@@ -50,7 +50,7 @@ Route::prefix('sarpras')->group(function(){
     Route::post('/ruang/proses/edit/', 'SarprasRuangController@update')->name('sarpras.ruang.proses.update');
 });
 
-Route::prefix('galeri')->group(function(){
+Route::middleware(['auth'])->prefix('galeri')->group(function(){
     Route::get('/', 'GaleriController@show')->name('galeri');
     Route::get('/tambah', 'GaleriController@create')->name('galeri.tambah');
     Route::post('/proses/tambah', 'GaleriController@store')->name('galeri.proses.tambah');
@@ -59,7 +59,7 @@ Route::prefix('galeri')->group(function(){
     Route::post('/proses/update', 'GaleriController@update')->name('galeri.proses.update');
 });
 
-Route::prefix('informasi')->group(function(){
+Route::middleware(['auth'])->prefix('informasi')->group(function(){
     Route::get('/', 'InformasiController@index')->name('info');
     Route::get('/lihat/{id}', 'InformasiController@show')->name('info.lihat');
     Route::get('/tambah', 'InformasiController@create')->name('info.tambah');
@@ -69,7 +69,7 @@ Route::prefix('informasi')->group(function(){
     Route::post('/proses/update', 'InformasiController@update')->name('info.proses.update');
 });
 
-Route::prefix('profil')->group(function(){
+Route::middleware(['auth'])->prefix('profil')->group(function(){
     Route::get('/', 'ProfilSekolahController@index')->name('profil');
     Route::get('/edit/{id}', 'ProfilSekolahController@edit')->name('profil.edit');
     Route::post('/proses/update', 'ProfilSekolahController@update')->name('profil.proses.update');
