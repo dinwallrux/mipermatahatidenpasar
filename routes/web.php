@@ -52,25 +52,25 @@ Route::middleware(['auth', 'admin'])->prefix('sarpras')->group(function(){
 
 Route::middleware(['auth'])->prefix('galeri')->group(function(){
     Route::get('/', 'GaleriController@show')->name('galeri');
-    Route::get('/tambah', 'GaleriController@create')->name('galeri.tambah');
-    Route::post('/proses/tambah', 'GaleriController@store')->name('galeri.proses.tambah');
-    Route::get('/proses/hapus/{id}', 'GaleriController@destroy')->name('galeri.proses.hapus');
-    Route::get('/proses/edit/{id}', 'GaleriController@edit')->name('galeri.edit');
-    Route::post('/proses/update', 'GaleriController@update')->name('galeri.proses.update');
+    Route::get('/tambah', 'GaleriController@create')->middleware(['admin'])->name('galeri.tambah');
+    Route::post('/proses/tambah', 'GaleriController@store')->middleware(['admin'])->name('galeri.proses.tambah');
+    Route::get('/proses/hapus/{id}', 'GaleriController@destroy')->middleware(['admin'])->name('galeri.proses.hapus');
+    Route::get('/proses/edit/{id}', 'GaleriController@edit')->middleware(['admin'])->name('galeri.edit');
+    Route::post('/proses/update', 'GaleriController@update')->middleware(['admin'])->name('galeri.proses.update');
 });
 
 Route::middleware(['auth'])->prefix('informasi')->group(function(){
     Route::get('/', 'InformasiController@index')->name('info');
     Route::get('/lihat/{id}', 'InformasiController@show')->name('info.lihat');
-    Route::get('/tambah', 'InformasiController@create')->name('info.tambah');
-    Route::post('/proses/tambah', 'InformasiController@store')->name('info.proses.tambah');
-    Route::get('/proses/hapus/{id}', 'InformasiController@destroy')->name('info.proses.hapus');
-    Route::get('/edit/{id}', 'InformasiController@edit')->name('info.edit');
-    Route::post('/proses/update', 'InformasiController@update')->name('info.proses.update');
+    Route::get('/tambah', 'InformasiController@create')->middleware(['admin'])->name('info.tambah');
+    Route::post('/proses/tambah', 'InformasiController@store')->middleware(['admin'])->name('info.proses.tambah');
+    Route::get('/proses/hapus/{id}', 'InformasiController@destroy')->middleware(['admin'])->name('info.proses.hapus');
+    Route::get('/edit/{id}', 'InformasiController@edit')->middleware(['admin'])->name('info.edit');
+    Route::post('/proses/update', 'InformasiController@update')->middleware(['admin'])->name('info.proses.update');
 });
 
 Route::middleware(['auth'])->prefix('profil')->group(function(){
     Route::get('/', 'ProfilSekolahController@index')->name('profil');
-    Route::get('/edit/{id}', 'ProfilSekolahController@edit')->name('profil.edit');
-    Route::post('/proses/update', 'ProfilSekolahController@update')->name('profil.proses.update');
+    Route::get('/edit/{id}', 'ProfilSekolahController@edit')->middleware(['admin'])->name('profil.edit');
+    Route::post('/proses/update', 'ProfilSekolahController@update')->middleware(['admin'])->name('profil.proses.update');
 });

@@ -24,7 +24,7 @@
             <span>Manajemen Informasi</span>
         </a>
     </li>
-    @if (auth()->user()->status == 'operator')
+    @if (auth()->user()->status == 'operator' || auth()->user()->status == 'pegawai' || auth()->user()->status == 'kepsek')
     <li class="nav-item {{ str_contains(Route::currentRouteName(), 'tenagaPendidik') ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#tenaga-pendidik" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-chalkboard-teacher"></i>

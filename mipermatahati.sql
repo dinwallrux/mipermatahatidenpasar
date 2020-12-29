@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: host.docker.internal
--- Generation Time: Dec 29, 2020 at 04:17 AM
+-- Generation Time: Dec 29, 2020 at 02:04 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.4.8
 
@@ -290,7 +290,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `status`) VALUES
 (1, 'admin', 'admin@mail.com', NULL, '$2y$10$qvzObWXYzTLxnACi4YjOyuHeGbeqH9gd5R6BwCMwf5Qj3vkstmuya', NULL, '2020-12-13 13:07:43', '2020-12-13 13:07:43', 'operator'),
-(2, 'pengguna', 'pengguna@mail.com', NULL, '$2y$10$DL/..rMkpgorWWIgsEiDMOxIsPinFAxDlyb7POmBENofBpiMPwo8y', NULL, '2020-12-16 14:02:37', '2020-12-16 14:02:37', 'pengguna');
+(2, 'pengguna', 'pengguna@mail.com', NULL, '$2y$10$DL/..rMkpgorWWIgsEiDMOxIsPinFAxDlyb7POmBENofBpiMPwo8y', NULL, '2020-12-16 14:02:37', '2020-12-16 14:02:37', 'pengguna'),
+(3, 'pegawai', 'pegawai@mail.com', NULL, '$2y$10$gUN4T/bYUOHdB2NvoAjQEOKUXsWYbUD8M1fsGUHxLZOQCUavMI9GG', NULL, '2020-12-29 13:53:24', '2020-12-29 13:53:24', 'pegawai'),
+(4, 'kepsek', 'kepsek@mail.com', NULL, '$2y$10$MrbHpNTX6Y69fhMlNNCMMOiPpCbjSEPKU0S9wTD2Xq5Xo0t6.cXD6', NULL, '2020-12-29 14:04:05', '2020-12-29 14:04:05', 'kepsek');
 
 --
 -- Indexes for dumped tables
@@ -413,7 +415,7 @@ ALTER TABLE `tenaga_pendidik`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
