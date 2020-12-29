@@ -14,7 +14,7 @@
 
     <li class="nav-item {{ str_contains(Route::currentRouteName(), 'profil') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('profil') }}">
-            <i class="fas fa-user"></i>
+            <i class="fas fa-school"></i>
             <span>Profil</span>
         </a>
     </li>
@@ -45,7 +45,7 @@
     </li>
     <li class="nav-item {{ str_contains(Route::currentRouteName(), 'sarpras.ruang') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('sarpras.ruang') }}">
-            <i class="fas fa-school"></i>
+            <i class="fas fa-archway"></i>
             <span>Sarana & Prasarana</span>
         </a>
     </li>
