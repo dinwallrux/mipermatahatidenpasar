@@ -12,23 +12,16 @@
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
 
-    <!-- Nav Item - Dashboard -->
-    <li class="nav-item {{ str_contains(Route::currentRouteName(), 'beranda') ? 'active' : '' }}">
-        <a class="nav-link" href="{{route('beranda')}}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Beranda</span>
+    <li class="nav-item {{ str_contains(Route::currentRouteName(), 'profil') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('profil') }}">
+            <i class="fas fa-user"></i>
+            <span>Profil</span>
         </a>
     </li>
     <li class="nav-item {{ str_contains(Route::currentRouteName(), 'info') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('info') }}">
             <i class="fas fa-book"></i>
             <span>Manajemen Informasi</span>
-        </a>
-    </li>
-    <li class="nav-item {{ str_contains(Route::currentRouteName(), 'profil') ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('profil') }}">
-            <i class="fas fa-user"></i>
-            <span>Profil</span>
         </a>
     </li>
     @if (auth()->user()->status == 'operator')

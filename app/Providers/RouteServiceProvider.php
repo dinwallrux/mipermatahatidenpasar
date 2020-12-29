@@ -22,7 +22,7 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     // Set homepage path
-    public const HOME = '/beranda';
+    public const HOME = '/profil';
 
     /**
      * Define your route model bindings, pattern filters, etc.
