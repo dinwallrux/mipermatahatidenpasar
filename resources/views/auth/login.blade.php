@@ -49,13 +49,8 @@
                                 </button>
                             </form>
                             <hr>
-                            @if (Route::has('password.request'))
                             <div class="text-center">
-                                <a class="small" href="{{ route('password.request') }}">Forgot Password?</a>
-                            </div>
-                            @endif
-                            <div class="text-center">
-                                <a class="small" href="{{ route('register') }}">Create an Account!</a>
+                                <a class="small" href="{{ route('register') }}">Buat Akun</a>
                             </div>
                         </div>
                     </div>
