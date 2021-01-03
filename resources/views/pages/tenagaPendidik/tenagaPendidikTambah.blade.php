@@ -1,7 +1,7 @@
 @extends('layouts.card_blank', ['page_title' => 'Tenaga Pendidik', 'title' => 'Tambah ' . strtoupper($jenis_tendik)])
 
 @section('content_2')
-<form class="tenaga-pendidik-form" method="POST" action="{{ route('tenagaPendidik.proses.tambah') }}">
+<form class="tenaga-pendidik-form" method="POST" action="{{ route('tenagaPendidik.proses.tambah', $jenis_tendik) }}">
     @csrf
     
     <input type="hidden" name="jenis_tendik" value="{{$jenis_tendik}}">
@@ -139,17 +139,20 @@
         <div class="col-sm-6 mb-3 mb-sm-0">
             <label for="jenis_ptk">Jenis PTK</label>
             <select name="jenis_ptk" class="form-control form-control-user" id="jenis_ptk">
+                @if ($jenis_tendik == 'gtk')
                 <option value="guru mapel" selected>Guru Mapel</option>
                 <option value="guru kelas">Guru Kelas</option>
                 <option value="guru bk">Guru BK</option>
                 <option value="guru inklusi">Guru Inklusi</option>
-                <option value="tenaga administrasi sekolah">Tenaga Administrasi Sekolah</option>
                 <option value="guru pendamping">Guru Pendamping</option>
                 <option value="guru magang">Guru Magang</option>
-                <option value="guru tik">Guru TIK</option>
                 <option value="kepala sekolah">Kepala Sekolah</option>
+                <option value="guru tik">Guru TIK</option>
+                @else
+                <option value="tenaga administrasi sekolah">Tenaga Administrasi Sekolah</option>
                 <option value="laboran">Laboran</option>
                 <option value="pustakawan">Pustakawan</option>
+                @endif
             </select>
         </div>
         <div class="col-sm-6">

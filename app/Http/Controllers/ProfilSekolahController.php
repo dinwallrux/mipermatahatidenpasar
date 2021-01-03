@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\ProfilSekolah;
+use App\TenagaPendidik;
+use App\Siswa;
 use Illuminate\Http\Request;
 
 class ProfilSekolahController extends Controller
@@ -15,7 +17,10 @@ class ProfilSekolahController extends Controller
     public function index()
     {
         $data = ProfilSekolah::latest()->get()->first();
-        return view('pages.profilSekolah.index', compact('data'));
+        $jumlahGuru = TenagaPendidik::where('jenis_tendik', 'gtk')->get()->count();
+        $jumlahSiswaLaki = Siswa::where('jenis_kelamin', 'L')->get()->count();
+        $jumlahSiswaPerempuan = Siswa::where('jenis_kelamin', 'P')->get()->count();
+        return view('pages.profilSekolah.index', ['data' => $data, 'jumlahGuru' => $jumlahGuru, 'jumlahSiswaLaki' => $jumlahSiswaLaki, 'jumlahSiswaPerempuan' => $jumlahSiswaPerempuan]);
     }
 
     /**

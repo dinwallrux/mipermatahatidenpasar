@@ -142,17 +142,20 @@
         <div class="col-sm-6 mb-3 mb-sm-0">
             <label for="jenis_ptk">Jenis PTK</label>
             <select name="jenis_ptk" class="form-control form-control-user" id="jenis_ptk">
+                @if ($jenis_tendik == 'gtk')
                 <option {{ $data->jenis_ptk == 'guru mapel' ? 'selected' : '' }} value="guru mapel">Guru Mapel</option>
                 <option {{ $data->jenis_ptk == 'guru kelas' ? 'selected' : '' }} value="guru kelas">Guru Kelas</option>
                 <option {{ $data->jenis_ptk == 'guru bk' ? 'selected' : '' }} value="guru bk">Guru BK</option>
                 <option {{ $data->jenis_ptk == 'guru inklusi' ? 'selected' : '' }} value="guru inklusi">Guru Inklusi</option>
-                <option {{ $data->jenis_ptk == 'tenaga administrasi sekolah' ? 'selected' : '' }} value="tenaga administrasi sekolah">Tenaga Administrasi Sekolah</option>
                 <option {{ $data->jenis_ptk == 'guru pendamping' ? 'selected' : '' }} value="guru pendamping">Guru Pendamping</option>
                 <option {{ $data->jenis_ptk == 'guru magang' ? 'selected' : '' }} value="guru magang">Guru Magang</option>
                 <option {{ $data->jenis_ptk == 'guru tik' ? 'selected' : '' }} value="guru tik">Guru TIK</option>
                 <option {{ $data->jenis_ptk == 'kepala sekolah' ? 'selected' : '' }} value="kepala sekolah">Kepala Sekolah</option>
+                @else
+                <option {{ $data->jenis_ptk == 'tenaga administrasi sekolah' ? 'selected' : '' }} value="tenaga administrasi sekolah">Tenaga Administrasi Sekolah</option>
                 <option {{ $data->jenis_ptk == 'laboran' ? 'selected' : '' }} value="laboran">Laboran</option>
                 <option {{ $data->jenis_ptk == 'pustakawan' ? 'selected' : '' }} value="pustakawan">Pustakawan</option>
+                @endif
             </select>
         </div>
         <div class="col-sm-6">

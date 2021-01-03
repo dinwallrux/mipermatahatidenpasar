@@ -46,7 +46,7 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                     Guru</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $data->jumlah_guru }}</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $jumlahGuru }}</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-chalkboard-teacher fa-2x text-gray-300"></i>
@@ -64,7 +64,7 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                     Siswa Laki - laki</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $data->jumlah_siswa_laki_laki }}</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $jumlahSiswaLaki }}</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-male fa-2x text-gray-300"></i>
@@ -82,7 +82,7 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                     Siswa Perempuan</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $data->jumlah_siswa_perempuan }}</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $jumlahSiswaPerempuan }}</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-female fa-2x text-gray-300"></i>
