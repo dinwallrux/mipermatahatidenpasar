@@ -28,7 +28,7 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if($this->auth->getUser()->status !== 'operator'){
+        if($this->auth->getUser()->status !== 'operator' && $this->auth->getUser()->status !== 'pegawai' && $this->auth->getUser()->status !== 'kepsek'){
             return redirect()->route('profil');
         }
         return $next($request);
