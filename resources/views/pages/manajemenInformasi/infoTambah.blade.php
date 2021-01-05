@@ -18,6 +18,15 @@
     </div>
     <div class="form-group row">
         <div class="col-sm-12 mb-3 mb-sm-0">
+            <label for="jenis_pengumuman">Jenis Pengumuman</label>
+            <select name="jenis_pengumuman" class="form-control form-control-user" id="jenis_pengumuman">
+                <option value="siswa" selected>Siswa</option>
+                <option value="guru dan pegawai">Guru & Pegawai</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-12 mb-3 mb-sm-0">
             <label for="isi">Isi</label>
             <textarea name="isi" id="isi" class="form-control form-control-user tinymce" cols="30" rows="10" placeholder="Isi" @error('isi') is-invalid @enderror" required>
             </textarea>
@@ -35,7 +44,7 @@
                 <span class="icon text-white-50">
                     <i class="fas fa-plus-square"></i>
                 </span>
-                <span class="text">Ubah</span>
+                <span class="text">Tambah</span>
             </button>
         </div>
     </div>

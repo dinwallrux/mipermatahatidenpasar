@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Informasi;
+use Auth;
 use Illuminate\Http\Request;
 
 class InformasiController extends Controller
@@ -14,7 +15,13 @@ class InformasiController extends Controller
      */
     public function index()
     {
-        $datas = Informasi::latest()->get();
+        $userStatus = Auth::user()->status;
+        if($userStatus == 'pengguna'){
+            $datas = Informasi::latest()->where('jenis_pengumuman', 'siswa')->get();
+        } else{
+            $datas = Informasi::latest()->get();
+        }
+
         return view('pages.manajemenInformasi.index', compact('datas'));
     }
 
@@ -38,15 +45,21 @@ class InformasiController extends Controller
     {
         $request->validate([
             'judul' => 'required',
+            'jenis_pengumuman' => 'required',
             'isi' => 'required',
         ]);
 
         // Tambah Excerpt Untuk limit text di index.blade.php
         $pagebreak = '<!-- pagebreak -->';
-        $excerpt = substr($request->isi, 0, strpos($request->isi, $pagebreak));
+        if(!isset($pagebreak)){
+            $excerpt = substr($request->isi, 0, strpos($request->isi, $pagebreak));
+        } else{
+            $excerpt = $request->isi;
+        }
 
         $formData = [
             'judul' => $request->judul,
+            'jenis_pengumuman' => $request->jenis_pengumuman,
             'isi' => $request->isi,
             'excerpt' => $excerpt
         ];
@@ -91,15 +104,21 @@ class InformasiController extends Controller
     {
         $request->validate([
             'judul' => 'required',
+            'jenis_pengumuman' => 'required',
             'isi' => 'required',
         ]);
 
         // Update excerpt nya
         $pagebreak = '<!-- pagebreak -->';
-        $excerpt = substr($request->isi, 0, strpos($request->isi, $pagebreak));
+        if(!isset($pagebreak)){
+            $excerpt = substr($request->isi, 0, strpos($request->isi, $pagebreak));
+        } else{
+            $excerpt = $request->isi;
+        }
 
         Informasi::where('id', $request->id)->update([
             'judul' => $request->judul,
+            'jenis_pengumuman' => $request->jenis_pengumuman,
             'isi' => $request->isi,
             'excerpt' => $excerpt
         ]);
