@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: host.docker.internal
--- Generation Time: Dec 29, 2020 at 02:04 PM
+-- Generation Time: Jan 12, 2021 at 12:05 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.4.8
 
@@ -70,6 +70,7 @@ CREATE TABLE `informasi` (
   `judul` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `isi` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `excerpt` longtext COLLATE utf8mb4_unicode_ci,
+  `jenis_pengumuman` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -78,9 +79,12 @@ CREATE TABLE `informasi` (
 -- Dumping data for table `informasi`
 --
 
-INSERT INTO `informasi` (`id`, `judul`, `isi`, `excerpt`, `created_at`, `updated_at`) VALUES
-(9, 'Lorem Ipsum', '<p style=\"margin: 0px 0px 15px; padding: 0px; text-align: justify; background-color: #ffffff;\"><span style=\"font-family: Open Sans, Arial, sans-serif;\"><span style=\"font-size: 14px;\"><strong>Lorem ipsum dolor sit amet</strong>, <em>consectetur adipiscing elit. Maecenas vitae bibendum est,</em> tincidunt hendrerit mauris. Quisque sed turpis sit amet sapien accumsan ullamcorper. Aenean maximus tellus ac metus auctor, in varius justo tincidunt. Sed condimentum augue in felis rutrum, vitae elementum nunc pulvinar.</span></span></p>\r\n<!-- pagebreak -->\r\n<p style=\"margin: 0px 0px 15px; padding: 0px; text-align: justify; background-color: #ffffff;\"><span style=\"font-family: Open Sans, Arial, sans-serif;\"><span style=\"font-size: 14px;\">Morbi pellentesque efficitur tortor ut cursus. Nulla facilisi. Proin imperdiet consequat malesuada. Ut accumsan aliquam tortor eget molestie. Curabitur semper dui id fermentum eleifend. Pellentesque vitae augue a sem cursus auctor. Proin eget commodo erat. Morbi malesuada eget orci vitae mattis. Fusce mattis sem et diam iaculis, at luctus tellus scelerisque. Quisque quam mi, cursus eu magna sed, placerat sagittis arcu. Quisque ultricies laoreet facilisis.</span></span></p>\r\n<p style=\"margin: 0px 0px 15px; padding: 0px; text-align: justify; background-color: #ffffff;\"><span style=\"font-family: Open Sans, Arial, sans-serif;\"><span style=\"font-size: 14px;\">Nullam tempus purus at lectus fermentum viverra. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis consectetur est sit amet ligula lobortis, bibendum hendrerit nibh sollicitudin. Ut ornare, neque eu dapibus sagittis, arcu diam interdum quam, a mollis ipsum risus et justo. Nunc dictum massa eget tincidunt gravida. Curabitur malesuada risus in laoreet laoreet. Nam nec consectetur sem, eu egestas ex.</span></span></p>\r\n<p style=\"margin: 0px 0px 15px; padding: 0px; text-align: justify; background-color: #ffffff;\"><span style=\"font-family: Open Sans, Arial, sans-serif;\"><span style=\"font-size: 14px;\">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus interdum imperdiet purus, id malesuada sem condimentum non. Phasellus tincidunt ante sit amet lorem pharetra eleifend. Praesent tellus ex, posuere eu nisl ac, mattis gravida turpis. Aenean non dolor eu quam semper convallis vitae non eros. Morbi condimentum odio dictum, eleifend enim quis, pretium libero. Donec suscipit feugiat turpis eget placerat. Praesent mi risus, eleifend rutrum commodo id, euismod non arcu. Donec eget purus magna. Curabitur vitae mattis mi, ut pretium risus. Duis ultrices hendrerit velit. Curabitur a enim eget mauris condimentum tempor. In risus mi, rhoncus sit amet rhoncus quis, condimentum ac augue. Praesent aliquet, tortor at tristique aliquet, eros mauris mollis ante, quis sagittis odio turpis ultricies nulla. Duis vestibulum odio a neque mattis faucibus vel a felis.</span></span></p>', '<p style=\"margin: 0px 0px 15px; padding: 0px; text-align: justify; background-color: #ffffff;\"><span style=\"font-family: Open Sans, Arial, sans-serif;\"><span style=\"font-size: 14px;\"><strong>Lorem ipsum dolor sit amet</strong>, <em>consectetur adipiscing elit. Maecenas vitae bibendum est,</em> tincidunt hendrerit mauris. Quisque sed turpis sit amet sapien accumsan ullamcorper. Aenean maximus tellus ac metus auctor, in varius justo tincidunt. Sed condimentum augue in felis rutrum, vitae elementum nunc pulvinar.</span></span></p>\r\n', '2020-12-25 16:08:33', '2020-12-25 16:08:33'),
-(11, 'Hello World', '<p><strong>Lorem ipsum dolor sit amet,</strong> consectetur adipiscing elit. Maecenas vitae bibendum est, tincidunt hendrerit mauris. Quisque sed turpis sit amet sapien accumsan ullamcorper. Aenean maximus tellus ac metus auctor, in varius justo tincidunt. Sed condimentum augue in felis rutrum,<em> vitae elementum nunc pulvinar.</em></p>\r\n<!-- pagebreak -->\r\n<p><em><strong>Morbi pellentesque efficitur tortor ut cursus</strong></em>. Nulla facilisi. Proin imperdiet consequat malesuada. Ut accumsan aliquam tortor eget molestie. Curabitur semper dui id fermentum eleifend. Pellentesque vitae augue a sem cursus auctor. Proin eget commodo erat. Morbi malesuada eget orci vitae mattis. Fusce mattis sem et diam iaculis, at luctus tellus scelerisque. Quisque quam mi, cursus eu magna sed, placerat sagittis arcu. Quisque ultricies laoreet facilisis.</p>\r\n<h2 style=\"text-align: center;\">Hello World</h2>\r\n<p><em><strong>Nullam tempus purus</strong></em> at lectus fermentum viverra. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis consectetur est sit amet ligula lobortis, bibendum hendrerit nibh sollicitudin. Ut ornare, neque eu dapibus sagittis, arcu diam interdum quam, a mollis ipsum risus et justo. Nunc dictum massa eget tincidunt gravida. Curabitur malesuada risus in laoreet laoreet. Nam nec consectetur sem, eu egestas ex.</p>', '<p><strong>Lorem ipsum dolor sit amet,</strong> consectetur adipiscing elit. Maecenas vitae bibendum est, tincidunt hendrerit mauris. Quisque sed turpis sit amet sapien accumsan ullamcorper. Aenean maximus tellus ac metus auctor, in varius justo tincidunt. Sed condimentum augue in felis rutrum,<em> vitae elementum nunc pulvinar.</em></p>\r\n', '2020-12-25 16:15:05', '2020-12-25 16:19:16');
+INSERT INTO `informasi` (`id`, `judul`, `isi`, `excerpt`, `jenis_pengumuman`, `created_at`, `updated_at`) VALUES
+(9, 'Lorem Ipsum', '<p style=\"margin: 0px 0px 15px; padding: 0px; text-align: justify; background-color: #ffffff;\"><span style=\"font-family: Open Sans, Arial, sans-serif;\"><span style=\"font-size: 14px;\"><strong>Lorem ipsum dolor sit amet</strong>, <em>consectetur adipiscing elit. Maecenas vitae bibendum est,</em> tincidunt hendrerit mauris. Quisque sed turpis sit amet sapien accumsan ullamcorper. Aenean maximus tellus ac metus auctor, in varius justo tincidunt. Sed condimentum augue in felis rutrum, vitae elementum nunc pulvinar.</span></span></p>\r\n<!-- pagebreak -->\r\n<p style=\"margin: 0px 0px 15px; padding: 0px; text-align: justify; background-color: #ffffff;\"><span style=\"font-family: Open Sans, Arial, sans-serif;\"><span style=\"font-size: 14px;\">Morbi pellentesque efficitur tortor ut cursus. Nulla facilisi. Proin imperdiet consequat malesuada. Ut accumsan aliquam tortor eget molestie. Curabitur semper dui id fermentum eleifend. Pellentesque vitae augue a sem cursus auctor. Proin eget commodo erat. Morbi malesuada eget orci vitae mattis. Fusce mattis sem et diam iaculis, at luctus tellus scelerisque. Quisque quam mi, cursus eu magna sed, placerat sagittis arcu. Quisque ultricies laoreet facilisis.</span></span></p>\r\n<p style=\"margin: 0px 0px 15px; padding: 0px; text-align: justify; background-color: #ffffff;\"><span style=\"font-family: Open Sans, Arial, sans-serif;\"><span style=\"font-size: 14px;\">Nullam tempus purus at lectus fermentum viverra. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis consectetur est sit amet ligula lobortis, bibendum hendrerit nibh sollicitudin. Ut ornare, neque eu dapibus sagittis, arcu diam interdum quam, a mollis ipsum risus et justo. Nunc dictum massa eget tincidunt gravida. Curabitur malesuada risus in laoreet laoreet. Nam nec consectetur sem, eu egestas ex.</span></span></p>\r\n<p style=\"margin: 0px 0px 15px; padding: 0px; text-align: justify; background-color: #ffffff;\"><span style=\"font-family: Open Sans, Arial, sans-serif;\"><span style=\"font-size: 14px;\">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus interdum imperdiet purus, id malesuada sem condimentum non. Phasellus tincidunt ante sit amet lorem pharetra eleifend. Praesent tellus ex, posuere eu nisl ac, mattis gravida turpis. Aenean non dolor eu quam semper convallis vitae non eros. Morbi condimentum odio dictum, eleifend enim quis, pretium libero. Donec suscipit feugiat turpis eget placerat. Praesent mi risus, eleifend rutrum commodo id, euismod non arcu. Donec eget purus magna. Curabitur vitae mattis mi, ut pretium risus. Duis ultrices hendrerit velit. Curabitur a enim eget mauris condimentum tempor. In risus mi, rhoncus sit amet rhoncus quis, condimentum ac augue. Praesent aliquet, tortor at tristique aliquet, eros mauris mollis ante, quis sagittis odio turpis ultricies nulla. Duis vestibulum odio a neque mattis faucibus vel a felis.</span></span></p>', '<p style=\"margin: 0px 0px 15px; padding: 0px; text-align: justify; background-color: #ffffff;\"><span style=\"font-family: Open Sans, Arial, sans-serif;\"><span style=\"font-size: 14px;\"><strong>Lorem ipsum dolor sit amet</strong>, <em>consectetur adipiscing elit. Maecenas vitae bibendum est,</em> tincidunt hendrerit mauris. Quisque sed turpis sit amet sapien accumsan ullamcorper. Aenean maximus tellus ac metus auctor, in varius justo tincidunt. Sed condimentum augue in felis rutrum, vitae elementum nunc pulvinar.</span></span></p>\r\n', NULL, '2020-12-25 16:08:33', '2020-12-25 16:08:33'),
+(11, 'Hello World', '<p><strong>Lorem ipsum dolor sit amet,</strong> consectetur adipiscing elit. Maecenas vitae bibendum est, tincidunt hendrerit mauris. Quisque sed turpis sit amet sapien accumsan ullamcorper. Aenean maximus tellus ac metus auctor, in varius justo tincidunt. Sed condimentum augue in felis rutrum,<em> vitae elementum nunc pulvinar.</em></p>\r\n<!-- pagebreak -->\r\n<p><em><strong>Morbi pellentesque efficitur tortor ut cursus</strong></em>. Nulla facilisi. Proin imperdiet consequat malesuada. Ut accumsan aliquam tortor eget molestie. Curabitur semper dui id fermentum eleifend. Pellentesque vitae augue a sem cursus auctor. Proin eget commodo erat. Morbi malesuada eget orci vitae mattis. Fusce mattis sem et diam iaculis, at luctus tellus scelerisque. Quisque quam mi, cursus eu magna sed, placerat sagittis arcu. Quisque ultricies laoreet facilisis.</p>\r\n<h2 style=\"text-align: center;\">Hello World</h2>\r\n<p><em><strong>Nullam tempus purus</strong></em> at lectus fermentum viverra. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis consectetur est sit amet ligula lobortis, bibendum hendrerit nibh sollicitudin. Ut ornare, neque eu dapibus sagittis, arcu diam interdum quam, a mollis ipsum risus et justo. Nunc dictum massa eget tincidunt gravida. Curabitur malesuada risus in laoreet laoreet. Nam nec consectetur sem, eu egestas ex.</p>', '<p><strong>Lorem ipsum dolor sit amet,</strong> consectetur adipiscing elit. Maecenas vitae bibendum est, tincidunt hendrerit mauris. Quisque sed turpis sit amet sapien accumsan ullamcorper. Aenean maximus tellus ac metus auctor, in varius justo tincidunt. Sed condimentum augue in felis rutrum,<em> vitae elementum nunc pulvinar.</em></p>\r\n', NULL, '2020-12-25 16:15:05', '2020-12-25 16:19:16'),
+(12, 'Jadwal Lomba', '<p><strong>tgl 23 jan 2021</strong></p>\r\n<!-- pagebreak -->', '<p><strong>tgl 23 jan 2021</strong></p>\r\n', NULL, '2021-01-03 13:43:42', '2021-01-03 13:44:46'),
+(15, 'Untuk Siswa', '<p>Untuk siswa yaa&nbsp;</p>', '<p>Untuk siswa yaa&nbsp;</p>', NULL, '2021-01-03 15:18:26', '2021-01-03 15:23:15'),
+(16, 'Untuk Guru Yaa', '<p>Untuk guru di mohon untuk berkumpul di ruangan 1</p>', '<p>Untuk guru di mohon untuk berkumpul di ruangan 1</p>', NULL, '2021-01-03 15:21:34', '2021-01-03 15:21:34');
 
 -- --------------------------------------------------------
 
@@ -112,7 +116,12 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (21, '2020_12_21_143035_create_galeri_table', 7),
 (22, '2020_12_22_171030_create_informasi_table', 8),
 (23, '2020_12_25_160207_add_excerpt_in_informasi_table', 9),
-(25, '2020_12_26_071113_create_profil_sekolah_table', 10);
+(31, '2020_12_26_071113_create_profil_sekolah_table', 10),
+(48, '2021_01_03_145819_add_jenis_pengumuman_in_informasi_table', 11),
+(54, '2021_01_05_144607_create_rombel_table', 12),
+(57, '2021_01_09_170131_add_id_sarpras_in_rombel_table', 13),
+(58, '2021_01_10_085343_add_id_rombel_in_siswa_table', 14),
+(59, '2021_01_10_160258_delete_rombel_in_siswa_table', 15);
 
 -- --------------------------------------------------------
 
@@ -153,7 +162,33 @@ CREATE TABLE `profil_sekolah` (
 --
 
 INSERT INTO `profil_sekolah` (`id`, `nama_sekolah`, `npsn`, `alamat`, `status_sekolah`, `akreditasi`, `kurikulum`, `jumlah_guru`, `jumlah_siswa_laki_laki`, `jumlah_siswa_perempuan`, `kepala_sekolah`, `created_at`, `updated_at`) VALUES
-(1, 'MI Permata Hati Denpasar', 20202317, '8689 Carolina Cliffs Suite 013Port Julia, ME 19555-2539', 'negeri', 'B', 'K-13', 21, 178, 241, 'Annisa', '2020-12-26 07:31:46', '2020-12-26 12:47:41');
+(1, 'MI Permata Hati Denpasar', 20202317, '654 Dannie CrossroadCraigland, GA 31322-9990', 'negeri', 'C', 'K-13', 21, 178, 241, 'Michaela Nienow', '2021-01-09 10:16:03', '2021-01-09 10:17:39');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rombel`
+--
+
+CREATE TABLE `rombel` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `tingkat_pendidikan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kurikulum` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama_rombel` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_guru` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `id_sarpras` bigint(20) UNSIGNED DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `rombel`
+--
+
+INSERT INTO `rombel` (`id`, `tingkat_pendidikan`, `kurikulum`, `nama_rombel`, `id_guru`, `created_at`, `updated_at`, `id_sarpras`) VALUES
+(1, 'Kelas 2', 'K13', 'Kelas 2A', 1, '2021-01-09 13:36:14', '2021-01-10 15:59:56', 6),
+(2, 'Kelas 1', 'K13', 'Kelas 1A', 12, '2021-01-09 13:36:14', '2021-01-10 15:59:41', 1),
+(3, 'Kelas 1', 'K13', 'Kelas 1B', 13, '2021-01-09 13:36:14', '2021-01-10 15:59:48', 7);
 
 -- --------------------------------------------------------
 
@@ -181,7 +216,12 @@ INSERT INTO `sarpras_ruang` (`id`, `jenis_prasarana`, `nama_ruang`, `lantai_ke`,
 (2, 'ruang uks', 'Sydnee Ridges', '9', '9', 29, '2020-12-21 14:28:20', '2020-12-21 14:28:20'),
 (3, 'lab komputer', 'Bernice Inlet', '8', '8', 29, '2020-12-21 14:28:20', '2020-12-21 14:28:20'),
 (4, 'ruang perpustakaan', 'Homenick Bypass', '9', '4', 30, '2020-12-21 14:28:20', '2020-12-21 14:28:20'),
-(5, 'ruang guru', 'Andreane Passage', '6', '9', 30, '2020-12-21 14:28:20', '2020-12-21 14:28:20');
+(5, 'ruang guru', 'Andreane Passage', '6', '9', 30, '2020-12-21 14:28:20', '2020-12-21 14:28:20'),
+(6, 'ruang kelas/teori', 'Kelas 2A', '1', '1', 30, '2021-01-09 17:21:49', '2021-01-09 17:21:49'),
+(7, 'ruang kelas/teori', 'Kelas 1B', '2', '1', 30, '2021-01-09 17:22:15', '2021-01-09 17:22:15'),
+(8, 'ruang kelas/teori', 'Kelas 1C', '1', '1', 29, '2021-01-09 17:22:29', '2021-01-09 17:22:29'),
+(9, 'ruang kelas/teori', 'Kelas 2B', '2', '1', 28, '2021-01-09 17:22:50', '2021-01-09 17:22:50'),
+(10, 'ruang kelas/teori', 'Kelas 3A', '2', '1', 31, '2021-01-09 17:28:08', '2021-01-09 17:28:08');
 
 -- --------------------------------------------------------
 
@@ -198,28 +238,28 @@ CREATE TABLE `siswa` (
   `tempat_lahir` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tanggal_lahir` date NOT NULL,
   `tingkat_kelas_saat_ini` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `rombel` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tanggal_masuk` date NOT NULL,
   `alamat` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `agama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nama_ayah` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nama_ibu` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `id_rombel` bigint(20) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `siswa`
 --
 
-INSERT INTO `siswa` (`id`, `nama`, `jenis_kelamin`, `nisn`, `nik`, `tempat_lahir`, `tanggal_lahir`, `tingkat_kelas_saat_ini`, `rombel`, `tanggal_masuk`, `alamat`, `agama`, `nama_ayah`, `nama_ibu`, `created_at`, `updated_at`) VALUES
-(3, 'Miss Elissa Frami', 'P', 1234567890, 12345678901234567, 'Denpasar', '2002-01-15', 'kelas 2', 'kelas 4C', '1975-01-15', '3993 Langosh Courts Suite 215North Burnice, MN 23033', 'islam', 'Lou Franecki', 'Sarah', '2020-12-13 12:14:06', '2020-12-16 08:58:59'),
-(4, 'Sam Witting DDS', 'P', 1234567890, 12345678901234567, 'Banyuwangi', '2005-09-17', 'Kelas 1', 'Kelas 1A', '2017-11-10', '3308 Savion Roads\nPort Brownmouth, HI 13855-5761', 'Islam', 'Emiliano Auer', 'Kiera Gulgowski', '2020-12-13 12:14:06', '2020-12-13 12:14:06'),
-(5, 'Grady Jacobson MD', 'L', 1234567890, 12345678901234567, 'Denpasar', '1989-06-12', 'Kelas 1', 'Kelas 1B', '2018-01-24', '54872 Greenholt Island Apt. 929\nMorissettehaven, CO 79948-5274', 'Islam', 'Lizeth Osinski', 'Miss Sincere Carroll DVM', '2020-12-22 17:28:49', '2020-12-22 17:28:49'),
-(6, 'Jeffry Paucek', 'L', 1234567890, 12345678901234567, 'Jakarta', '1978-09-26', 'Kelas 1', 'Kelas 6', '2007-08-03', '742 Fay Burg Suite 627\nAlannaland, GA 16680', 'Islam', 'Westley Casper', 'Bryce Wehner', '2020-12-22 17:28:49', '2020-12-22 17:28:49'),
-(7, 'Prof. Dalton Cronin', 'L', 1234567890, 12345678901234567, 'Denpasar', '2002-06-27', 'Kelas 1', 'Kelas 4', '1999-04-18', '832 Meggie Islands\nPort Precious, ID 61987-7697', 'Islam', 'Dr. Sierra Lemke', 'Claude Paucek', '2020-12-22 17:28:49', '2020-12-22 17:28:49'),
-(8, 'Adrien Zulauf IV', 'L', 1234567890, 12345678901234567, 'Denpasar', '1982-09-07', 'Kelas 1', 'Kelas 4', '1989-08-28', '760 Glover Locks Suite 214\nSouth Myraborough, MN 05390', 'Islam', 'Nathanael Rutherford', 'Esperanza Kuhn', '2020-12-22 17:28:49', '2020-12-22 17:28:49'),
-(9, 'Haylee White', 'L', 1234567890, 12345678901234567, 'Jakarta', '1982-03-27', 'Kelas 1', 'Kelas 4', '1998-06-06', '9756 Melisa Parkway Apt. 885\nNew Oswaldostad, LA 16889-9726', 'Islam', 'Dameon Bergstrom', 'Colby Franecki', '2020-12-22 17:28:49', '2020-12-22 17:28:49');
+INSERT INTO `siswa` (`id`, `nama`, `jenis_kelamin`, `nisn`, `nik`, `tempat_lahir`, `tanggal_lahir`, `tingkat_kelas_saat_ini`, `tanggal_masuk`, `alamat`, `agama`, `nama_ayah`, `nama_ibu`, `created_at`, `updated_at`, `id_rombel`) VALUES
+(3, 'Miss Elissa Frami', 'P', 1234567890, 12345678901234567, 'Denpasar', '2002-01-15', 'kelas 1', '1975-01-15', '3993 Langosh Courts Suite 215North Burnice, MN 23033', 'islam', 'Lou Franecki', 'Sarah', '2020-12-13 12:14:06', '2021-01-10 16:12:42', 2),
+(4, 'Sam Witting DDS', 'P', 1234567890, 12345678901234567, 'Banyuwangi', '2005-09-17', 'Kelas 1', '2017-11-10', '3308 Savion Roads\nPort Brownmouth, HI 13855-5761', 'Islam', 'Emiliano Auer', 'Kiera Gulgowski', '2020-12-13 12:14:06', '2021-01-10 11:28:47', 3),
+(5, 'Grady Jacobson MD', 'L', 1234567890, 12345678901234567, 'Denpasar', '1989-06-12', 'Kelas 1', '2018-01-24', '54872 Greenholt Island Apt. 929\nMorissettehaven, CO 79948-5274', 'Islam', 'Lizeth Osinski', 'Miss Sincere Carroll DVM', '2020-12-22 17:28:49', '2021-01-10 11:07:15', 2),
+(6, 'Jeffry Paucek', 'L', 1234567890, 12345678901234567, 'Jakarta', '1978-09-26', 'Kelas 1', '2007-08-03', '742 Fay Burg Suite 627\nAlannaland, GA 16680', 'Islam', 'Westley Casper', 'Bryce Wehner', '2020-12-22 17:28:49', '2021-01-10 11:09:59', 2),
+(7, 'Prof. Dalton Cronin', 'L', 1234567890, 12345678901234567, 'Denpasar', '2002-06-27', 'Kelas 1', '1999-04-18', '832 Meggie Islands\nPort Precious, ID 61987-7697', 'Islam', 'Dr. Sierra Lemke', 'Claude Paucek', '2020-12-22 17:28:49', '2021-01-10 11:09:59', 2),
+(8, 'Adrien Zulauf IV', 'L', 1234567890, 12345678901234567, 'Denpasar', '1982-09-07', 'Kelas 1', '1989-08-28', '760 Glover Locks Suite 214\nSouth Myraborough, MN 05390', 'Islam', 'Nathanael Rutherford', 'Esperanza Kuhn', '2020-12-22 17:28:49', '2021-01-10 11:28:47', 3),
+(9, 'Haylee White', 'L', 1234567890, 12345678901234567, 'Jakarta', '1982-03-27', 'Kelas 1', '1998-06-06', '9756 Melisa Parkway Apt. 885\nNew Oswaldostad, LA 16889-9726', 'Islam', 'Dameon Bergstrom', 'Colby Franecki', '2020-12-22 17:28:49', '2021-01-10 11:28:47', 3);
 
 -- --------------------------------------------------------
 
@@ -264,7 +304,9 @@ INSERT INTO `tenaga_pendidik` (`id_tenaga_pendidik`, `nama`, `nik`, `jenis_kelam
 (2, 'Bell Cranel', 12345678901234567, 'L', 'Bali', '1988-10-20', 'Richie Roberts', '599 Waino Fords Apt. 429Margaritaport, VT 57543', 'islam', 's1', 'ptk', 'guru honor sekolah', 123456789012345678, 12345678901234, 'laboran', '101/YPHP/VII/2018', '2002-05-04', 'pemerintah pusat', NULL, NULL, 'sekolah', '081226432', 'bell@wilkinson.org', '2020-12-20 14:02:59', '2020-12-20 17:32:05'),
 (3, 'Kathlyn Zulauf', 12345678901234567, 'L', 'jakarta', '1985-02-09', 'Augustine Rodriguez II', '910 Rachael EstatesMarquiseborough, SC 01823-7403', 'islam', 's1', 'ptk', 'pns diperbentukan', 123456789012345678, 12345678901234, 'kepala sekolah', '101/YPHP/VII/2018', '2004-01-14', 'ketua yayasan', NULL, '1976-12-18', 'sekolah', '098187483', 'gwaelchi@stokes.org', '2020-12-20 14:02:59', '2020-12-20 17:32:54'),
 (4, 'Monique Christiansen', 12345678901234567, 'P', 'jakarta', '1988-07-07', 'Ms. Meda Renner', '356 Emard Curve\nNew Janelle, SC 22392', 'islam', 's1', 'gtk', 'cpns', 123456789012345678, 12345678901234, 'laboran', '101/YPHP/VII/2018', '2006-07-31', 'pemerintah provinsi', '58/YPHP/VIII/2016', '1997-05-12', 'yayasan', '(648) 717-5458 x918', 'tyrell.kozey@mohr.net', '2020-12-20 14:02:59', '2020-12-20 14:02:59'),
-(12, 'Maldo', 7362473, 'L', 'Jawa', '2020-01-02', 'Yuli', 'Jl Alamat', 'islam', 'sma/smk', 'gtk', 'gty/pty', 827483, 2374932, 'tenaga administrasi sekolah', '10/2020', '2020-01-01', 'komite sekolah', '823438246', '2020-01-31', 'sekolah', '08127637', 'joko@mail.com', '2020-12-20 16:47:33', '2020-12-20 17:30:12');
+(12, 'Maldo', 7362473, 'L', 'Jawa', '2020-01-02', 'Yuli', 'Jl Alamat', 'islam', 'sma/smk', 'gtk', 'gty/pty', 827483, 2374932, 'tenaga administrasi sekolah', '10/2020', '2020-01-01', 'komite sekolah', '823438246', '2020-01-31', 'sekolah', '08127637', 'joko@mail.com', '2020-12-20 16:47:33', '2020-12-20 17:30:12'),
+(13, 'Test', 27647324, 'L', 'Denpasar', '2021-12-31', 'Saras', 'Jl ksfkdhsf', 'islam', 'sma/smk', 'gtk', 'gty/pty', 8378326823, 286485, 'guru mapel', '824832', '2021-12-31', 'kepala sekolah', '276732', '2021-01-02', 'sekolah', '09743264732', 'etshsi@mail.com', '2021-01-03 13:14:38', '2021-01-03 13:14:38'),
+(14, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-01-09 16:04:14', '2021-01-09 16:04:14');
 
 -- --------------------------------------------------------
 
@@ -292,7 +334,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 (1, 'admin', 'admin@mail.com', NULL, '$2y$10$qvzObWXYzTLxnACi4YjOyuHeGbeqH9gd5R6BwCMwf5Qj3vkstmuya', NULL, '2020-12-13 13:07:43', '2020-12-13 13:07:43', 'operator'),
 (2, 'pengguna', 'pengguna@mail.com', NULL, '$2y$10$DL/..rMkpgorWWIgsEiDMOxIsPinFAxDlyb7POmBENofBpiMPwo8y', NULL, '2020-12-16 14:02:37', '2020-12-16 14:02:37', 'pengguna'),
 (3, 'pegawai', 'pegawai@mail.com', NULL, '$2y$10$gUN4T/bYUOHdB2NvoAjQEOKUXsWYbUD8M1fsGUHxLZOQCUavMI9GG', NULL, '2020-12-29 13:53:24', '2020-12-29 13:53:24', 'pegawai'),
-(4, 'kepsek', 'kepsek@mail.com', NULL, '$2y$10$MrbHpNTX6Y69fhMlNNCMMOiPpCbjSEPKU0S9wTD2Xq5Xo0t6.cXD6', NULL, '2020-12-29 14:04:05', '2020-12-29 14:04:05', 'kepsek');
+(4, 'kepsek', 'kepsek@mail.com', NULL, '$2y$10$MrbHpNTX6Y69fhMlNNCMMOiPpCbjSEPKU0S9wTD2Xq5Xo0t6.cXD6', NULL, '2020-12-29 14:04:05', '2020-12-29 14:04:05', 'kepsek'),
+(5, 'Admin2', 'admin2@mail.com', NULL, '$2y$10$.B17dWoMu1A.dXq0g2tKeOBw7KHoVrslYDdR7cMFFzRqvz0EUcSVO', NULL, '2021-01-12 12:04:37', '2021-01-12 12:04:37', 'operator');
 
 --
 -- Indexes for dumped tables
@@ -335,6 +378,13 @@ ALTER TABLE `profil_sekolah`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `rombel`
+--
+ALTER TABLE `rombel`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `rombel_id_sarpras_foreign` (`id_sarpras`);
+
+--
 -- Indexes for table `sarpras_ruang`
 --
 ALTER TABLE `sarpras_ruang`
@@ -344,7 +394,8 @@ ALTER TABLE `sarpras_ruang`
 -- Indexes for table `siswa`
 --
 ALTER TABLE `siswa`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `siswa_id_rombel_foreign` (`id_rombel`);
 
 --
 -- Indexes for table `tenaga_pendidik`
@@ -379,13 +430,13 @@ ALTER TABLE `galeri`
 -- AUTO_INCREMENT for table `informasi`
 --
 ALTER TABLE `informasi`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `profil_sekolah`
@@ -394,10 +445,16 @@ ALTER TABLE `profil_sekolah`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `rombel`
+--
+ALTER TABLE `rombel`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `sarpras_ruang`
 --
 ALTER TABLE `sarpras_ruang`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `siswa`
@@ -409,13 +466,29 @@ ALTER TABLE `siswa`
 -- AUTO_INCREMENT for table `tenaga_pendidik`
 --
 ALTER TABLE `tenaga_pendidik`
-  MODIFY `id_tenaga_pendidik` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_tenaga_pendidik` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `rombel`
+--
+ALTER TABLE `rombel`
+  ADD CONSTRAINT `rombel_id_sarpras_foreign` FOREIGN KEY (`id_sarpras`) REFERENCES `sarpras_ruang` (`id`);
+
+--
+-- Constraints for table `siswa`
+--
+ALTER TABLE `siswa`
+  ADD CONSTRAINT `siswa_id_rombel_foreign` FOREIGN KEY (`id_rombel`) REFERENCES `rombel` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
