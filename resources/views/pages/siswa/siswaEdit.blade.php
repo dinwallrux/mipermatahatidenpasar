@@ -80,14 +80,11 @@
             </select>
         </div>
         <div class="col-sm-6">
-            <label for="rombel">Rombel</label>
-            <select name="rombel" class="form-control form-control-user" id="rombel">
-                <option {{ $siswa->rombel == 'kelas 1A' ? 'selected' : '' }} value="kelas 1A" selected>Kelas 1A</option>
-                <option {{ $siswa->rombel == 'kelas 2A' ? 'selected' : '' }} value="kelas 2A">Kelas 2A</option>
-                <option {{ $siswa->rombel == 'kelas 3B' ? 'selected' : '' }} value="kelas 3B">Kelas 3B</option>
-                <option {{ $siswa->rombel == 'kelas 4C' ? 'selected' : '' }} value="kelas 4C">Kelas 4C</option>
-                <option {{ $siswa->rombel == 'kelas 5A' ? 'selected' : '' }} value="kelas 5A">Kelas 5A</option>
-                <option {{ $siswa->rombel == 'kelas 6A' ? 'selected' : '' }} value="kelas 6C">Kelas 6C</option>
+            <label for="id_rombel">Rombel</label>
+            <select name="id_rombel" class="form-control form-control-user" id="id_rombel">
+                @foreach ($rombels as $rombel)
+                <option {{ $siswa->id_rombel == $rombel->id ? 'selected' : '' }} value="{{ $rombel->id }}">{{ $rombel->nama_rombel }}</option>
+                @endforeach
             </select>
         </div>
     </div>

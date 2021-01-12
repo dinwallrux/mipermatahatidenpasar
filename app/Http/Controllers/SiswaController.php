@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Rombel;
 use Illuminate\Http\Request;
 use App\Siswa;
 
@@ -10,13 +11,14 @@ class SiswaController extends Controller
 
     public function index()
     {
-        $siswas = Siswa::latest()->get();
+        $siswas = Siswa::with('rombel')->latest()->get();
         return view('pages.siswa.siswa', compact('siswas'));
     }
 
     public function formTambah()
     {
-        return view('pages.siswa.siswaTambah');
+        $rombels = Rombel::all();
+        return view('pages.siswa.siswaTambah', compact('rombels'));
     }
     
     public function prosesTambah(Request $request)
@@ -43,7 +45,8 @@ class SiswaController extends Controller
     public function formEdit($id)
     {
         $siswas =  Siswa::where('id', $id)->get();
-        return view('pages.siswa.siswaEdit', ['siswas' => $siswas]);
+        $rombels = Rombel::all();
+        return view('pages.siswa.siswaEdit', ['siswas' => $siswas, 'rombels' => $rombels]);
     }
 
     public function prosesEdit(Request $request)
@@ -62,7 +65,7 @@ class SiswaController extends Controller
             'tempat_lahir' => $request->tempat_lahir,
             'tanggal_lahir' => $request->tanggal_lahir,
             'tingkat_kelas_saat_ini' => $request->tingkat_kelas_saat_ini,
-            'rombel' => $request->rombel,
+            'id_rombel' => $request->id_rombel,
             'tanggal_masuk' => $request->tanggal_masuk,
             'alamat' => $request->alamat,
             'agama' => $request->agama,

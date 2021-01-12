@@ -74,3 +74,18 @@ Route::middleware(['auth'])->prefix('profil')->group(function(){
     Route::get('/edit/{id}', 'ProfilSekolahController@edit')->middleware(['admin'])->name('profil.edit');
     Route::post('/proses/update', 'ProfilSekolahController@update')->middleware(['admin'])->name('profil.proses.update');
 });
+
+Route::group([
+    'prefix' => 'rombel',
+    'middleware' => []
+], function(){
+    Route::get('/', 'RombelController@index')->name('rombel');
+    Route::get('/lihat/{id}', 'RombelController@show')->name('rombel.lihat');
+    Route::get('/tambah', 'RombelController@create')->name('rombel.tambah');
+    Route::post('/proses/tambah', 'RombelController@store')->name('rombel.proses.tambah');
+    Route::get('/proses/hapus/{id}', 'RombelController@destroy')->name('rombel.proses.hapus');
+    Route::get('/edit/{id}', 'RombelController@edit')->name('rombel.edit');
+    Route::post('/proses/update', 'RombelController@update')->name('rombel.proses.update');
+    Route::get('/proses/siswa/pindah', 'RombelController@siswaPindah')->name('rombel.proses.siswa.pindah');
+    Route::get('/proses/siswa/keluar', 'RombelController@siswaKeluar')->name('rombel.proses.siswa.keluar');
+});

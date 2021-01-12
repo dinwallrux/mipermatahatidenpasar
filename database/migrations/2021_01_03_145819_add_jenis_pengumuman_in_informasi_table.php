@@ -13,9 +13,12 @@ class AddJenisPengumumanInInformasiTable extends Migration
      */
     public function up()
     {
-        Schema::table('informasi', function (Blueprint $table) {
-            $table->string('jenis_pengumuman')->after('excerpt')->nullable();
-        });
+        if (!Schema::hasColumn('informasi', 'jenis_pengumuman'))
+        {
+            Schema::table('informasi', function (Blueprint $table) {
+                $table->string('jenis_pengumuman')->after('excerpt')->nullable();
+            });
+        }
     }
 
     /**
@@ -25,8 +28,11 @@ class AddJenisPengumumanInInformasiTable extends Migration
      */
     public function down()
     {
-        Schema::table('informasi', function (Blueprint $table) {
-            //
-        });
+        if (Schema::hasColumn('informasi', 'jenis_pengumuman'))
+        {
+            Schema::table('informasi', function (Blueprint $table) {
+                $table->dropColumn('jenis_pengumuman');
+            });
+        }
     }
 }

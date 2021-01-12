@@ -11,7 +11,7 @@
             </div>
             <!-- Card Body -->
             <div class="card-body">
-                <div class="chart-pie pt-4 pb-2 text-center">
+                <div class="pt-4 pb-2 text-center">
                     <img src="{{ asset('main/img/logo.png') }}" alt="" width="100%" height="auto">
                 </div>
             </div>

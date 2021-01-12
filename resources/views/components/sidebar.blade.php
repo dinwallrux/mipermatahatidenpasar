@@ -43,6 +43,12 @@
             <span>Siswa</span>
         </a>
     </li>
+    <li class="nav-item {{ str_contains(Route::currentRouteName(), 'rombel') ? 'active' : '' }}">
+        <a class="nav-link" href="{{route('rombel')}}">
+            <i class="fas fa-user-graduate"></i>
+            <span>Rombongan Belajar</span>
+        </a>
+    </li>
     <li class="nav-item {{ str_contains(Route::currentRouteName(), 'sarpras.ruang') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('sarpras.ruang') }}">
             <i class="fas fa-archway"></i>

@@ -23,4 +23,9 @@ class Siswa extends Model
         'nama_ayah',
         'nama_ibu'
     ];
+
+    public function rombel()
+    {
+        return $this->belongsTo(Rombel::class, 'id_rombel', 'id');
+    }
 }

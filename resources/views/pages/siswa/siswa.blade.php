@@ -42,7 +42,7 @@
         <td>{{$siswa->tempat_lahir}}</td>
         <td>{{$siswa->tanggal_lahir}}</td>
         <td>{{$siswa->tingkat_kelas_saat_ini}}</td>
-        <td>{{$siswa->rombel}}</td>
+        <td>{{ $siswa->rombel->nama_rombel }}</td>
         <td>{{$siswa->tanggal_masuk}}</td>
         <td>{{$siswa->alamat}}</td>
         <td>{{$siswa->agama}}</td>

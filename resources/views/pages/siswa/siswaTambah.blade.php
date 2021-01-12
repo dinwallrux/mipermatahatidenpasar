@@ -77,14 +77,11 @@
             </select>
         </div>
         <div class="col-sm-6">
-            <label for="rombel">Rombel</label>
-            <select name="rombel" class="form-control form-control-user" id="rombel">
-                <option value="kelas 1A" selected>Kelas 1A</option>
-                <option value="kelas 2A">Kelas 2A</option>
-                <option value="kelas 3B">Kelas 3B</option>
-                <option value="kelas 4C">Kelas 4C</option>
-                <option value="kelas 5A">Kelas 5A</option>
-                <option value="kelas 6C">Kelas 6C</option>
+            <label for="id_rombel">Rombel</label>
+            <select name="id_rombel" class="form-control form-control-user" id="id_rombel">
+                @foreach ($rombels as $rombel)
+                <option value="{{ $rombel->id }}">{{ $rombel->nama_rombel }}</option>
+                @endforeach
             </select>
         </div>
     </div>
