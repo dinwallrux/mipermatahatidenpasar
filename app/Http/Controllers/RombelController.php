@@ -42,7 +42,7 @@ class RombelController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_guru' => 'required',
+            'id_tenaga_pendidik' => 'required',
         ]);
 
         Rombel::create($request->all());
@@ -88,13 +88,13 @@ class RombelController extends Controller
     public function update(Request $request, Rombel $rombel)
     {
         $request->validate([
-            'id_guru' => 'required',
+            'id_tenaga_pendidik' => 'required',
         ]);
         Rombel::where('id', $request->id)->update([
             'tingkat_pendidikan' => $request->tingkat_pendidikan,
             'kurikulum' => $request->kurikulum,
             'nama_rombel' => $request->nama_rombel,
-            'id_guru' => $request->id_guru,
+            'id_tenaga_pendidik' => $request->id_tenaga_pendidik,
             'id_sarpras' => $request->id_sarpras,
         ]);
         return redirect()->route('rombel')->with('success', 'Rombel updated.');

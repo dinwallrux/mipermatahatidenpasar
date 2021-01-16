@@ -17,7 +17,7 @@ class InformasiController extends Controller
     {
         $userStatus = Auth::user()->status;
         if($userStatus == 'pengguna'){
-            $datas = Informasi::latest()->where('jenis_pengumuman', 'siswa')->get();
+            $datas = Informasi::where('jenis_pengumuman', 'siswa')->latest()->get();
         } else{
             $datas = Informasi::latest()->get();
         }

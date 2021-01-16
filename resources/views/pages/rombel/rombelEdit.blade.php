@@ -38,10 +38,10 @@
             </select>
         </div>
         <div class="col-sm-6">
-            <label for="id_guru">Wali Kelas</label>
-            <select name="id_guru" class="form-control form-control-user" id="id_guru">
+            <label for="id_tenaga_pendidik">Wali Kelas</label>
+            <select name="id_tenaga_pendidik" class="form-control form-control-user" id="id_tenaga_pendidik">
                 @foreach ($gurus as $guru)
-                <option {{ $data->guru->nama == $guru->nama ? 'selected' : '' }} value="{{ $guru->id_tenaga_pendidik }}">{{ $guru->nama }}</option>
+                <option {{ $data->guru->nama == $guru->nama ? 'selected' : '' }} value="{{ $guru->id }}">{{ $guru->nama }}</option>
                 @endforeach
             </select>
         </div>

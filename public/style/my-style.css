@@ -1,3 +1,6 @@
+.hide {
+  display: none; }
+
 #accordionSidebar {
   background-color: #006d77; }
   #accordionSidebar .sidebar-brand-text {

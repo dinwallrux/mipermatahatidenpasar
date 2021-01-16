@@ -1,4 +1,4 @@
-@extends('layouts.card_blank', ['page_title' => 'Tenaga Pendidik', 'title' => 'Tambah ' . strtoupper($jenis_tendik)])
+@extends('layouts.card_blank', ['page_title' => 'Tenaga Pendidik', 'title' => 'Ubah ' . strtoupper($jenis_tendik)])
 
 @section('content_2')
 
@@ -6,7 +6,7 @@
 <form class="tenaga-pendidik-form" method="POST" action="{{ route('tenagaPendidik.proses.update', ['jenis_tendik' => $jenis_tendik]) }}">
     @csrf
     
-    <input type="hidden" name="id_tenaga_pendidik" value="{{$data->id_tenaga_pendidik}}">
+    <input type="hidden" name="id" value="{{$data->id}}">
     <input type="hidden" name="jenis_tendik" value="{{$data->jenis_tendik}}">
     <div class="form-group row">
         <div class="col-sm-6 mb-3 mb-sm-0">
@@ -169,6 +169,19 @@
             @enderror
         </div>
     </div>
+    @if ($jenis_tendik == 'gtk')
+    <div class="form-group row hide">
+        <div class="col-sm-12 mb-3 mb-sm-0">
+            <label for="id_rombel">Rombel Wali Kelas</label>
+            <select name="id_rombel" class="form-control form-control-user" id="id_rombel">
+                <option value="0">Pilih Rombel</option>
+                @foreach ($rombels as $rombel)
+                <option {{ $rombel->id == $data->id_rombel ? 'selected' : '' }} value="{{ $rombel->id }}">{{ $rombel->nama_rombel }}</option>
+                @endforeach
+            </select>
+        </div>
+    </div>
+    @endif
     <div class="form-group row">
         <div class="col-sm-6 mb-3 mb-sm-0">
             <label for="tmt_pengangkatan">TMT Pengangkatan</label>
@@ -253,9 +266,9 @@
         <div class="col-sm-12 mb-3 mb-sm-0">
             <button type="submit" class="btn btn-primary btn-icon-split mb-3">
                 <span class="icon text-white-50">
-                    <i class="fas fa-plus-square"></i>
+                    <i class="fas fa-pencil-alt"></i>
                 </span>
-                <span class="text">Tambah</span>
+                <span class="text">Ubah</span>
             </button>
         </div>
     </div>

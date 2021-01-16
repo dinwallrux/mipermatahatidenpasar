@@ -167,24 +167,14 @@
         </div>
     </div>
     @if ($jenis_tendik == 'gtk')
-    <div class="form-group row">
+    <div class="form-group row hide">
         <div class="col-sm-12 mb-3 mb-sm-0">
-            <label for="jenis_ptk">Rombel Wali Kelas</label>
-            <select name="jenis_ptk" class="form-control form-control-user" id="jenis_ptk">
-                @if ($jenis_tendik == 'gtk')
-                <option value="guru mapel" selected>Guru Mapel</option>
-                <option value="guru kelas">Guru Kelas</option>
-                <option value="guru bk">Guru BK</option>
-                <option value="guru inklusi">Guru Inklusi</option>
-                <option value="guru pendamping">Guru Pendamping</option>
-                <option value="guru magang">Guru Magang</option>
-                <option value="kepala sekolah">Kepala Sekolah</option>
-                <option value="guru tik">Guru TIK</option>
-                @else
-                <option value="tenaga administrasi sekolah">Tenaga Administrasi Sekolah</option>
-                <option value="laboran">Laboran</option>
-                <option value="pustakawan">Pustakawan</option>
-                @endif
+            <label for="rombel_wali_kelas">Rombel Wali Kelas</label>
+            <select name="rombel_wali_kelas" class="form-control form-control-user" id="rombel_wali_kelas">
+                <option value="0">Pilih Rombel</option>
+                @foreach ($rombels as $rombel)
+                <option value="{{ $rombel->id }}">{{ $rombel->nama_rombel }}</option>
+                @endforeach
             </select>
         </div>
     </div>

@@ -20,7 +20,6 @@ class CreateRombelTable extends Migration
                 $table->string('tingkat_pendidikan');
                 $table->string('kurikulum');
                 $table->string('nama_rombel');
-                $table->foreignId('id_guru')->constrained('tenaga_pendidik')->nullable();
                 $table->timestamps();
             });
         }

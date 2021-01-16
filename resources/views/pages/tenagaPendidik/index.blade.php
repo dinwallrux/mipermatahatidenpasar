@@ -20,6 +20,7 @@
         <th>NIP</th>
         <th>NUPTK</th>
         <th>Jenis PTK</th>
+        <th>Nama Rombel</th>
         <th>SK Pengangkatan</th>
         <th>TMT Pengangkatan</th>
         <th>Lembaga Pengangkat</th>
@@ -37,11 +38,11 @@
         {{-- Mencegah user dengan status selain operator untuk mengakses data --}}
         @if (auth()->user()->status == 'operator')
         <td align="center">
-            <a href="{{ route('tenagaPendidik.proses.hapus', ['jenis_tendik' => $jenis_tendik, 'id_tenaga_pendidik' => $data->id_tenaga_pendidik]) }}" title="Hapus" class="btn btn-danger btn-circle btn-sm mr-1">
+            <a href="{{ route('tenagaPendidik.proses.hapus', ['jenis_tendik' => $jenis_tendik, 'id' => $data->id]) }}" title="Hapus" class="btn btn-danger btn-circle btn-sm mr-1">
                 <i class="fas fa-trash"></i>
             </a>
             <span class="divider"></span>
-            <a href="{{ route('tenagaPendidik.edit',  ['jenis_tendik' => $jenis_tendik, 'id_tenaga_pendidik' => $data->id_tenaga_pendidik]) }}" title="Edit" class="btn btn-success btn-circle btn-sm">
+            <a href="{{ route('tenagaPendidik.edit',  ['jenis_tendik' => $jenis_tendik, 'id' => $data->id]) }}" title="Edit" class="btn btn-success btn-circle btn-sm">
                 <i class="fas fa-pencil-alt"></i>
             </a>
         </td>
@@ -60,6 +61,7 @@
         <td>{{$data->nip}}</td>
         <td>{{$data->nuptk}}</td>
         <td>{{$data->jenis_ptk}}</td>
+        <td>{{$data->rombel['nama_rombel']}}</td>
         <td>{{$data->sk_pengangkatan}}</td>
         <td>{{$data->tmt_pengangkatan}}</td>
         <td>{{$data->lembaga_pengangkat}}</td>
@@ -90,6 +92,7 @@
         <th>NIP</th>
         <th>NUPTK</th>
         <th>Jenis PTK</th>
+        <th>Nama Rombel</th>
         <th>SK Pengangkatan</th>
         <th>TMT Pengangkatan</th>
         <th>Lembaga Pengangkat</th>

@@ -36,8 +36,8 @@ Route::middleware(['auth', 'admin'])->prefix('tenaga-pendidik')->group(function(
     Route::get('/{jenis_tendik}', 'TenagaPendidikController@index')->name('tenagaPendidik');
     Route::get('/{jenis_tendik}/tambah', 'TenagaPendidikController@create')->name('tenagaPendidik.tambah');
     Route::post('{jenis_tendik}/proses/tambah', 'TenagaPendidikController@store')->name('tenagaPendidik.proses.tambah');
-    Route::get('{jenis_tendik}/proses/hapus/{id_tenaga_pendidik}', 'TenagaPendidikController@destroy')->name('tenagaPendidik.proses.hapus');
-    Route::get('{jenis_tendik}/edit/{id_tenaga_pendidik}', 'TenagaPendidikController@edit')->name('tenagaPendidik.edit');
+    Route::get('{jenis_tendik}/proses/hapus/{id}', 'TenagaPendidikController@destroy')->name('tenagaPendidik.proses.hapus');
+    Route::get('{jenis_tendik}/edit/{id}', 'TenagaPendidikController@edit')->name('tenagaPendidik.edit');
     Route::post('{jenis_tendik}/proses/update', 'TenagaPendidikController@update')->name('tenagaPendidik.proses.update');
 });
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddIdRombelInSiswaTable extends Migration
+class AddIdGuruInRombelTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddIdRombelInSiswaTable extends Migration
      */
     public function up()
     {
-        Schema::table('siswa', function (Blueprint $table) {
-            $table->foreignId('id_rombel')->nullable()->constrained('rombel');
+        Schema::table('rombel', function (Blueprint $table) {
+            $table->foreignId('id_tenaga_pendidik')->nullable()->constrained('tenaga_pendidik');
         });
     }
 
@@ -25,9 +25,9 @@ class AddIdRombelInSiswaTable extends Migration
      */
     public function down()
     {
-        Schema::table('siswa', function (Blueprint $table) {
-            $table->dropForeign(['id_rombel']);
-            $table->dropColumn('id_rombel');
+        Schema::table('rombel', function (Blueprint $table) {
+            $table->dropForeign(['id_tenaga_pendidik']);
+            $table->dropColumn('id_tenaga_pendidik');
         });
     }
 }

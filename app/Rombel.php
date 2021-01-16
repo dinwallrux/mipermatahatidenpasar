@@ -12,7 +12,7 @@ class Rombel extends Model
 
     public function guru()
     {
-        return $this->belongsTo(TenagaPendidik::class, 'id_guru', 'id_tenaga_pendidik');
+        return $this->belongsTo(TenagaPendidik::class, 'id_tenaga_pendidik', 'id');
     }
 
     public function sarpras()

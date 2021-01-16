@@ -34,7 +34,7 @@
         </td>
         <td>{{$data->kurikulum}}</td>
         <td>{{$data->tingkat_pendidikan}}</td>
-        <td>{{$data->guru->nama}}</td>
+        <td>{{$data->guru['nama']}}</td>
         <td>{{$data->sarpras->nama_ruang}}</td>
     </tr>
     @endforeach

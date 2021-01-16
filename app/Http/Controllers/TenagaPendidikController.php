@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Rombel;
 use App\TenagaPendidik;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class TenagaPendidikController extends Controller
     public function index($jenis_tendik)
     {
         // Passing Data
-        $datas = TenagaPendidik::latest()->where('jenis_tendik', $jenis_tendik)->get();
+        $datas = TenagaPendidik::with('rombel')->latest()->where('jenis_tendik', $jenis_tendik)->get();
         return view('pages.tenagaPendidik.index', ['datas' => $datas, 'jenis_tendik' => $jenis_tendik]);
     }
 
@@ -26,7 +27,8 @@ class TenagaPendidikController extends Controller
      */
     public function create($jenis_tendik)
     {
-        return view('pages.tenagaPendidik.tenagaPendidikTambah', compact('jenis_tendik'));
+        $rombels = Rombel::all();
+        return view('pages.tenagaPendidik.tenagaPendidikTambah', compact('jenis_tendik', 'rombels'));
     }
 
     /**
@@ -63,10 +65,11 @@ class TenagaPendidikController extends Controller
      * @param  \App\TenagaPendidik  $tenagaPendidik
      * @return \Illuminate\Http\Response
      */
-    public function edit($jenis_tendik, $id_tenaga_pendidik)
+    public function edit($jenis_tendik, $id)
     {
-        $datas =  TenagaPendidik::where('id_tenaga_pendidik', $id_tenaga_pendidik)->get();
-        return view('pages.tenagaPendidik.tenagaPendidikEdit', ['jenis_tendik' => $jenis_tendik, 'datas' => $datas]);
+        $rombels = Rombel::all();
+        $datas =  TenagaPendidik::where('id', $id)->get();
+        return view('pages.tenagaPendidik.tenagaPendidikEdit', ['jenis_tendik' => $jenis_tendik, 'datas' => $datas, 'rombels' => $rombels]);
     }
 
     /**
@@ -82,7 +85,7 @@ class TenagaPendidikController extends Controller
             'nama' => 'required',
             'nik' => 'required',
         ]);
-        TenagaPendidik::where('id_tenaga_pendidik', $request->id_tenaga_pendidik)->update([
+        TenagaPendidik::where('id', $request->id)->update([
             'nama' => $request->nama,
             'nik' => $request->nik,
             'jenis_kelamin' => $request->jenis_kelamin,
@@ -105,6 +108,7 @@ class TenagaPendidikController extends Controller
             'sumber_gaji' => $request->sumber_gaji,
             'no_telepon' => $request->no_telepon,
             'email' => $request->email,
+            'id_rombel' => $request->id_rombel,
         ]);
         return redirect()->route('tenagaPendidik', $request->jenis_tendik)
             ->with('success', 'Project created successfully.');
@@ -116,9 +120,9 @@ class TenagaPendidikController extends Controller
      * @param  \App\TenagaPendidik  $tenagaPendidik
      * @return \Illuminate\Http\Response
      */
-    public function destroy($jenis_tendik, $id_tenaga_pendidik)
+    public function destroy($jenis_tendik, $id)
     {
-        TenagaPendidik::where('id_tenaga_pendidik', $id_tenaga_pendidik)->delete();
+        TenagaPendidik::where('id', $id)->delete();
         return redirect()->route('tenagaPendidik', $jenis_tendik)->with('success', 'Tenaga Pendidik berhasil dihapus');
     }
 }
