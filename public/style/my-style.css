@@ -1,6 +1,9 @@
 .hide {
   display: none; }
 
+.invalid-feedback {
+  display: block; }
+
 #accordionSidebar {
   background-color: #006d77; }
   #accordionSidebar .sidebar-brand-text {

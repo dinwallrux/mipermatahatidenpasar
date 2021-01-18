@@ -1,4 +1,4 @@
-@extends('layouts.card_blank', ['page_title' => 'Siswa', 'title' => 'Tambah Siswa'])
+@extends('layouts.card_blank', ['page_title' => 'Siswa', 'title' => 'Perbarui Siswa'])
 
 @section('content_2')
 
@@ -28,6 +28,17 @@
     </div>
     <div class="form-group row">
         <div class="col-sm-6 mb-3 mb-sm-0">
+            <label for="nis">NIS</label>
+            <input type="number" class="form-control form-control-user"
+                id="nis" placeholder="NIS" value="{{ $siswa->nis }}" @error('nis') is-invalid @enderror" name="nis" required>
+    
+            @error('nis')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+        <div class="col-sm-6">
             <label for="nisn">NISN</label>
             <input type="number" class="form-control form-control-user"
                 id="nisn" placeholder="NISN" value="{{ $siswa->nisn }}" @error('nisn') is-invalid @enderror" name="nisn" required>
@@ -38,7 +49,29 @@
                 </span>
             @enderror
         </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            <label for="alamat">Alamat</label>
+            <input type="text" class="form-control form-control-user" id="alamat"
+                placeholder="Alamat" @error('alamat') is-invalid @enderror" name="alamat" value="{{ $siswa->alamat }}" required autocomplete="alamat" autofocus>
+            @error('alamat')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
         <div class="col-sm-6">
+            <label for="id_rombel">Rombel</label>
+            <select name="id_rombel" class="form-control form-control-user" id="id_rombel">
+                @foreach ($rombels as $rombel)
+                <option {{ $siswa->id_rombel == $rombel->id ? 'selected' : '' }} value="{{ $rombel->id }}">{{ $rombel->nama_rombel }}</option>
+                @endforeach
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
             <label for="nik">NIK</label>
             <input type="number" class="form-control form-control-user"
                 id="nik" placeholder="NIK" value="{{ $siswa->nik }}" @error('nik') is-invalid @enderror" name="nik">
@@ -48,6 +81,17 @@
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
+        </div>
+        <div class="col-sm-6">
+            <label for="tingkat_kelas_saat_ini">Tingkat Kelas Saat Ini</label>
+            <select name="tingkat_kelas_saat_ini" class="form-control form-control-user" id="tingkat_kelas_saat_ini">
+                <option {{ $siswa->tingkat_kelas_saat_ini == 'kelas 1' ? 'selected' : '' }} value="kelas 1">Kelas 1</option>
+                <option {{ $siswa->tingkat_kelas_saat_ini == 'kelas 2' ? 'selected' : '' }} value="kelas 2">Kelas 2</option>
+                <option {{ $siswa->tingkat_kelas_saat_ini == 'kelas 3' ? 'selected' : '' }} value="kelas 3">Kelas 3</option>
+                <option {{ $siswa->tingkat_kelas_saat_ini == 'kelas 4' ? 'selected' : '' }} value="kelas 4">Kelas 4</option>
+                <option {{ $siswa->tingkat_kelas_saat_ini == 'kelas 5' ? 'selected' : '' }} value="kelas 5">Kelas 5</option>
+                <option {{ $siswa->tingkat_kelas_saat_ini == 'kelas 6' ? 'selected' : '' }} value="kelas 6">Kelas 6</option>
+            </select>
         </div>
     </div>
     <div class="form-group row">
@@ -69,44 +113,11 @@
     </div>
     <div class="form-group row">
         <div class="col-sm-6 mb-3 mb-sm-0">
-            <label for="tingkat_kelas_saat_ini">Tingkat Kelas Saat Ini</label>
-            <select name="tingkat_kelas_saat_ini" class="form-control form-control-user" id="tingkat_kelas_saat_ini">
-                <option {{ $siswa->tingkat_kelas_saat_ini == 'kelas 1' ? 'selected' : '' }} value="kelas 1">Kelas 1</option>
-                <option {{ $siswa->tingkat_kelas_saat_ini == 'kelas 2' ? 'selected' : '' }} value="kelas 2">Kelas 2</option>
-                <option {{ $siswa->tingkat_kelas_saat_ini == 'kelas 3' ? 'selected' : '' }} value="kelas 3">Kelas 3</option>
-                <option {{ $siswa->tingkat_kelas_saat_ini == 'kelas 4' ? 'selected' : '' }} value="kelas 4">Kelas 4</option>
-                <option {{ $siswa->tingkat_kelas_saat_ini == 'kelas 5' ? 'selected' : '' }} value="kelas 5">Kelas 5</option>
-                <option {{ $siswa->tingkat_kelas_saat_ini == 'kelas 6' ? 'selected' : '' }} value="kelas 6">Kelas 6</option>
-            </select>
-        </div>
-        <div class="col-sm-6">
-            <label for="id_rombel">Rombel</label>
-            <select name="id_rombel" class="form-control form-control-user" id="id_rombel">
-                @foreach ($rombels as $rombel)
-                <option {{ $siswa->id_rombel == $rombel->id ? 'selected' : '' }} value="{{ $rombel->id }}">{{ $rombel->nama_rombel }}</option>
-                @endforeach
-            </select>
-        </div>
-    </div>
-    <div class="form-group row">
-        <div class="col-sm-6 mb-3 mb-sm-0">
             <label for="tanggal_masuk">Tanggal Masuk</label>
             <input type="date" class="form-control form-control-user" id="tanggal_masuk"
                 placeholder="Tanggal Masuk" @error('tanggal_masuk') is-invalid @enderror" name="tanggal_masuk" value="{{ $siswa->tanggal_masuk }}" required autocomplete="tanggal_masuk" autofocus>
         </div>
         <div class="col-sm-6">
-            <label for="alamat">Alamat</label>
-            <input type="text" class="form-control form-control-user" id="alamat"
-                placeholder="Alamat" @error('alamat') is-invalid @enderror" name="alamat" value="{{ $siswa->alamat }}" required autocomplete="alamat" autofocus>
-            @error('alamat')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-        </div>
-    </div>
-    <div class="form-group row">
-        <div class="col-sm-6 mb-3 mb-sm-0">
             <label for="agama">Agama</label>
             <select name="agama" class="form-control form-control-user" id="agama">
                 <option {{ $siswa->agama == 'islam' ? 'selected' : '' }} value="islam">Islam</option>
@@ -116,7 +127,9 @@
                 <option {{ $siswa->agama == 'buddha' ? 'selected' : '' }} value="buddha">Buddha</option>
             </select>
         </div>
-        <div class="col-sm-6">
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
             <label for="nama_ayah">Nama Ayah</label>
             <input type="text" class="form-control form-control-user" id="nama_ayah"
                 placeholder="Nama Ayah" @error('nama_ayah') is-invalid @enderror" name="nama_ayah" value="{{ $siswa->nama_ayah }}" required autocomplete="nama_ayah" autofocus>
@@ -126,9 +139,7 @@
                 </span>
             @enderror
         </div>
-    </div>
-    <div class="form-group row">
-        <div class="col-sm-12 mb-3 mb-sm-0">
+        <div class="col-sm-6">
             <label for="nama_ibu">Nama Ibu</label>
             <input type="text" class="form-control form-control-user" id="nama_ibu"
                 placeholder="Nama Ibu" @error('nama_ibu') is-invalid @enderror" name="nama_ibu" value="{{ $siswa->nama_ibu }}" required autocomplete="nama_ibu" autofocus>
@@ -137,6 +148,16 @@
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-12 mb-3 mb-sm-0">
+            <label for="status" class="mb-0 mr-2">Status</label>
+            <select name="status" class="form-control form-control-user" id="status">
+                <option {{ $siswa->status == 'aktif' ? 'selected' : '' }} value="aktif">Aktif</option>
+                <option {{ $siswa->status == 'lulus' ? 'selected' : '' }} value="lulus">Lulus</option>
+                <option {{ $siswa->status == 'pindah' ? 'selected' : '' }} value="pindah">Pindah</option>
+            </select>
         </div>
     </div>
     <div class="form-group row">

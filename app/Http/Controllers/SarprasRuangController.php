@@ -14,7 +14,9 @@ class SarprasRuangController extends Controller
      */
     public function index()
     {
-        //
+        $number = 1;
+        $datas = SarprasRuang::latest()->get();
+        return view('pages.sarprasRuang.index', ['number' => $number,'datas' => $datas]);
     }
 
     /**
@@ -53,8 +55,7 @@ class SarprasRuangController extends Controller
      */
     public function show(SarprasRuang $sarprasRuang)
     {
-        $datas = SarprasRuang::latest()->get();
-        return view('pages.sarprasRuang.index', ['datas' => $datas]);
+        //
     }
 
     /**

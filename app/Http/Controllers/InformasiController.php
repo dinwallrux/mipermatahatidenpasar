@@ -15,14 +15,16 @@ class InformasiController extends Controller
      */
     public function index()
     {
-        $userStatus = Auth::user()->status;
-        if($userStatus == 'pengguna'){
-            $datas = Informasi::where('jenis_pengumuman', 'siswa')->latest()->get();
+        $role = Auth::user()->status;
+        if($role == 'pengguna'){
+            $datas = Informasi::where(['publish' => 1, 'jenis_pengumuman' => 'siswa'])->latest()->get();
+        } elseif($role != 'operator'){
+            $datas = Informasi::where(['publish' => 1])->latest()->get();
         } else{
             $datas = Informasi::latest()->get();
         }
 
-        return view('pages.manajemenInformasi.index', compact('datas'));
+        return view('pages.manajemenInformasi.index', compact('datas', 'role'));
     }
 
     /**
@@ -61,7 +63,8 @@ class InformasiController extends Controller
             'judul' => $request->judul,
             'jenis_pengumuman' => $request->jenis_pengumuman,
             'isi' => $request->isi,
-            'excerpt' => $excerpt
+            'excerpt' => $excerpt,
+            'publish' => $request->has('publish')
         ];
 
         Informasi::create($formData);
@@ -77,8 +80,9 @@ class InformasiController extends Controller
      */
     public function show($id)
     {
+        $role = Auth::user()->status;
         $data = Informasi::where('id', $id)->get()->first()->getOriginal();
-        return view('pages.manajemenInformasi.infoLihat', compact('data'));
+        return view('pages.manajemenInformasi.infoLihat', compact('data', 'role'));
     }
 
     /**
@@ -120,7 +124,8 @@ class InformasiController extends Controller
             'judul' => $request->judul,
             'jenis_pengumuman' => $request->jenis_pengumuman,
             'isi' => $request->isi,
-            'excerpt' => $excerpt
+            'excerpt' => $excerpt,
+            'publish' => $request->has('publish') // Untuk checkbox(Boolean value)
         ]);
         return redirect()->route('info')
             ->with('success', 'Informasi berhasil di update.');

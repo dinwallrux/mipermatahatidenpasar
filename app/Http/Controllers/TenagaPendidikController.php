@@ -16,8 +16,9 @@ class TenagaPendidikController extends Controller
     public function index($jenis_tendik)
     {
         // Passing Data
+        $number = 1;
         $datas = TenagaPendidik::with('rombel')->latest()->where('jenis_tendik', $jenis_tendik)->get();
-        return view('pages.tenagaPendidik.index', ['datas' => $datas, 'jenis_tendik' => $jenis_tendik]);
+        return view('pages.tenagaPendidik.index', ['number' => $number, 'datas' => $datas, 'jenis_tendik' => $jenis_tendik]);
     }
 
     /**

@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('home.index');
 });
 
 Auth::routes();
@@ -25,6 +25,7 @@ Route::get('/beranda', 'HomeController@index')->name('beranda');
 
 Route::middleware(['auth', 'admin'])->prefix('siswa')->group(function(){
     Route::get('/', 'SiswaController@index')->name('siswa');
+    Route::get('/lihat/{id}', 'SiswaController@show')->name('siswa.lihat');
     Route::get('/tambah', 'SiswaController@formTambah')->name('siswa.tambah');
     Route::post('/prosesTambah', 'SiswaController@prosesTambah')->name('siswa.proses.tambah');
     Route::get('/prosesHapus/{id}', 'SiswaController@prosesHapus')->name('siswa.proses.hapus');
@@ -42,7 +43,7 @@ Route::middleware(['auth', 'admin'])->prefix('tenaga-pendidik')->group(function(
 });
 
 Route::middleware(['auth', 'admin'])->prefix('sarpras')->group(function(){
-    Route::get('/ruang', 'SarprasRuangController@show')->name('sarpras.ruang');
+    Route::get('/ruang', 'SarprasRuangController@index')->name('sarpras.ruang');
     Route::get('/ruang/tambah', 'SarprasRuangController@create')->name('sarpras.ruang.tambah');
     Route::post('/ruang/proses/tambah', 'SarprasRuangController@store')->name('sarpras.ruang.proses.tambah');
     Route::get('/ruang/proses/hapus/{id}', 'SarprasRuangController@destroy')->name('sarpras.ruang.proses.hapus');
@@ -51,7 +52,7 @@ Route::middleware(['auth', 'admin'])->prefix('sarpras')->group(function(){
 });
 
 Route::middleware(['auth'])->prefix('galeri')->group(function(){
-    Route::get('/', 'GaleriController@show')->name('galeri');
+    Route::get('/', 'GaleriController@index')->name('galeri');
     Route::get('/tambah', 'GaleriController@create')->middleware(['admin'])->name('galeri.tambah');
     Route::post('/proses/tambah', 'GaleriController@store')->middleware(['admin'])->name('galeri.proses.tambah');
     Route::get('/proses/hapus/{id}', 'GaleriController@destroy')->middleware(['admin'])->name('galeri.proses.hapus');

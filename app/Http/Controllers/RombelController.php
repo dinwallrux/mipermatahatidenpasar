@@ -17,8 +17,9 @@ class RombelController extends Controller
      */
     public function index()
     {
+        $number = 1;
         $datas = Rombel::with('guru', 'sarpras')->latest()->get();
-        return view('pages.rombel.index', compact('datas'));
+        return view('pages.rombel.index', compact('number','datas'));
     }
 
     /**

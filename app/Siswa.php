@@ -11,6 +11,7 @@ class Siswa extends Model
     protected $fillable = [
         'nama',
         'jenis_kelamin',
+        'nis',
         'nisn',
         'nik',
         'tempat_lahir',
@@ -21,7 +22,9 @@ class Siswa extends Model
         'alamat',
         'agama',
         'nama_ayah',
-        'nama_ibu'
+        'nama_ibu',
+        'id_rombel',
+        'status'
     ];
 
     public function rombel()

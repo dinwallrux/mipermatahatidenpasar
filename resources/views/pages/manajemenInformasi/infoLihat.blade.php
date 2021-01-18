@@ -12,6 +12,21 @@
             <div class="card-body">
                 <p>{!! $data['isi'] !!}</p>
             </div>
+            @if ($role == 'operator')
+            <div class="card-footer">
+                @if ($data['publish'])
+                <p class="text-success mb-0">
+                    <i class="fas fa-check-square"></i>
+                    Diterbitkan
+                </p>
+                @else
+                <p class="text-danger mb-0">
+                    <i class="fab fa-firstdraft"></i>
+                    Belum Terbit
+                </p>
+                @endif
+            </div>
+            @endif
         </div>
         
     </div>

@@ -44,6 +44,12 @@
     </div>
     <div class="form-group row">
         <div class="col-sm-12 mb-3 mb-sm-0">
+            <label for="publish">Publikasi</label>
+            <input type="checkbox" id="publish" value="1" placeholder="publish" name="publish" {{ $data->publish ? 'checked' : ''}}>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-12 mb-3 mb-sm-0">
             <button type="submit" class="btn btn-primary btn-icon-split mb-3">
                 <span class="icon text-white-50">
                     <i class="fas fa-plus-square"></i>

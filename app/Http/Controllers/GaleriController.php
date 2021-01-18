@@ -15,7 +15,9 @@ class GaleriController extends Controller
      */
     public function index()
     {
-        //
+        $number = 1;
+        $datas = Galeri::latest()->get();
+        return view('pages.galeri.index', compact('number','datas'));
     }
 
     /**
@@ -64,8 +66,7 @@ class GaleriController extends Controller
      */
     public function show(Galeri $galeri)
     {
-        $datas = Galeri::latest()->get();
-        return view('pages.galeri.index', compact('datas'));
+        //
     }
 
     /**

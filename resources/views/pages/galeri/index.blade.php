@@ -3,20 +3,25 @@
 @section('data_table')
 <thead>
     <tr>
-        @if (auth()->user()->status == 'operator')
-        <th>Action</th>
-        @endif
+        <th>No</th>
         <th>Foto</th>
         <th>Nama Foto</th>
         <th>Kategory</th>
+        @if (auth()->user()->status == 'operator')
+        <th>Action</th>
+        @endif
     </tr>
 </thead>
 <tbody>
     @foreach ($datas as $data)
     <tr>
+        <td>{{$number++}}</td>
+        <td><img src="{{  url('storage/'.basename($data->image)) }}" style="width: 320px;" alt=""></td>
+        <td>{{$data->nama_foto}}</td>
+        <td>{{$data->kategori}}</td>
         @if (auth()->user()->status == 'operator')
         <td align="center">
-            <a href="{{ route('galeri.proses.hapus', $data->id) }}" title="Hapus" class="btn btn-danger btn-circle btn-sm mr-1">
+            <a href="{{ route('galeri.proses.hapus', $data->id) }}" title="Hapus" class="btn btn-danger btn-circle btn-sm mr-1" style="display: none;">
                 <i class="fas fa-trash"></i>
             </a>
             <span class="divider"></span>
@@ -25,20 +30,18 @@
             </a>
         </td>
         @endif
-        <td><img src="{{  url('storage/'.basename($data->image)) }}" style="width: 320px;" alt=""></td>
-        <td>{{$data->nama_foto}}</td>
-        <td>{{$data->kategori}}</td>
     </tr>
     @endforeach
 </tbody>
 <tfoot>
     <tr>
-        @if (auth()->user()->status == 'operator')
-        <th>Action</th>
-        @endif
+        <th>No</th>
         <th>Foto</th>
         <th>Nama Foto</th>
         <th>Kategory</th>
+        @if (auth()->user()->status == 'operator')
+        <th>Action</th>
+        @endif
     </tr>
 </tfoot>
 @endsection

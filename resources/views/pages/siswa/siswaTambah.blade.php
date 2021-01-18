@@ -25,9 +25,20 @@
     </div>
     <div class="form-group row">
         <div class="col-sm-6 mb-3 mb-sm-0">
+            <label for="nis">NIS</label>
+            <input type="number" class="form-control form-control-user"
+                value="{{ old('nis') }}" id="nis" placeholder="NIS" @error('nis') is-invalid @enderror" name="nis">
+    
+            @error('nis')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+        <div class="col-sm-6">
             <label for="nisn">NISN</label>
             <input type="number" class="form-control form-control-user"
-                id="nisn" placeholder="NISN" @error('nisn') is-invalid @enderror" name="nisn" required>
+                value="{{ old('nisn') }}" id="nisn" placeholder="NISN" @error('nisn') is-invalid @enderror" name="nisn" required>
     
             @error('nisn')
                 <span class="invalid-feedback" role="alert">
@@ -35,10 +46,32 @@
                 </span>
             @enderror
         </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            <label for="alamat">Alamat</label>
+            <input type="text" class="form-control form-control-user" id="alamat"
+                placeholder="Alamat" @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat') }}" required autocomplete="alamat" autofocus>
+            @error('alamat')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
         <div class="col-sm-6">
+            <label for="id_rombel">Rombel</label>
+            <select name="id_rombel" class="form-control form-control-user" id="id_rombel">
+                @foreach ($rombels as $rombel)
+                <option value="{{ $rombel->id }}">{{ $rombel->nama_rombel }}</option>
+                @endforeach
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
             <label for="nik">NIK</label>
             <input type="number" class="form-control form-control-user"
-                id="nik" placeholder="NIK" @error('nik') is-invalid @enderror" name="nik">
+                value="{{ old('nik') }}" id="nik" placeholder="NIK" @error('nik') is-invalid @enderror" name="nik">
     
             @error('nik')
                 <span class="invalid-feedback" role="alert">
@@ -46,6 +79,18 @@
                 </span>
             @enderror
         </div>
+        <div class="col-sm-6">
+            <label for="tingkat_kelas_saat_ini">Tingkat Kelas Saat Ini</label>
+            <select name="tingkat_kelas_saat_ini" class="form-control form-control-user" id="tingkat_kelas_saat_ini">
+                <option value="kelas 1" selected>Kelas 1</option>
+                <option value="kelas 2">Kelas 2</option>
+                <option value="kelas 3">Kelas 3</option>
+                <option value="kelas 4">Kelas 4</option>
+                <option value="kelas 5">Kelas 5</option>
+                <option value="kelas 6">Kelas 6</option>
+            </select>
+        </div>
+        
     </div>
     <div class="form-group row">
         <div class="col-sm-6 mb-3 mb-sm-0">
@@ -66,44 +111,11 @@
     </div>
     <div class="form-group row">
         <div class="col-sm-6 mb-3 mb-sm-0">
-            <label for="tingkat_kelas_saat_ini">Tingkat Kelas Saat Ini</label>
-            <select name="tingkat_kelas_saat_ini" class="form-control form-control-user" id="tingkat_kelas_saat_ini">
-                <option value="kelas 1" selected>Kelas 1</option>
-                <option value="kelas 2">Kelas 2</option>
-                <option value="kelas 3">Kelas 3</option>
-                <option value="kelas 4">Kelas 4</option>
-                <option value="kelas 5">Kelas 5</option>
-                <option value="kelas 6">Kelas 6</option>
-            </select>
-        </div>
-        <div class="col-sm-6">
-            <label for="id_rombel">Rombel</label>
-            <select name="id_rombel" class="form-control form-control-user" id="id_rombel">
-                @foreach ($rombels as $rombel)
-                <option value="{{ $rombel->id }}">{{ $rombel->nama_rombel }}</option>
-                @endforeach
-            </select>
-        </div>
-    </div>
-    <div class="form-group row">
-        <div class="col-sm-6 mb-3 mb-sm-0">
             <label for="tanggal_masuk">Tanggal Masuk</label>
             <input type="date" class="form-control form-control-user" id="tanggal_masuk"
                 placeholder="Tanggal Masuk" @error('tanggal_masuk') is-invalid @enderror" name="tanggal_masuk" value="{{ old('tanggal_masuk') }}" required autocomplete="tanggal_masuk" autofocus>
         </div>
         <div class="col-sm-6">
-            <label for="alamat">Alamat</label>
-            <input type="text" class="form-control form-control-user" id="alamat"
-                placeholder="Alamat" @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat') }}" required autocomplete="alamat" autofocus>
-            @error('alamat')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-        </div>
-    </div>
-    <div class="form-group row">
-        <div class="col-sm-6 mb-3 mb-sm-0">
             <label for="agama">Agama</label>
             <select name="agama" class="form-control form-control-user" id="agama">
                 <option value="islam" selected>Islam</option>
@@ -113,7 +125,9 @@
                 <option value="buddha">Buddha</option>
             </select>
         </div>
-        <div class="col-sm-6">
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
             <label for="nama_ayah">Nama Ayah</label>
             <input type="text" class="form-control form-control-user" id="nama_ayah"
                 placeholder="Nama Ayah" @error('nama_ayah') is-invalid @enderror" name="nama_ayah" value="{{ old('nama_ayah') }}" required autocomplete="nama_ayah" autofocus>
@@ -123,9 +137,7 @@
                 </span>
             @enderror
         </div>
-    </div>
-    <div class="form-group row">
-        <div class="col-sm-12 mb-3 mb-sm-0">
+        <div class="col-sm-6">
             <label for="nama_ibu">Nama Ibu</label>
             <input type="text" class="form-control form-control-user" id="nama_ibu"
                 placeholder="Nama Ibu" @error('nama_ibu') is-invalid @enderror" name="nama_ibu" value="{{ old('nama_ibu') }}" required autocomplete="nama_ibu" autofocus>
@@ -134,6 +146,16 @@
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-12 mb-3 mb-sm-0">
+            <label for="status" class="mb-0 mr-2">Status</label>
+            <select name="status" class="form-control form-control-user" id="status">
+                <option value="aktif" selected>Aktif</option>
+                <option value="lulus">Lulus</option>
+                <option value="pindah">Pindah</option>
+            </select>
         </div>
     </div>
     <div class="form-group row">
