@@ -251,7 +251,7 @@
         </div>
     </div>
     <div class="form-group row">
-        <div class="col-sm-12 mb-3 mb-sm-0">
+        <div class="col-sm-6 mb-3 mb-sm-0">
             <label for="email">Email</label>
             <input type="email" class="form-control form-control-user" id="email"
                 placeholder="Email" @error('email') is-invalid @enderror" name="email" value="{{ $data->email }}" required autocomplete="email" autofocus>
@@ -260,6 +260,13 @@
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
+        </div>
+        <div class="col-sm-6">
+            <label for="status">Status</label>
+            <select name="status" class="form-control form-control-user" id="status">
+                <option {{ $data->status == 1 ? 'selected' : '' }} value="1">Aktif</option>
+                <option {{ $data->status == 0 ? 'selected' : '' }} value="0">Tidak Aktif</option>
+            </select>
         </div>
     </div>
     <div class="form-group row">

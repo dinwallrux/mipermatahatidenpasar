@@ -110,6 +110,7 @@ class TenagaPendidikController extends Controller
             'no_telepon' => $request->no_telepon,
             'email' => $request->email,
             'id_rombel' => $request->id_rombel,
+            'status' => $request->status
         ]);
         return redirect()->route('tenagaPendidik', $request->jenis_tendik)
             ->with('success', 'Project created successfully.');

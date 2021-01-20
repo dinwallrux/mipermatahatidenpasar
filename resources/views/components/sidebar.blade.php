@@ -32,8 +32,8 @@
         </a>
         <div id="tenaga-pendidik" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{ route('tenagaPendidik', 'gtk') }}">GTK</a>
-                <a class="collapse-item" href="{{ route('tenagaPendidik', 'ptk') }}">PTK</a>
+                <a class="collapse-item" href="{{ route('tenagaPendidik', 'gtk') }}">Guru</a>
+                <a class="collapse-item" href="{{ route('tenagaPendidik', 'ptk') }}">Pegawai</a>
             </div>
         </div>
     </li>
