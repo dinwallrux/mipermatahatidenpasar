@@ -17,7 +17,7 @@ class TenagaPendidikController extends Controller
     {
         // Passing Data
         $number = 1;
-        $datas = TenagaPendidik::with('rombel')->latest()->where('jenis_tendik', $jenis_tendik)->get();
+        $datas = TenagaPendidik::with('rombel')->latest()->first()->where('jenis_tendik', $jenis_tendik)->get();
         return view('pages.tenagaPendidik.index', ['number' => $number, 'datas' => $datas, 'jenis_tendik' => $jenis_tendik]);
     }
 
@@ -55,9 +55,10 @@ class TenagaPendidikController extends Controller
      * @param  \App\TenagaPendidik  $tenagaPendidik
      * @return \Illuminate\Http\Response
      */
-    public function show(TenagaPendidik $tenagaPendidik)
+    public function show($jenis_tendik, $id)
     {
-        //
+        $data = TenagaPendidik::where('id', $id)->get()->first();
+        return view('pages.tenagaPendidik.tenagaPendidikLihat', compact('data', 'jenis_tendik'));
     }
 
     /**
@@ -92,7 +93,6 @@ class TenagaPendidikController extends Controller
             'jenis_kelamin' => $request->jenis_kelamin,
             'tempat_lahir' => $request->tempat_lahir,
             'tanggal_lahir' => $request->tanggal_lahir,
-            'nama_ibu_kandung' => $request->nama_ibu_kandung,
             'alamat' => $request->alamat,
             'agama' => $request->agama,
             'pendidikan_terakhir' => $request->pendidikan_terakhir,
@@ -106,7 +106,6 @@ class TenagaPendidikController extends Controller
             'lembaga_pengangkat' => $request->lembaga_pengangkat,
             'sk_cpns' => $request->sk_cpns,
             'tmt_cpns' => $request->tmt_cpns,
-            'sumber_gaji' => $request->sumber_gaji,
             'no_telepon' => $request->no_telepon,
             'email' => $request->email,
             'id_rombel' => $request->id_rombel,

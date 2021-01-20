@@ -35,6 +35,7 @@ Route::middleware(['auth', 'admin'])->prefix('siswa')->group(function(){
 
 Route::middleware(['auth', 'admin'])->prefix('tenaga-pendidik')->group(function(){
     Route::get('/{jenis_tendik}', 'TenagaPendidikController@index')->name('tenagaPendidik');
+    Route::get('/{jenis_tendik}/lihat/{id}', 'TenagaPendidikController@show')->name('tenagaPendidik.lihat');
     Route::get('/{jenis_tendik}/tambah', 'TenagaPendidikController@create')->name('tenagaPendidik.tambah');
     Route::post('{jenis_tendik}/proses/tambah', 'TenagaPendidikController@store')->name('tenagaPendidik.proses.tambah');
     Route::get('{jenis_tendik}/proses/hapus/{id}', 'TenagaPendidikController@destroy')->name('tenagaPendidik.proses.hapus');

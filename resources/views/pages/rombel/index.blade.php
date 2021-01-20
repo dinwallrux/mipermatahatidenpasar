@@ -1,4 +1,4 @@
-@extends('layouts.table', ['title' => 'Rombongan Belajar', 'page_title' => 'Rombongan Belajar', 'link_tambah_data' => route('rombel.tambah')])
+@extends('layouts.table', ['title' => 'Kelas', 'page_title' => 'Kelas', 'link_tambah_data' => route('rombel.tambah')])
 
 @section('data_table')
 <thead>

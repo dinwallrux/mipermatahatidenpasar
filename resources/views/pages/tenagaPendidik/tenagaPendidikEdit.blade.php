@@ -1,4 +1,4 @@
-@extends('layouts.card_blank', ['page_title' => 'Tenaga Pendidik', 'title' => 'Ubah ' . strtoupper($jenis_tendik)])
+@extends('layouts.card_blank', ['page_title' => 'Tenaga Pendidik', 'title' => $jenis_tendik == 'gtk' ? 'Ubah Data Guru' : 'Ubah Data Pegawai'])
 
 @section('content_2')
 
@@ -57,10 +57,10 @@
                 placeholder="Tanggal Lahir" @error('tanggal_lahir') is-invalid @enderror" name="tanggal_lahir" value="{{ $data->tanggal_lahir }}" required autocomplete="tanggal_lahir" autofocus>
         </div>
         <div class="col-sm-6">
-            <label for="nama_ibu_kandung">Nama Ibu Kandung</label>
-            <input type="text" class="form-control form-control-user" id="nama_ibu_kandung"
-                placeholder="Nama Ibu Kandung" @error('nama_ibu_kandung') is-invalid @enderror" name="nama_ibu_kandung" value="{{ $data->nama_ibu_kandung }}" required autocomplete="nama_ibu_kandung" autofocus>
-            @error('nama_ibu_kandung')
+            <label for="no_telepon">No Telepon</label>
+            <input type="number" class="form-control form-control-user" id="no_telepon"
+                placeholder="No Telepon" @error('no_telepon') is-invalid @enderror" name="no_telepon" value="{{ $data->no_telepon }}" required autocomplete="no_telepon" autofocus>
+            @error('no_telepon')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
@@ -221,29 +221,6 @@
             <input type="date" class="form-control form-control-user" id="tmt_cpns"
                 placeholder="TMT CPNS" @error('tmt_cpns') is-invalid @enderror" name="tmt_cpns" value="{{ $data->tmt_cpns }}" autocomplete="tmt_cpns" autofocus>
             @error('tmt_cpns')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-        </div>
-    </div>
-    <div class="form-group row">
-        <div class="col-sm-6 mb-3 mb-sm-0">
-            <label for="sumber_gaji">Sumber Gaji</label>
-            <select name="sumber_gaji" class="form-control form-control-user" id="sumber_gaji">
-                <option {{ $data->sumber_gaji == 'apbn' ? 'selected' : '' }} value="apbn">APBN</option>
-                <option {{ $data->sumber_gaji == 'apbd provinsi' ? 'selected' : '' }} value="apbd provinsi">APBD Provinsi</option>
-                <option {{ $data->sumber_gaji == 'apbd kab/kota' ? 'selected' : '' }} value="apbd kab/kota">APBD Kab/Kota</option>
-                <option {{ $data->sumber_gaji == 'yayasan' ? 'selected' : '' }} value="yayasan">Yayasan</option>
-                <option {{ $data->sumber_gaji == 'sekolah' ? 'selected' : '' }} value="sekolah">Sekolah</option>
-                <option {{ $data->sumber_gaji == 'lembaga donor' ? 'selected' : '' }} value="lembaga donor">Lembaga Donor</option>
-            </select>
-        </div>
-        <div class="col-sm-6">
-            <label for="no_telepon">No Telepon</label>
-            <input type="number" class="form-control form-control-user" id="no_telepon"
-                placeholder="No Telepon" @error('no_telepon') is-invalid @enderror" name="no_telepon" value="{{ $data->no_telepon }}" required autocomplete="no_telepon" autofocus>
-            @error('no_telepon')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>

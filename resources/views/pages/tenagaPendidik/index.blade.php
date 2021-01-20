@@ -1,4 +1,4 @@
-@extends('layouts.table', ['title' => 'Data '. strtoupper($jenis_tendik), 'page_title' => strtoupper($jenis_tendik), 'link_tambah_data' => route('tenagaPendidik.tambah', $jenis_tendik)])
+@extends('layouts.table', ['title' => $jenis_tendik == 'gtk' ? 'Data Guru' : 'Data Pegawai', 'page_title' => $jenis_tendik == 'gtk' ? 'Guru' : 'Pegawai', 'link_tambah_data' => route('tenagaPendidik.tambah', $jenis_tendik)])
 
 @section('data_table')
 <thead>
@@ -19,7 +19,11 @@
     @foreach ($datas as $data)
     <tr>
         <td>{{$number++}}</td>
-        <td>{{$data->nama}}</td>
+        <td>
+            <a href="{{ route('tenagaPendidik.lihat', ['jenis_tendik' => $jenis_tendik, 'id' => $data->id]) }}">
+                {{$data->nama}}
+            </a>
+        </td>
         <td>{{$data->no_telepon}}</td>
         <td>{{$data->alamat}}</td>
         <td>{{$data->email}}</td>

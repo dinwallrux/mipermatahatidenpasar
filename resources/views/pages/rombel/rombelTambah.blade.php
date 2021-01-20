@@ -1,4 +1,4 @@
-@extends('layouts.card_blank', ['page_title' => 'Rombel', 'title' => 'Tambah Rombel'])
+@extends('layouts.card_blank', ['page_title' => 'Kelas', 'title' => 'Tambah Kelas'])
 
 @section('content_2')
 <form class="ruang-form" method="POST" enctype="multipart/form-data" action="{{ route('rombel.proses.tambah') }}">

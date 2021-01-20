@@ -1,4 +1,4 @@
-@extends('layouts.card_blank', ['page_title' => 'Galeri', 'title' => 'Edit Galeri'])
+@extends('layouts.card_blank', ['page_title' => 'Kelas', 'title' => 'Edit Kelas'])
 
 @section('content_2')
 

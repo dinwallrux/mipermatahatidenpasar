@@ -1,4 +1,4 @@
-@extends('layouts.blank', ['page_title' => 'Rombongan Belajar '.$data->nama_rombel])
+@extends('layouts.blank', ['page_title' => 'Kelas '.$data->nama_rombel])
 
 @section('content_blank')
 <div class="row">

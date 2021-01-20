@@ -18,7 +18,7 @@ class SiswaController extends Controller
     }
 
     public function show($id){
-        $data = Siswa::find($id);
+        $data = Siswa::with('rombel')->find($id);
         return view('pages.siswa.siswaLihat', compact('data'));
     }
 

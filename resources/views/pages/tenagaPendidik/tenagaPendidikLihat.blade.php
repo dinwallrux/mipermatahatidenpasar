@@ -1,4 +1,4 @@
-@extends('layouts.blank', ['page_title' => 'Detail Siswa'])
+@extends('layouts.blank', ['page_title' => $jenis_tendik == 'gtk' ? 'Detail Guru' : 'Detail Pegawai'])
 
 @section('content_blank')
 <div class="row">
@@ -8,7 +8,7 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary">{{$data->nama}}</h6>
-                <a href="{{route('siswa')}}" class="back text-danger" style="text-decoration: none;">
+                <a href="{{route('tenagaPendidik', $jenis_tendik)}}" class="back text-danger" style="text-decoration: none;">
                     <i class="far fa-arrow-alt-circle-left"></i>
                     <span>Kembali</span>
                 </a>
@@ -28,20 +28,12 @@
                                             <td>{{$data->nama}}</td>
                                         </tr>
                                         <tr>
-                                            <th>Jenis Kelamin</th>
-                                            <td>{{$data->jenis_kelamin}}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>NIS</th>
-                                            <td>{{$data->nis}}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>NISN</th>
-                                            <td>{{$data->nisn}}</td>
-                                        </tr>
-                                        <tr>
                                             <th>NIK</th>
                                             <td>{{$data->nik}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Jenis Kelamin</th>
+                                            <td>{{$data->jenis_kelamin == 'L' ? 'Laki - Laki' : 'Perempuan'}}</td>
                                         </tr>
                                         <tr>
                                             <th>Tempat Lahir</th>
@@ -49,15 +41,7 @@
                                         </tr>
                                         <tr>
                                             <th>Tanggal Lahir</th>
-                                            <td>{{$data->tanggal_lahir}}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Tingkat Kelas Saat Ini</th>
-                                            <td>{{$data->tingkat_kelas_saat_ini}}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Tanggal Masuk</th>
-                                            <td>{{$data->tanggal_masuk}}</td>
+                                            <td>{{date("d-m-Y", strtotime($data->tanggal_lahir))}}</td>
                                         </tr>
                                         <tr>
                                             <th>Alamat</th>
@@ -68,20 +52,44 @@
                                             <td>{{$data->agama}}</td>
                                         </tr>
                                         <tr>
-                                            <th>Nama Ayah</th>
-                                            <td>{{$data->nama_ayah}}</td>
+                                            <th>Pendidikan Terakhir</th>
+                                            <td>{{$data->pendidikan_terakhir}}</td>
                                         </tr>
                                         <tr>
-                                            <th>Nama Ibu</th>
-                                            <td>{{$data->nama_ibu}}</td>
+                                            <th>NIP</th>
+                                            <td>{{$data->nip}}</td>
                                         </tr>
                                         <tr>
-                                            <th>Kelas</th>
-                                            <td>{{$data->rombel->nama_rombel}}</td>
+                                            <th>NUPTK</th>
+                                            <td>{{$data->nuptk}}</td>
                                         </tr>
                                         <tr>
-                                            <th>Status</th>
-                                            <td>{{$data->status}}</td>
+                                            <th>Jenis PTK</th>
+                                            <td>{{$data->jenis_ptk}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>SK Pengangkatan</th>
+                                            <td>{{$data->sk_pengangkatan}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Terhitung Mulai Tanggal Pengangkatan</th>
+                                            <td>{{$data->tmt_pengangkatan}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Lembaga Pengangkat</th>
+                                            <td>{{$data->lembaga_pengangkat}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Terhitung Mulai Tanggal CPNS</th>
+                                            <td>{{$data->tmt_cpns}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>No. Telepon</th>
+                                            <td>{{$data->no_telepon}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Email</th>
+                                            <td>{{$data->email}}</td>
                                         </tr>
                                     </table>
                                 </div>
