@@ -76,11 +76,11 @@
     </div>
     <div class="form-group row">
         <div class="col-sm-12 mb-3 mb-sm-0">
-            <button type="submit" class="btn btn-primary btn-icon-split mb-3">
+            <button type="submit" class="btn btn-success btn-icon-split mb-3">
                 <span class="icon text-white-50">
-                    <i class="fas fa-plus-square"></i>
+                    <i class="fas fa-pencil-alt"></i>
                 </span>
-                <span class="text">Tambah</span>
+                <span class="text">Ubah</span>
             </button>
         </div>
     </div>

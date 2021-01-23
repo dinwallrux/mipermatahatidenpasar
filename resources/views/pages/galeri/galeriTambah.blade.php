@@ -28,7 +28,7 @@
     </div>
     <div class="form-group row">
         <div class="col-sm-12 mb-3 mb-sm-0">
-            <label for="kategori">Deskripsi</label>
+            <label for="deskripsi">Deskripsi</label>
             <textarea name="deskripsi" id="deskripsi" class="form-control form-control-user tinymce" cols="30" rows="10" placeholder="Deskripsi" @error('deskripsi') is-invalid @enderror" required>
             </textarea>
             
@@ -41,14 +41,12 @@
     </div>
     <div class="form-group row">
         <div class="col-sm-12 mb-3 mb-sm-0">
-            <label for="kategori">Kategori</label>
-            <input type="text" class="form-control form-control-user" id="kategori"
-                placeholder="Kategori" @error('kategori') is-invalid @enderror" name="kategori" value="{{ old('kategori') }}" required autocomplete="kategori" autofocus>
-            @error('kategori')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
+            <label for="id_kategori">Kategori</label>
+            <select name="id_kategori" class="form-control form-control-user" id="id_kategori">
+                @foreach ($kategoris as $kategori)
+                <option value="{{ $kategori->id }}">{{ $kategori->nama }}</option>
+                @endforeach
+            </select>
         </div>
     </div>
     <div class="form-group row">

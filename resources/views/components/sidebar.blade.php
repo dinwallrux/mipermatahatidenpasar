@@ -61,10 +61,18 @@
     </li>
     @endif
     <li class="nav-item {{ str_contains(Route::currentRouteName(), 'galeri') ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('galeri') }}">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#galeri" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-images"></i>
             <span>Galeri</span>
         </a>
+        <div id="galeri" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="{{ route('galeri') }}">Semua Galeri</a>
+                @if (auth()->user()->status == 'operator' || auth()->user()->status == 'pegawai' || auth()->user()->status == 'kepsek')
+                <a class="collapse-item" href="{{ route('kategori') }}">Kategori</a>
+                @endif
+            </div>
+        </div>
     </li>
 
     <!-- Divider -->

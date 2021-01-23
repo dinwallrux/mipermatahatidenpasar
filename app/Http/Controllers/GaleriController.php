@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Galeri;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Kategori;
 
 class GaleriController extends Controller
 {
@@ -16,7 +17,7 @@ class GaleriController extends Controller
     public function index()
     {
         $number = 1;
-        $datas = Galeri::latest()->get();
+        $datas = Galeri::with('kategori')->latest()->get();
         return view('pages.galeri.index', compact('number','datas'));
     }
 
@@ -27,7 +28,8 @@ class GaleriController extends Controller
      */
     public function create()
     {
-        return view('pages.galeri.galeriTambah');
+        $kategoris = Kategori::all();
+        return view('pages.galeri.galeriTambah', compact('kategoris'));
     }
 
     /**
@@ -52,7 +54,7 @@ class GaleriController extends Controller
             'image' => $path_image,
             'nama_foto' => $request->nama_foto,
             'deskripsi' => $request->deskripsi,
-            'kategori' => $request->kategori
+            'id_kategori' => $request->id_kategori
         ];
 
         Galeri::create($galleries);
@@ -78,8 +80,9 @@ class GaleriController extends Controller
      */
     public function edit($id)
     {
+        $kategoris = Kategori::all();
         $datas =  Galeri::where('id', $id)->get();
-        return view('pages.galeri.galeriEdit', ['datas' => $datas]);
+        return view('pages.galeri.galeriEdit', compact('datas', 'kategoris'));
     }
 
     /**
@@ -115,10 +118,10 @@ class GaleriController extends Controller
             'image' => $path_image,
             'nama_foto' => $request->nama_foto,
             'deskripsi' => $request->deskripsi,
-            'kategori' => $request->kategori
+            'id_kategori' => $request->id_kategori
         ]);
         return redirect()->route('galeri')
-            ->with('success', 'Sarpras Ruang berhasil di update.');
+            ->with('success', 'Galeri berhasil di update.');
     }
 
     /**

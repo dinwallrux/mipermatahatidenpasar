@@ -18,7 +18,7 @@
         <td>{{$number++}}</td>
         <td><img src="{{  url('storage/'.basename($data->image)) }}" style="width: 320px;" alt=""></td>
         <td>{{$data->nama_foto}}</td>
-        <td>{{$data->kategori}}</td>
+        <td>{{$data->kategori['nama']}}</td>
         @if (auth()->user()->status == 'operator')
         <td align="center">
             <a href="{{ route('galeri.proses.hapus', $data->id) }}" title="Hapus" class="btn btn-danger btn-circle btn-sm mr-1" style="display: none;">

@@ -45,23 +45,22 @@
     </div>
     <div class="form-group row">
         <div class="col-sm-12 mb-3 mb-sm-0">
-            <label for="kategori">Kategori</label>
-            <input type="text" class="form-control form-control-user" id="kategori"
-                placeholder="Kategori" @error('kategori') is-invalid @enderror" name="kategori" value="{{ $data->kategori }}" required autocomplete="kategori" autofocus>
-            @error('kategori')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
+            <label for="id_kategori">Kategori</label>
+            <select name="id_kategori" class="form-control form-control-user" id="id_kategori">
+                <option value="0">Pilih Kategori</option>
+                @foreach ($kategoris as $kategori)
+                <option {{ $data->id_kategori == $kategori->id ? 'selected' : '' }} value="{{ $kategori->id }}">{{ $kategori->nama }}</option>
+                @endforeach
+            </select>
         </div>
     </div>
     <div class="form-group row">
         <div class="col-sm-12 mb-3 mb-sm-0">
-            <button type="submit" class="btn btn-primary btn-icon-split mb-3">
+            <button type="submit" class="btn btn-success btn-icon-split mb-3">
                 <span class="icon text-white-50">
-                    <i class="fas fa-plus-square"></i>
+                    <i class="fas fa-pencil-alt"></i>
                 </span>
-                <span class="text">Tambah</span>
+                <span class="text">Ubah</span>
             </button>
         </div>
     </div>

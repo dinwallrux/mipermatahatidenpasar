@@ -61,6 +61,15 @@ Route::middleware(['auth'])->prefix('galeri')->group(function(){
     Route::post('/proses/update', 'GaleriController@update')->middleware(['admin'])->name('galeri.proses.update');
 });
 
+Route::middleware(['auth'])->prefix('kategori')->group(function(){
+    Route::get('/', 'KategoriController@index')->name('kategori');
+    Route::get('/tambah', 'KategoriController@create')->middleware(['admin'])->name('kategori.tambah');
+    Route::post('/proses/tambah', 'KategoriController@store')->middleware(['admin'])->name('kategori.proses.tambah');
+    Route::get('/proses/hapus/{id}', 'KategoriController@destroy')->middleware(['admin'])->name('kategori.proses.hapus');
+    Route::get('/proses/edit/{id}', 'KategoriController@edit')->middleware(['admin'])->name('kategori.edit');
+    Route::post('/proses/update', 'KategoriController@update')->middleware(['admin'])->name('kategori.proses.update');
+});
+
 Route::middleware(['auth'])->prefix('informasi')->group(function(){
     Route::get('/', 'InformasiController@index')->name('info');
     Route::get('/lihat/{id}', 'InformasiController@show')->name('info.lihat');
