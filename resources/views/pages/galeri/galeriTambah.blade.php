@@ -28,6 +28,19 @@
     </div>
     <div class="form-group row">
         <div class="col-sm-12 mb-3 mb-sm-0">
+            <label for="kategori">Deskripsi</label>
+            <textarea name="deskripsi" id="deskripsi" class="form-control form-control-user tinymce" cols="30" rows="10" placeholder="Deskripsi" @error('deskripsi') is-invalid @enderror" required>
+            </textarea>
+            
+            @error('deskripsi')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-12 mb-3 mb-sm-0">
             <label for="kategori">Kategori</label>
             <input type="text" class="form-control form-control-user" id="kategori"
                 placeholder="Kategori" @error('kategori') is-invalid @enderror" name="kategori" value="{{ old('kategori') }}" required autocomplete="kategori" autofocus>

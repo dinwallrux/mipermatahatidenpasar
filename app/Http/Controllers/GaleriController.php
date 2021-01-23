@@ -51,6 +51,7 @@ class GaleriController extends Controller
         $galleries = [
             'image' => $path_image,
             'nama_foto' => $request->nama_foto,
+            'deskripsi' => $request->deskripsi,
             'kategori' => $request->kategori
         ];
 
@@ -91,22 +92,29 @@ class GaleriController extends Controller
     public function update(Request $request, Galeri $galeri)
     {
         $request->validate([
-            'image' => 'required',
             'nama_foto' => 'required',
         ]);
 
-        // Hapus gambar yg lama
+        // Ngambil gambar lama
         $oldPhoto = Galeri::where('id', $request->id)->first()->getOriginal('image');
-        Storage::delete($oldPhoto);
+        
+        // Check apakah ada gambar baru yg mau di update
+        if($request->hasFile('image')){
+            // Ganti nama dan Simpan gambar di storage
+            $image = $request->file('image');
+            $new_name = rand() . '.' . $image->getClientOriginalExtension();
+            $path_image = $request->file('image')->storeAs('public', $new_name);
 
-        // Ganti nama dan Simpan gambar di storage
-        $image = $request->file('image');
-        $new_name = rand() . '.' . $image->getClientOriginalExtension();
-        $path_image = $request->file('image')->storeAs('public', $new_name);
+            // Hapus gambar yg lama
+            Storage::delete($oldPhoto);
+        } else {
+            $path_image = $oldPhoto;
+        }
 
         Galeri::where('id', $request->id)->update([
             'image' => $path_image,
             'nama_foto' => $request->nama_foto,
+            'deskripsi' => $request->deskripsi,
             'kategori' => $request->kategori
         ]);
         return redirect()->route('galeri')
