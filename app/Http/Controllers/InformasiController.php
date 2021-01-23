@@ -15,7 +15,7 @@ class InformasiController extends Controller
      */
     public function index()
     {
-        $role = Auth::user()->status;
+        $role = Auth::user()->peran;
         if($role == 'pengguna'){
             $datas = Informasi::where(['publish' => 1, 'jenis_pengumuman' => 'siswa'])->latest()->get();
         } elseif($role != 'operator'){
@@ -80,7 +80,7 @@ class InformasiController extends Controller
      */
     public function show($id)
     {
-        $role = Auth::user()->status;
+        $role = Auth::user()->peran;
         $data = Informasi::where('id', $id)->get()->first()->getOriginal();
         return view('pages.manajemenInformasi.infoLihat', compact('data', 'role'));
     }

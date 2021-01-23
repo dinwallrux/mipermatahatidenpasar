@@ -100,3 +100,16 @@ Route::group([
     Route::get('/proses/siswa/pindah', 'RombelController@siswaPindah')->name('rombel.proses.siswa.pindah');
     Route::get('/proses/siswa/keluar', 'RombelController@siswaKeluar')->name('rombel.proses.siswa.keluar');
 });
+
+Route::group([
+    'prefix' => 'user',
+    'middleware' => ['auth', 'admin']
+], function(){
+    Route::get('/', 'UserController@index')->name('user');
+    Route::get('/lihat/{id}', 'UserController@show')->name('user.lihat');
+    Route::get('/tambah', 'UserController@create')->name('user.tambah');
+    Route::post('/proses/tambah', 'UserController@store')->name('user.proses.tambah');
+    Route::get('/proses/hapus/{id}', 'UserController@destroy')->name('user.proses.hapus');
+    Route::get('/edit/{id}', 'UserController@edit')->name('user.edit');
+    Route::post('/proses/update', 'UserController@update')->name('user.proses.update');
+});

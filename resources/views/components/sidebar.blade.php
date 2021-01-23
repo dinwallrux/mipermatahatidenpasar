@@ -21,14 +21,14 @@
     <li class="nav-item {{ str_contains(Route::currentRouteName(), 'info') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('info') }}">
             <i class="fas fa-book"></i>
-            @if (auth()->user()->status == 'operator')
+            @if (auth()->user()->peran == 'operator')
             <span>Manajemen Informasi</span>
             @else
             <span>Informasi</span>
             @endif
         </a>
     </li>
-    @if (auth()->user()->status == 'operator' || auth()->user()->status == 'pegawai' || auth()->user()->status == 'kepsek')
+    @if (auth()->user()->peran == 'operator' || auth()->user()->peran == 'pegawai' || auth()->user()->peran == 'kepsek')
     <li class="nav-item {{ str_contains(Route::currentRouteName(), 'tenagaPendidik') ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#tenaga-pendidik" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-chalkboard-teacher"></i>
@@ -67,14 +67,27 @@
         </a>
         <div id="galeri" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{ route('galeri') }}">Semua Galeri</a>
-                @if (auth()->user()->status == 'operator' || auth()->user()->status == 'pegawai' || auth()->user()->status == 'kepsek')
+                <a class="collapse-item" href="{{ route('galeri') }}">Lihat Galeri</a>
+                @if (auth()->user()->peran == 'operator' || auth()->user()->peran == 'pegawai' || auth()->user()->peran == 'kepsek')
                 <a class="collapse-item" href="{{ route('kategori') }}">Kategori</a>
                 @endif
             </div>
         </div>
     </li>
-
+    @if (auth()->user()->peran == 'operator')
+    <li class="nav-item {{ str_contains(Route::currentRouteName(), 'user') ? 'active' : '' }}">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#user" aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-users"></i>
+            <span>Pengguna</span>
+        </a>
+        <div id="user" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="{{ route('user') }}">Lihat Pengguna</a>
+                {{-- <a class="collapse-item" href="{{ route('peran') }}">Peran Pengguna</a> --}}
+            </div>
+        </div>
+    </li>
+    @endif
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 

@@ -9,7 +9,7 @@
         <th>Lantai Ke</th>
         <th>Jumlah Ruangan</th>
         <th>Kapasitas</th>
-        @if (auth()->user()->status == 'operator')
+        @if (auth()->user()->peran == 'operator')
         <th>Action</th>
         @endif
     </tr>
@@ -23,7 +23,7 @@
         <td>{{$data->lantai_ke}}</td>
         <td>{{$data->jumlah_ruangan}}</td>
         <td>{{$data->kapasitas}}</td>
-        @if (auth()->user()->status == 'operator')
+        @if (auth()->user()->peran == 'operator')
         <td align="center">
             <a href="{{ route('sarpras.ruang.proses.hapus', $data->id) }}" title="Hapus" class="btn btn-danger btn-circle btn-sm mr-1" style="display: none;">
                 <i class="fas fa-trash"></i>
@@ -45,7 +45,7 @@
         <th>Lantai Ke</th>
         <th>Jumlah Ruangan</th>
         <th>Kapasitas</th>
-        @if (auth()->user()->status == 'operator')
+        @if (auth()->user()->peran == 'operator')
         <th>Action</th>
         @endif
     </tr>

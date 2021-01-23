@@ -13,7 +13,7 @@
             <h6 class="m-0 font-weight-bold text-primary">{{ ucfirst($title ?? 'Data Tables') }}</h6>
         </div>
         <div class="card-body">
-            @if (auth()->user()->status == 'operator')
+            @if (auth()->user()->peran == 'operator')
             <a href="{{ $link_tambah_data }}" class="btn btn-primary btn-icon-split mb-3">
                 <span class="icon text-white-50">
                     <i class="fas fa-plus-square"></i>

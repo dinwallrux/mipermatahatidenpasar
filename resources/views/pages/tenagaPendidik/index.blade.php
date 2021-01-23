@@ -9,7 +9,7 @@
         <th>Alamat</th>
         <th>Email</th>
         <th>Status</th>
-        @if (auth()->user()->status == 'operator')
+        @if (auth()->user()->peran == 'operator')
         <th>Action</th>
         @endif
     </tr>
@@ -28,7 +28,7 @@
         <td>{{$data->alamat}}</td>
         <td>{{$data->email}}</td>
         <td>{{$data->status ? 'Aktif' : 'Tidak Aktif'}}</td>
-        @if (auth()->user()->status == 'operator')
+        @if (auth()->user()->peran == 'operator')
         <td align="center">
             <a href="{{ route('tenagaPendidik.proses.hapus', ['jenis_tendik' => $jenis_tendik, 'id' => $data->id]) }}" title="Hapus" class="btn btn-danger btn-circle btn-sm mr-1" style="display: none;">
                 <i class="fas fa-trash"></i>
@@ -50,7 +50,7 @@
         <th>Alamat</th>
         <th>Email</th>
         <th>Status</th>
-        @if (auth()->user()->status == 'operator')
+        @if (auth()->user()->peran == 'operator')
         <th>Action</th>
         @endif
     </tr>
