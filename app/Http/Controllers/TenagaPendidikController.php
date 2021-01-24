@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Rombel;
 use App\TenagaPendidik;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TenagaPendidikController extends Controller
 {
@@ -17,7 +18,7 @@ class TenagaPendidikController extends Controller
     {
         // Passing Data
         $number = 1;
-        $datas = TenagaPendidik::with('rombel')->latest()->first()->where('jenis_tendik', $jenis_tendik)->get();
+        $datas = TenagaPendidik::with('rombel')->first()->where('jenis_tendik', $jenis_tendik)->latest()->get();
         return view('pages.tenagaPendidik.index', ['number' => $number, 'datas' => $datas, 'jenis_tendik' => $jenis_tendik]);
     }
 
@@ -44,7 +45,36 @@ class TenagaPendidikController extends Controller
             'nama' => 'required',
         ]);
 
-        TenagaPendidik::create($request->all());
+        // Ganti nama file dan simpan di storage
+        $image = $request->file('foto_tendik');
+        $new_name = rand() . '.' . $image->getClientOriginalExtension();
+        $path_image = $request->file('foto_tendik')->storeAs('public', $new_name);
+
+        TenagaPendidik::create([
+            'nama' => $request->nama,
+            'nik' => $request->nik,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'tempat_lahir' => $request->tempat_lahir,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'alamat' => $request->alamat,
+            'agama' => $request->agama,
+            'pendidikan_terakhir' => $request->pendidikan_terakhir,
+            'jenis_tendik' => $request->jenis_tendik,
+            'status_pegawai' => $request->status_pegawai,
+            'nip' => $request->nip,
+            'nuptk' => $request->nuptk,
+            'jenis_ptk' => $request->jenis_ptk,
+            'sk_pengangkatan' => $request->sk_pengangkatan,
+            'tmt_pengangkatan' => $request->tmt_pengangkatan,
+            'lembaga_pengangkat' => $request->lembaga_pengangkat,
+            'sk_cpns' => $request->sk_cpns,
+            'tmt_cpns' => $request->tmt_cpns,
+            'no_telepon' => $request->no_telepon,
+            'email' => $request->email,
+            'id_rombel' => $request->id_rombel,
+            'status' => $request->status,
+            'foto_tendik' => $path_image
+        ]);
 
         return redirect()->route('tenagaPendidik', $jenis_tendik)->with('success', 'Project created successfully.');
     }
@@ -87,6 +117,23 @@ class TenagaPendidikController extends Controller
             'nama' => 'required',
             'nik' => 'required',
         ]);
+
+        // Ngambil gambar lama
+        $oldPhoto = TenagaPendidik::where('id', $request->id)->first()->getOriginal('foto_tendik');
+            
+        // Check apakah ada gambar baru yg mau di update
+        if($request->hasFile('foto_tendik')){
+            // Ganti nama dan Simpan gambar di storage
+            $image = $request->file('foto_tendik');
+            $new_name = rand() . '.' . $image->getClientOriginalExtension();
+            $path_image = $request->file('foto_tendik')->storeAs('public', $new_name);
+
+            // Hapus gambar yg lama
+            Storage::delete($oldPhoto);
+        } else {
+            $path_image = $oldPhoto;
+        }
+
         TenagaPendidik::where('id', $request->id)->update([
             'nama' => $request->nama,
             'nik' => $request->nik,
@@ -109,7 +156,8 @@ class TenagaPendidikController extends Controller
             'no_telepon' => $request->no_telepon,
             'email' => $request->email,
             'id_rombel' => $request->id_rombel,
-            'status' => $request->status
+            'status' => $request->status,
+            'foto_tendik' => $path_image
         ]);
         return redirect()->route('tenagaPendidik', $request->jenis_tendik)
             ->with('success', 'Project created successfully.');

@@ -3,7 +3,7 @@
 @section('content_2')
 
 @foreach ($datas as $data)
-<form class="tenaga-pendidik-form" method="POST" action="{{ route('tenagaPendidik.proses.update', ['jenis_tendik' => $jenis_tendik]) }}">
+<form class="tenaga-pendidik-form" enctype="multipart/form-data" method="POST" action="{{ route('tenagaPendidik.proses.update', ['jenis_tendik' => $jenis_tendik]) }}">
     @csrf
     
     <input type="hidden" name="id" value="{{$data->id}}">
@@ -130,7 +130,7 @@
         <div class="col-sm-6">
             <label for="nuptk">NUPTK</label>
             <input type="number" class="form-control form-control-user" id="nuptk"
-                placeholder="NUPTK" @error('nuptk') is-invalid @enderror" name="nuptk" value="{{ $data->nuptk }}" required autocomplete="nuptk" autofocus>
+                placeholder="NUPTK" @error('nuptk') is-invalid @enderror" name="nuptk" value="{{ $data->nuptk }}" autocomplete="nuptk" autofocus>
             @error('nuptk')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -161,7 +161,7 @@
         <div class="col-sm-6">
             <label for="sk_pengangkatan">SK Pengangkatan</label>
             <input type="text" class="form-control form-control-user" id="sk_pengangkatan"
-                placeholder="SK Pengangkatan" @error('sk_pengangkatan') is-invalid @enderror" name="sk_pengangkatan" value="{{ $data->sk_pengangkatan }}" required autocomplete="sk_pengangkatan" autofocus>
+                placeholder="SK Pengangkatan" @error('sk_pengangkatan') is-invalid @enderror" name="sk_pengangkatan" value="{{ $data->sk_pengangkatan }}" autocomplete="sk_pengangkatan" autofocus>
             @error('sk_pengangkatan')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -174,7 +174,7 @@
         <div class="col-sm-12 mb-3 mb-sm-0">
             <label for="id_rombel">Rombel Wali Kelas</label>
             <select name="id_rombel" class="form-control form-control-user" id="id_rombel">
-                <option value="0">Pilih Rombel</option>
+                <option value="">Pilih Rombel</option>
                 @foreach ($rombels as $rombel)
                 <option {{ $rombel->id == $data->id_rombel ? 'selected' : '' }} value="{{ $rombel->id }}">{{ $rombel->nama_rombel }}</option>
                 @endforeach
@@ -244,6 +244,18 @@
                 <option {{ $data->status == 1 ? 'selected' : '' }} value="1">Aktif</option>
                 <option {{ $data->status == 0 ? 'selected' : '' }} value="0">Tidak Aktif</option>
             </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-12 mb-3 mb-sm-0">
+            <label for="foto_tendik">Foto</label>
+            <input type="file" class="form-control form-control-user" id="foto_tendik"
+                placeholder="Foto" @error('foto_tendik') is-invalid @enderror" name="foto_tendik" value="{{ $data->foto_tendik }}" autocomplete="foto_tendik" autofocus>
+            @error('foto_tendik')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
         </div>
     </div>
     <div class="form-group row">

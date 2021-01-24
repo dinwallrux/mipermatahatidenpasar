@@ -12,7 +12,7 @@ $(document).ready(function() {
     });
 
     // Display form rombel wali kelas
-    let formRombelWaliKelas = $('select[name="rombel_wali_kelas"]').closest('.form-group');
+    let formRombelWaliKelas = $('select[name="id_rombel"]').closest('.form-group');
     $('select[name="jenis_ptk"]').val() == 'guru kelas' ? formRombelWaliKelas.removeClass('hide') : formRombelWaliKelas.addClass('hide');
     $('select[name="jenis_ptk"]').on('change', function(){
         let jenis_ptk = $(this).val();
@@ -20,7 +20,7 @@ $(document).ready(function() {
             formRombelWaliKelas.removeClass('hide');
         } else{
             formRombelWaliKelas.addClass('hide');
-            $('select[name="rombel_wali_kelas"]').val(0);
+            $('select[name="id_rombel"]').val('');
         }
     });
 });

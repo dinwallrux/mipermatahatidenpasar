@@ -1,7 +1,7 @@
 @extends('layouts.card_blank', ['page_title' => 'Tenaga Pendidik', 'title' => $jenis_tendik == 'gtk' ? 'Tambah Guru' : 'Tambah Pegawai'])
 
 @section('content_2')
-<form class="tenaga-pendidik-form" method="POST" action="{{ route('tenagaPendidik.proses.tambah', $jenis_tendik) }}">
+<form class="tenaga-pendidik-form" enctype="multipart/form-data" method="POST" action="{{ route('tenagaPendidik.proses.tambah', $jenis_tendik) }}">
     @csrf
     
     <input type="hidden" name="jenis_tendik" value="{{$jenis_tendik}}">
@@ -127,7 +127,7 @@
         <div class="col-sm-6">
             <label for="nuptk">NUPTK</label>
             <input type="number" class="form-control form-control-user" id="nuptk"
-                placeholder="NUPTK" @error('nuptk') is-invalid @enderror" name="nuptk" value="{{ old('nuptk') }}" required autocomplete="nuptk" autofocus>
+                placeholder="NUPTK" @error('nuptk') is-invalid @enderror" name="nuptk" value="{{ old('nuptk') }}" autocomplete="nuptk" autofocus>
             @error('nuptk')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -158,7 +158,7 @@
         <div class="col-sm-6">
             <label for="sk_pengangkatan">SK Pengangkatan</label>
             <input type="text" class="form-control form-control-user" id="sk_pengangkatan"
-                placeholder="SK Pengangkatan" @error('sk_pengangkatan') is-invalid @enderror" name="sk_pengangkatan" value="{{ old('sk_pengangkatan') }}" required autocomplete="sk_pengangkatan" autofocus>
+                placeholder="SK Pengangkatan" @error('sk_pengangkatan') is-invalid @enderror" name="sk_pengangkatan" value="{{ old('sk_pengangkatan') }}" autocomplete="sk_pengangkatan" autofocus>
             @error('sk_pengangkatan')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -241,6 +241,18 @@
                 <option selected value="1">Aktif</option>
                 <option value="0">Tidak Aktif</option>
             </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-12 mb-3 mb-sm-0">
+            <label for="foto_tendik">Foto</label>
+            <input type="file" class="form-control form-control-user" id="foto_tendik"
+                placeholder="Foto" @error('foto_tendik') is-invalid @enderror" name="foto_tendik" value="{{ old('foto_tendik') }}" autocomplete="foto_tendik" autofocus>
+            @error('foto_tendik')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
         </div>
     </div>
     <div class="form-group row">
