@@ -5,7 +5,7 @@
     <tr>
         <th>No</th>
         <th>Nama</th>
-        @if (auth()->user()->peran == 'operator')
+        @if (auth()->user()->id_peran == 1)
         <th>Action</th>
         @endif
     </tr>
@@ -15,7 +15,7 @@
     <tr>
         <td>{{$number++}}</td>
         <td>{{$data->nama}}</td>
-        @if (auth()->user()->peran == 'operator')
+        @if (auth()->user()->id_peran == 1)
         <td align="center">
             <a href="{{ route('peran.proses.hapus', $data->id) }}" title="Hapus" class="btn btn-danger btn-circle btn-sm mr-1" style="display: none;">
                 <i class="fas fa-trash"></i>
@@ -33,7 +33,7 @@
     <tr>
         <th>No</th>
         <th>Nama</th>
-        @if (auth()->user()->peran == 'operator')
+        @if (auth()->user()->id_peran == 1)
         <th>Action</th>
         @endif
     </tr>

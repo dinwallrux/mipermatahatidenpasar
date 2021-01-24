@@ -38,12 +38,12 @@
             @enderror
         </div>
         <div class="col-sm-6">
-            <label for="peran">Peran</label>
-            <select name="peran" class="form-control form-control-user" id="peran">
-                <option selected value="pengguna">Pengguna</option>
-                {{-- @foreach ($kategoris as $kategori)
-                <option value="{{ $kategori->id }}">{{ $kategori->nama }}</option>
-                @endforeach --}}
+            <label for="id_peran">Peran</label>
+            <select name="id_peran" class="form-control form-control-user" id="id_peran">
+                <option selected value="">Pilih Peran</option>
+                @foreach ($perans as $peran)
+                <option value="{{ $peran->id }}">{{ $peran->nama }}</option>
+                @endforeach
             </select>
         </div>
     </div>

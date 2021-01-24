@@ -21,14 +21,15 @@
     <li class="nav-item {{ str_contains(Route::currentRouteName(), 'info') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('info') }}">
             <i class="fas fa-book"></i>
-            @if (auth()->user()->peran == 'operator')
+            @if (auth()->user()->id_peran == 1)
             <span>Manajemen Informasi</span>
             @else
             <span>Informasi</span>
             @endif
         </a>
     </li>
-    @if (auth()->user()->peran == 'operator' || auth()->user()->peran == 'pegawai' || auth()->user()->peran == 'kepsek')
+
+    @if (auth()->user()->id_peran == 1 || auth()->user()->id_peran == 2)
     <li class="nav-item {{ str_contains(Route::currentRouteName(), 'tenagaPendidik') ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#tenaga-pendidik" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-chalkboard-teacher"></i>
@@ -68,13 +69,13 @@
         <div id="galeri" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="{{ route('galeri') }}">Lihat Galeri</a>
-                @if (auth()->user()->peran == 'operator' || auth()->user()->peran == 'pegawai' || auth()->user()->peran == 'kepsek')
+                @if (auth()->user()->id_peran == 1 || auth()->user()->id_peran == 2)
                 <a class="collapse-item" href="{{ route('kategori') }}">Kategori</a>
                 @endif
             </div>
         </div>
     </li>
-    @if (auth()->user()->peran == 'operator')
+    @if (auth()->user()->id_peran == 1)
     <li class="nav-item {{ str_contains(Route::currentRouteName(), 'user') ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#user" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-users"></i>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Peran;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -27,7 +28,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('pages.user.userTambah');
+        $perans = Peran::all();
+        return view('pages.user.userTambah', compact('perans'));
     }
 
     /**
@@ -48,7 +50,7 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'peran' => $request->peran
+            'id_peran' => $request->id_peran
         ]);
 
         return redirect()->route('user')->with('success', 'User created successfully.');
@@ -74,7 +76,8 @@ class UserController extends Controller
     public function edit($id)
     {
         $data = User::where('id', $id)->get()->first();
-        return view('pages.user.userEdit', compact('data'));
+        $perans = Peran::all();
+        return view('pages.user.userEdit', compact('data', 'perans'));
     }
 
     /**
@@ -101,7 +104,7 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => $password,
-            'peran' => $request->peran
+            'id_peran' => $request->id_peran
         ]);
         return redirect()->route('user')->with('success', 'User updated.');
     }

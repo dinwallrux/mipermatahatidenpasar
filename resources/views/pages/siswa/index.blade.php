@@ -11,7 +11,7 @@
         <th>Alamat</th>
         <th>Kelas</th>
         <th>Status</th>
-        @if (auth()->user()->peran == 'operator')
+        @if (auth()->user()->id_peran == 1)
         <th>Action</th>
         @endif
     </tr>
@@ -31,7 +31,7 @@
         <td>{{$data->alamat}}</td>
         <td>{{ $data->rombel['nama_rombel'] }}</td>
         <td>{{ucfirst($data->peran)}}</td>
-        @if (auth()->user()->peran == 'operator')
+        @if (auth()->user()->id_peran == 1)
         <td align="center">
             <a href="{{ route('siswa.edit', $data->id) }}" title="Edit" class="btn btn-success btn-circle btn-sm">
                 <i class="fas fa-pencil-alt"></i>
@@ -55,7 +55,7 @@
         <th>Alamat</th>
         <th>Kelas</th>
         <th>Status</th>
-        @if (auth()->user()->peran == 'operator')
+        @if (auth()->user()->id_peran == 1)
         <th>Action</th>
         @endif
     </tr>

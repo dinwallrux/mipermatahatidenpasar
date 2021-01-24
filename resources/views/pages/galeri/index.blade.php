@@ -7,7 +7,7 @@
         <th>Foto</th>
         <th>Nama Foto</th>
         <th>Kategory</th>
-        @if (auth()->user()->peran == 'operator')
+        @if (auth()->user()->id_peran == 1)
         <th>Action</th>
         @endif
     </tr>
@@ -19,7 +19,7 @@
         <td><img src="{{  url('storage/'.basename($data->image)) }}" style="width: 320px;" alt=""></td>
         <td>{{$data->nama_foto}}</td>
         <td>{{$data->kategori['nama']}}</td>
-        @if (auth()->user()->peran == 'operator')
+        @if (auth()->user()->id_peran == 1)
         <td align="center">
             <a href="{{ route('galeri.proses.hapus', $data->id) }}" title="Hapus" class="btn btn-danger btn-circle btn-sm mr-1" style="display: none;">
                 <i class="fas fa-trash"></i>
@@ -39,7 +39,7 @@
         <th>Foto</th>
         <th>Nama Foto</th>
         <th>Kategory</th>
-        @if (auth()->user()->peran == 'operator')
+        @if (auth()->user()->id_peran == 1)
         <th>Action</th>
         @endif
     </tr>

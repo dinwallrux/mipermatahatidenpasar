@@ -28,7 +28,7 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if($this->auth->getUser()->peran !== 'operator' && $this->auth->getUser()->peran !== 'pegawai' && $this->auth->getUser()->peran !== 'kepsek'){
+        if($this->auth->getUser()->id_peran !== 1 && $this->auth->getUser()->id_peran !== 2){
             return redirect()->route('profil');
         }
         return $next($request);

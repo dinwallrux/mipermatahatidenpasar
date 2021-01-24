@@ -9,7 +9,7 @@
         <th>Tingkat Pendidikan</th>
         <th>Wali Kelas</th>
         <th>Ruang</th>
-        @if (auth()->user()->peran == 'operator')
+        @if (auth()->user()->id_peran == 1)
         <th>Action</th>
         @endif
     </tr>
@@ -27,7 +27,7 @@
         <td>{{$data->tingkat_pendidikan}}</td>
         <td>{{$data->guru['nama']}}</td>
         <td>{{$data->sarpras->nama_ruang}}</td>
-        @if (auth()->user()->peran == 'operator')
+        @if (auth()->user()->id_peran == 1)
         <td align="center">
             <a href="{{ route('rombel.proses.hapus', $data->id) }}" title="Hapus" class="btn btn-danger btn-circle btn-sm mr-1" style="display: none;">
                 <i class="fas fa-trash"></i>
@@ -49,7 +49,7 @@
         <th>Tingkat Pendidikan</th>
         <th>Wali Kelas</th>
         <th>Ruang</th>
-        @if (auth()->user()->peran == 'operator')
+        @if (auth()->user()->id_peran == 1)
         <th>Action</th>
         @endif
     </tr>
