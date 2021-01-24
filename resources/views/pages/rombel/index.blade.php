@@ -5,11 +5,11 @@
     <tr>
         <th>No</th>
         <th>Nama Rombel</th>
+        <th>Tahun Ajaran</th>
         <th>Kurikulum</th>
         <th>Tingkat Pendidikan</th>
         <th>Wali Kelas</th>
         <th>Ruang</th>
-        <th>Tahun Ajaran</th>
         @if (auth()->user()->id_peran == 1)
         <th>Action</th>
         @endif
@@ -24,11 +24,11 @@
                 {{$data->nama_rombel}}
             </a>
         </td>
+        <td>{{$data->tahun_ajaran}}</td>
         <td>{{$data->kurikulum}}</td>
         <td>{{$data->tingkat_pendidikan}}</td>
         <td>{{$data->guru['nama']}}</td>
         <td>{{$data->sarpras->nama_ruang}}</td>
-        <td>{{$data->tahun_ajaran}}</td>
         @if (auth()->user()->id_peran == 1)
         <td align="center">
             <a href="{{ route('rombel.proses.hapus', $data->id) }}" title="Hapus" class="btn btn-danger btn-circle btn-sm mr-1" style="display: none;">
@@ -47,11 +47,11 @@
     <tr>
         <th>No</th>
         <th>Nama Rombel</th>
+        <th>Tahun Ajaran</th>
         <th>Kurikulum</th>
         <th>Tingkat Pendidikan</th>
         <th>Wali Kelas</th>
         <th>Ruang</th>
-        <th>Tahun Ajaran</th>
         @if (auth()->user()->id_peran == 1)
         <th>Action</th>
         @endif
