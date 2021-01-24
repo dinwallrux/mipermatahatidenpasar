@@ -47,7 +47,7 @@
         </div>
     </div>
     <div class="form-group row">
-        <div class="col-sm-12">
+        <div class="col-sm-6 mb-3 mb-sm-0">
             <label for="id_sarpras">Ruang</label>
             <select name="id_sarpras" class="form-control form-control-user" id="id_sarpras">
                 @foreach ($ruangs as $ruang)
@@ -55,10 +55,20 @@
                 @endforeach
             </select>
         </div>
+        <div class="col-sm-6">
+            <label for="tahun_ajaran">Tahun Ajaran</label>
+            <input type="text" class="form-control form-control-user" id="tahun_ajaran"
+                placeholder="Tahun Ajaran: 2021/2022" @error('tahun_ajaran') is-invalid @enderror" name="tahun_ajaran" value="{{ old('tahun_ajaran') }}" required autocomplete="tahun_ajaran" autofocus>
+            @error('tahun_ajaran')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
     </div>
     <div class="form-group row">
         <div class="col-sm-12 mb-3 mb-sm-0">
-            <button type="submit" class="btn btn-primary btn-icon-split mb-3">
+            <button type="submit" class="btn btn-success btn-icon-split mb-3">
                 <span class="icon text-white-50">
                     <i class="fas fa-pencil-alt"></i>
                 </span>

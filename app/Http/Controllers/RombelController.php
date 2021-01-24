@@ -97,6 +97,7 @@ class RombelController extends Controller
             'nama_rombel' => $request->nama_rombel,
             'id_tenaga_pendidik' => $request->id_tenaga_pendidik,
             'id_sarpras' => $request->id_sarpras,
+            'tahun_ajaran' => $request->tahun_ajaran
         ]);
         return redirect()->route('rombel')->with('success', 'Rombel updated.');
     }
