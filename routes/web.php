@@ -106,10 +106,21 @@ Route::group([
     'middleware' => ['auth', 'admin']
 ], function(){
     Route::get('/', 'UserController@index')->name('user');
-    Route::get('/lihat/{id}', 'UserController@show')->name('user.lihat');
     Route::get('/tambah', 'UserController@create')->name('user.tambah');
     Route::post('/proses/tambah', 'UserController@store')->name('user.proses.tambah');
     Route::get('/proses/hapus/{id}', 'UserController@destroy')->name('user.proses.hapus');
     Route::get('/edit/{id}', 'UserController@edit')->name('user.edit');
     Route::post('/proses/update', 'UserController@update')->name('user.proses.update');
+});
+
+Route::group([
+    'prefix' => 'peran',
+    'middleware' => ['auth', 'admin']
+], function(){
+    Route::get('/', 'PeranController@index')->name('peran');
+    Route::get('/tambah', 'PeranController@create')->name('peran.tambah');
+    Route::post('/proses/tambah', 'PeranController@store')->name('peran.proses.tambah');
+    Route::get('/proses/hapus/{id}', 'PeranController@destroy')->name('peran.proses.hapus');
+    Route::get('/edit/{id}', 'PeranController@edit')->name('peran.edit');
+    Route::post('/proses/update', 'PeranController@update')->name('peran.proses.update');
 });

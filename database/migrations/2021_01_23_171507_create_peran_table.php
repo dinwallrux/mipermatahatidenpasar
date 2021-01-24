@@ -15,6 +15,8 @@ class CreatePeranTable extends Migration
     {
         Schema::create('peran', function (Blueprint $table) {
             $table->id();
+            $table->string('nama')->nullable();
+            $table->string('slug')->nullable();
             $table->timestamps();
         });
     }
