@@ -30,7 +30,7 @@
         <td>{{$data->nisn}}</td>
         <td>{{$data->alamat}}</td>
         <td>{{ $data->rombel['nama_rombel'] }}</td>
-        <td>{{ucfirst($data->peran)}}</td>
+        <td>{{ucfirst($data->status)}}</td>
         @if (auth()->user()->id_peran == 1)
         <td align="center">
             <a href="{{ route('siswa.edit', $data->id) }}" title="Edit" class="btn btn-success btn-circle btn-sm">

@@ -3,7 +3,7 @@
 @section('content_2')
 
 @foreach ($siswas as $siswa)
-<form class="siswa-form" method="POST" action="{{ route('siswa.proses.edit') }}">
+<form class="siswa-form" enctype="multipart/form-data" method="POST" action="{{ route('siswa.proses.edit') }}">
     @csrf
 
     <input type="hidden" name="id" class="form-control form-control-user" value="{{ $siswa->id }}">
@@ -151,13 +151,23 @@
         </div>
     </div>
     <div class="form-group row">
-        <div class="col-sm-12 mb-3 mb-sm-0">
+        <div class="col-sm-6 mb-3 mb-sm-0">
             <label for="status" class="mb-0 mr-2">Status</label>
             <select name="status" class="form-control form-control-user" id="status">
                 <option {{ $siswa->status == 'aktif' ? 'selected' : '' }} value="aktif">Aktif</option>
                 <option {{ $siswa->status == 'lulus' ? 'selected' : '' }} value="lulus">Lulus</option>
                 <option {{ $siswa->status == 'pindah' ? 'selected' : '' }} value="pindah">Pindah</option>
             </select>
+        </div>
+        <div class="col-sm-6">
+            <label for="foto_siswa">Foto Siswa</label>
+            <input type="file" class="form-control form-control-user" id="foto_siswa"
+                placeholder="Foto" @error('foto_siswa') is-invalid @enderror" name="foto_siswa" value="{{ $siswa->foto_siswa }}" autocomplete="foto_siswa" autofocus>
+            @error('foto_siswa')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
         </div>
     </div>
     <div class="form-group row">

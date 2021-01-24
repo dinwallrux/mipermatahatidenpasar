@@ -1,7 +1,7 @@
 @extends('layouts.card_blank', ['page_title' => 'Siswa', 'title' => 'Tambah Siswa'])
 
 @section('content_2')
-<form class="siswa-form" method="POST" action="{{ route('siswa.proses.tambah') }}">
+<form class="siswa-form" enctype="multipart/form-data" method="POST" action="{{ route('siswa.proses.tambah') }}">
     @csrf
     
     <div class="form-group row">
@@ -149,13 +149,23 @@
         </div>
     </div>
     <div class="form-group row">
-        <div class="col-sm-12 mb-3 mb-sm-0">
+        <div class="col-sm-6 mb-3 mb-sm-0">
             <label for="status" class="mb-0 mr-2">Status</label>
             <select name="status" class="form-control form-control-user" id="status">
                 <option value="aktif" selected>Aktif</option>
                 <option value="lulus">Lulus</option>
                 <option value="pindah">Pindah</option>
             </select>
+        </div>
+        <div class="col-sm-6">
+            <label for="foto_siswa">Foto Siswa</label>
+            <input type="file" class="form-control form-control-user" id="foto_siswa"
+                placeholder="Foto" @error('foto_siswa') is-invalid @enderror" name="foto_siswa" value="{{ old('foto_siswa') }}" autocomplete="foto_siswa" autofocus>
+            @error('foto_siswa')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
         </div>
     </div>
     <div class="form-group row">

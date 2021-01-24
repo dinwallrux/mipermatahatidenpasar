@@ -16,7 +16,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
-                        <img src="{{asset('main/img/profile_user.jpg')}}" alt="" width="100%">
+                        <img src="{{  url('storage/'.basename($data->foto_siswa)) }}" alt="" width="100%">
                     </div>
                     <div class="col-lg-8">
                         <div class="row">

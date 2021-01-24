@@ -24,7 +24,8 @@ class Siswa extends Model
         'nama_ayah',
         'nama_ibu',
         'id_rombel',
-        'status'
+        'status',
+        'foto_siswa'
     ];
 
     public function rombel()
