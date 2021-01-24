@@ -59,10 +59,11 @@ class RombelController extends Controller
      */
     public function show($id)
     {
+        $number = 1;
         $data = Rombel::where('id', $id)->get()->first();
         $siswas = Siswa::where(['tingkat_kelas_saat_ini' => $data->tingkat_pendidikan, 'id_rombel' => null])->get();
         $siswaInRombels = Siswa::where('id_rombel', $id)->get();
-        return view('pages.rombel.rombelLihat', ['data' => $data, 'siswas' => $siswas, 'siswaInRombels' => $siswaInRombels]);
+        return view('pages.rombel.rombelLihat', ['number' => $number, 'data' => $data, 'siswas' => $siswas, 'siswaInRombels' => $siswaInRombels]);
     }
 
     /**
