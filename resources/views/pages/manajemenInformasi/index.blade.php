@@ -25,7 +25,7 @@
             <div class="card-body">
                 <p>{!! $data->excerpt !!}</p>
             </div>
-            @if ($role == 'operator')
+            @if ($role == 1)
             <div class="card-footer">
                 @if ($data['publish'])
                 <p class="text-success mb-0">
