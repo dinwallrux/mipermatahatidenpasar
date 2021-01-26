@@ -15,13 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+Route::get('/', 'HomeController@index')->name('home');
 
 Auth::routes();
-
-Route::get('/beranda', 'HomeController@index')->name('beranda');
 
 Route::middleware(['auth', 'admin'])->prefix('siswa')->group(function(){
     Route::get('/', 'SiswaController@index')->name('siswa');

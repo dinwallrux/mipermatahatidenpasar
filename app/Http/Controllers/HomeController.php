@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Galeri;
+use App\Informasi;
+use App\TenagaPendidik;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -14,6 +17,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('pages.beranda.index');
+        $galeris = Galeri::with('kategori')->get();
+        $gurus = TenagaPendidik::where('jenis_tendik', 'gtk')->get();
+        $informasis = Informasi::where(['jenis_pengumuman' =>'siswa', 'publish' => 1])->get();
+        return view('home.index', compact('galeris', 'gurus', 'informasis'));
     }
 }
