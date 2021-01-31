@@ -61,42 +61,37 @@
                             <tr>
                                 <th scope="row">Nama Madrasah</th>
                                 <td>:</td>
-                                <td>Madrasah Ibtidaiyah (MI) Permata Hati</td>
+                                <td>{{$profil->nama_sekolah}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">NPSN</th>
+                                <td>:</td>
+                                <td>{{$profil->npsn}}</td>
                             </tr>
                             <tr>
                                 <th scope="row">Alamat</th>
                                 <td>:</td>
-                                <td>Jln. Raya Pemogan NO. 211 Denpasar</td>
+                                <td>{{$profil->alamat}}</td>
                             </tr>
                             <tr>
-                                <th scope="row">Kecamatan</th>
+                                <th scope="row">Status Sekolah</th>
                                 <td>:</td>
-                                <td>Denpasar Selatan</td>
+                                <td>{{$profil->status_sekolah}}</td>
                             </tr>
                             <tr>
-                                <th scope="row">Kabupaten/Kota</th>
+                                <th scope="row">Akreditasi</th>
                                 <td>:</td>
-                                <td>Denpasar</td>
+                                <td>{{$profil->akreditasi}}</td>
                             </tr>
                             <tr>
-                                <th scope="row">Provinsi</th>
+                                <th scope="row">Kurikulum</th>
                                 <td>:</td>
-                                <td>Bali</td>
+                                <td>{{$profil->kurikulum}}</td>
                             </tr>
                             <tr>
-                                <th scope="row">Penyelenggara/ Pelaksana</th>
+                                <th scope="row">Kepala Sekolah</th>
                                 <td>:</td>
-                                <td>Yayasan Permata Hati</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Akte Notaris Penyelenggara</th>
-                                <td>:</td>
-                                <td>Nomor 14 Tanggal 09 Februari 2012</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Pengesahan Akte Notaris</th>
-                                <td>:</td>
-                                <td>Tanggal 09 Frbruari 2012</td>
+                                <td>{{$profil->kepala_sekolah}}</td>
                             </tr>
                         </table>
                     </div>
