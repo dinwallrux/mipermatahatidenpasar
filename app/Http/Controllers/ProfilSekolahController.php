@@ -89,6 +89,8 @@ class ProfilSekolahController extends Controller
             'akreditasi' => $request->akreditasi,
             'kurikulum' => $request->kurikulum,
             'kepala_sekolah' => $request->kepala_sekolah,
+            'visi' => $request->visi,
+            'misi' => $request->misi
         ]);
         return redirect()->route('profil')
             ->with('success', 'Profil Sekolah berhasil di update.');

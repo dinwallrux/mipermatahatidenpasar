@@ -31,4 +31,8 @@
   #dataTable .edit:hover {
     color: #17a673; }
 
+.card-body ol {
+  padding-left: 20px;
+  margin-bottom: 0; }
+
 /*# sourceMappingURL=my-style.css.map */

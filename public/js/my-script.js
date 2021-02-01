@@ -5,8 +5,8 @@ $(document).ready(function() {
     // Init TinyMCE
     tinymce.init({
         selector: 'textarea',
-        plugins: 'pagebreak',
-        toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | pagebreak',
+        plugins: 'pagebreak lists',
+        toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | pagebreak | numlist bullist',
         menubar: false,
         pagebreak_split_block: true
     });

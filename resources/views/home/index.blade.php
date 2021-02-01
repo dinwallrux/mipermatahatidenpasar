@@ -113,7 +113,7 @@
                             <div class="timeline-heading">
                                 <h4>Visi</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Terwujudnya anak bangsa yang berakhlak mulia berguna bagi agama, bangsa dan negara. Unggul dalam Akademik dan NON-Akademik.</p></div>
+                            <div class="timeline-body text-muted">{!! $profil->visi !!}</div>
                         </div>
                     </li>
                     <li class="timeline-inverted">
@@ -122,13 +122,8 @@
                             <div class="timeline-heading">
                                 <h4>Misi</h4>
                             </div>
-                            <div class="timeline-body">
-                                <ol class="text-muted pl-0">
-                                    <li>Memperkuat  akidah islamiah anak didik.</li>
-                                    <li>Menanamkan bakti kepada kedua orang tua, hormat kepada guru, dan menyayangi sesama teman.</li>
-                                    <li>Meningkatkan kepekaan sosial bagi anak didik</li>
-                                    <li>Membiasakan hidup bersih, sehat, disiplin, dan toleransi dengan sesama teman.</li>
-                                </ol>
+                            <div class="timeline-body text-muted">
+                                {!! $profil->misi !!}
                             </div>
                         </div>
                     </li>

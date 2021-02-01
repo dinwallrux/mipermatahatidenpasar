@@ -82,6 +82,32 @@
     </div>
     <div class="form-group row">
         <div class="col-sm-12 mb-3 mb-sm-0">
+            <label for="visi">Visi</label>
+            <textarea name="visi" id="visi" class="form-control form-control-user tinymce" cols="30" rows="10" placeholder="Visi" @error('visi') is-invalid @enderror" required>
+            </textarea>
+            
+            @error('visi')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-12 mb-3 mb-sm-0">
+            <label for="misi">Misi</label>
+            <textarea name="misi" id="misi" class="form-control form-control-user tinymce" cols="30" rows="10" placeholder="Misi" @error('misi') is-invalid @enderror" required>
+            </textarea>
+            
+            @error('misi')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-12 mb-3 mb-sm-0">
             <button type="submit" class="btn btn-primary btn-icon-split mb-3">
                 <span class="icon text-white-50">
                     <i class="fas fa-pencil-alt"></i>
