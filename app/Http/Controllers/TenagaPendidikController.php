@@ -73,7 +73,8 @@ class TenagaPendidikController extends Controller
             'email' => $request->email,
             'id_rombel' => $request->id_rombel,
             'status' => $request->status,
-            'foto_tendik' => $path_image
+            'foto_tendik' => $path_image,
+            'order' => $request->order
         ]);
 
         return redirect()->route('tenagaPendidik', $jenis_tendik)->with('success', 'Project created successfully.');
@@ -157,7 +158,8 @@ class TenagaPendidikController extends Controller
             'email' => $request->email,
             'id_rombel' => $request->id_rombel,
             'status' => $request->status,
-            'foto_tendik' => $path_image
+            'foto_tendik' => $path_image,
+            'order' => $request->order
         ]);
         return redirect()->route('tenagaPendidik', $request->jenis_tendik)
             ->with('success', 'Project created successfully.');

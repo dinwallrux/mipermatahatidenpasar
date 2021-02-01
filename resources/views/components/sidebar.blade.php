@@ -69,7 +69,7 @@
         <div id="galeri" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="{{ route('galeri') }}">Lihat Galeri</a>
-                @if (auth()->user()->id_peran == 1 || auth()->user()->id_peran == 2)
+                @if (auth()->user()->id_peran == 1)
                 <a class="collapse-item" href="{{ route('kategori') }}">Kategori</a>
                 @endif
             </div>

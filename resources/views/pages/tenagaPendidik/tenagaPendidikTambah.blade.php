@@ -244,11 +244,22 @@
         </div>
     </div>
     <div class="form-group row">
-        <div class="col-sm-12 mb-3 mb-sm-0">
+        <div class="col-sm-6 mb-3 mb-sm-0">
             <label for="foto_tendik">Foto</label>
             <input type="file" class="form-control form-control-user" id="foto_tendik"
                 placeholder="Foto" @error('foto_tendik') is-invalid @enderror" name="foto_tendik" value="{{ old('foto_tendik') }}" autocomplete="foto_tendik" autofocus>
             @error('foto_tendik')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+        <div class="col-sm-6">
+            <label for="order">Urutan ke-</label>
+            <input type="number" class="form-control form-control-user"
+                id="order" placeholder="Urutan ke-" @error('order') is-invalid @enderror" name="order">
+    
+            @error('order')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
