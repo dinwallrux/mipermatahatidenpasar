@@ -5,7 +5,7 @@
     <div class="card-body p-0">
         <!-- Nested Row within Card Body -->
         <div class="row">
-            <div class="col-lg-5 d-none d-lg-block register-image" style="background-image: url({{asset('main/img/register-bg.jpg')}})"></div>
+            <div class="col-lg-5 d-none d-lg-block register-image" style="background-image: url({{asset('main/img/logo.png')}})"></div>
             <div class="col-lg-7">
                 <div class="p-5">
                     <div class="text-center">

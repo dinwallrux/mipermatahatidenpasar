@@ -23,8 +23,9 @@ $darkBrown: #e29578;
 #register{
     .register-image{
         width: 100%;
+        background-size: contain;
         background-position: center;
-        background-size: cover;
+        background-repeat: no-repeat;
     }
 }
 
