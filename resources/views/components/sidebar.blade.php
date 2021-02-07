@@ -57,7 +57,7 @@
     <li class="nav-item {{ str_contains(Route::currentRouteName(), 'sarpras.ruang') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('sarpras.ruang') }}">
             <i class="fas fa-archway"></i>
-            <span>Prasarana</span>
+            <span>Ruang</span>
         </a>
     </li>
     @endif

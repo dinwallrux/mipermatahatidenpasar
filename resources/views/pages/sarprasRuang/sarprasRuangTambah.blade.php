@@ -1,4 +1,4 @@
-@extends('layouts.card_blank', ['page_title' => 'Prasarana', 'title' => 'Tambah Prasarana'])
+@extends('layouts.card_blank', ['page_title' => 'Ruang', 'title' => 'Tambah Ruang'])
 
 @section('content_2')
 <form class="ruang-form" method="POST" action="{{ route('sarpras.ruang.proses.tambah') }}">
