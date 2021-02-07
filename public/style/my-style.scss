@@ -31,7 +31,9 @@ $darkBrown: #e29578;
 #login{
     .login-image{
         width: 100%;
-        background-size: cover;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
     }
 }
 
