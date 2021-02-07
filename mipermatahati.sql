@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: host.docker.internal
--- Generation Time: Jan 24, 2021 at 02:17 PM
+-- Generation Time: Feb 07, 2021 at 11:45 AM
 -- Server version: 5.7.31
 -- PHP Version: 7.4.8
 
@@ -62,7 +62,7 @@ INSERT INTO `galeri` (`id`, `nama_foto`, `image`, `deskripsi`, `created_at`, `up
 (13, 'Test', 'public/1915954509.png', NULL, '2021-01-16 13:20:45', '2021-01-16 13:20:45', NULL),
 (14, 'Mewarnai ini', 'public/2105662624.png', '<p>Hello <strong>Dude</strong></p>', '2021-01-23 09:05:42', '2021-01-23 09:34:00', NULL),
 (15, 'Nyatur', 'public/1251272711.png', '<p>Ayo kita <strong>nyatur</strong></p>', '2021-01-23 11:10:23', '2021-01-23 12:39:28', 1),
-(16, 'Kucing', 'public/741353478.png', '<p>Hello <strong>kucing</strong></p>', '2021-01-23 12:34:11', '2021-01-23 12:34:11', 2);
+(16, 'Kucinggg', 'public/2007003184.jpg', '<p>Hello <strong>kucing</strong></p>', '2021-01-23 12:34:11', '2021-01-24 15:23:14', 1);
 
 -- --------------------------------------------------------
 
@@ -168,7 +168,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (88, '2021_01_24_112600_add_id_peran_in_users_table', 29),
 (89, '2021_01_24_114116_remove_peran_in_users_table', 30),
 (91, '2021_01_24_130104_add_foto_siswa_in_siswa_table', 31),
-(92, '2021_01_24_135631_add_foto_tendik_in_tenaga_pendidik_table', 32);
+(92, '2021_01_24_135631_add_foto_tendik_in_tenaga_pendidik_table', 32),
+(93, '2021_01_24_153551_add_tahun_ajaran_in_rombel_table', 33),
+(96, '2021_01_31_151010_add_column_visi_misi_in_profil_sekolah_table', 34),
+(97, '2021_02_01_160421_add_order_in_tenaga_pendidik_table', 35);
 
 -- --------------------------------------------------------
 
@@ -202,8 +205,7 @@ CREATE TABLE `peran` (
 
 INSERT INTO `peran` (`id`, `nama`, `slug`, `created_at`, `updated_at`) VALUES
 (1, 'Operator', 'operator', '2021-01-24 11:19:46', '2021-01-24 11:19:46'),
-(2, 'Pegawai', 'pegawai', '2021-01-24 11:20:36', '2021-01-24 11:20:36'),
-(3, 'Pengguna', 'pengguna', '2021-01-24 11:20:43', '2021-01-24 11:25:37');
+(2, 'Pegawai', 'pegawai', '2021-01-24 11:20:36', '2021-01-24 11:20:36');
 
 -- --------------------------------------------------------
 
@@ -224,15 +226,17 @@ CREATE TABLE `profil_sekolah` (
   `jumlah_siswa_perempuan` int(11) DEFAULT NULL,
   `kepala_sekolah` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `visi` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `misi` longtext COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `profil_sekolah`
 --
 
-INSERT INTO `profil_sekolah` (`id`, `nama_sekolah`, `npsn`, `alamat`, `status_sekolah`, `akreditasi`, `kurikulum`, `jumlah_guru`, `jumlah_siswa_laki_laki`, `jumlah_siswa_perempuan`, `kepala_sekolah`, `created_at`, `updated_at`) VALUES
-(1, 'MI Permata Hati Denpasar', 20202317, '654 Dannie CrossroadCraigland, GA 31322-9990', 'negeri', 'C', 'K-13', 21, 178, 241, 'Michaela Nienow', '2021-01-09 10:16:03', '2021-01-09 10:17:39');
+INSERT INTO `profil_sekolah` (`id`, `nama_sekolah`, `npsn`, `alamat`, `status_sekolah`, `akreditasi`, `kurikulum`, `jumlah_guru`, `jumlah_siswa_laki_laki`, `jumlah_siswa_perempuan`, `kepala_sekolah`, `created_at`, `updated_at`, `visi`, `misi`) VALUES
+(1, 'MI Permata Hati Denpasar', 20202317, '654 Dannie CrossroadCraigland, GA 31322-9990', 'negeri', 'C', 'K-13', 21, 178, 241, 'Michaela Nienow', '2021-01-09 10:16:03', '2021-02-01 15:36:18', '<p>Terwujudnya anak bangsa yang berakhlak mulia berguna bagi agama, bangsa dan negara. Unggul dalam Akademik dan NON-Akademik.</p>', '<ol>\r\n<li>Memperkuat akidah islamiah anak didik.</li>\r\n<li>Menanamkan bakti kepada kedua orang tua, hormat kepada guru, dan menyayangi sesama teman.</li>\r\n<li>Meningkatkan kepekaan sosial bagi anak didik</li>\r\n<li>Membiasakan hidup bersih, sehat, disiplin, dan toleransi dengan sesama teman.</li>\r\n</ol>');
 
 -- --------------------------------------------------------
 
@@ -248,17 +252,19 @@ CREATE TABLE `rombel` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `id_sarpras` bigint(20) UNSIGNED DEFAULT NULL,
-  `id_tenaga_pendidik` bigint(20) UNSIGNED DEFAULT NULL
+  `id_tenaga_pendidik` bigint(20) UNSIGNED DEFAULT NULL,
+  `tahun_ajaran` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `rombel`
 --
 
-INSERT INTO `rombel` (`id`, `tingkat_pendidikan`, `kurikulum`, `nama_rombel`, `created_at`, `updated_at`, `id_sarpras`, `id_tenaga_pendidik`) VALUES
-(1, 'Kelas 2', 'K13', 'Kelas 2A', '2021-01-09 13:36:14', '2021-01-10 15:59:56', 6, 1),
-(2, 'Kelas 1', 'K13', 'Kelas 1A', '2021-01-09 13:36:14', '2021-01-10 15:59:41', 1, 12),
-(3, 'Kelas 1', 'K13', 'Kelas 1B', '2021-01-09 13:36:14', '2021-01-10 15:59:48', 7, 13);
+INSERT INTO `rombel` (`id`, `tingkat_pendidikan`, `kurikulum`, `nama_rombel`, `created_at`, `updated_at`, `id_sarpras`, `id_tenaga_pendidik`, `tahun_ajaran`) VALUES
+(1, 'Kelas 2', 'K13', 'Kelas 2A', '2021-01-09 13:36:14', '2021-01-24 15:51:22', 6, 1, '2021/2022'),
+(2, 'Kelas 1', 'K13', 'Kelas 1A', '2021-01-09 13:36:14', '2021-01-10 15:59:41', 1, 12, NULL),
+(3, 'Kelas 1', 'K13', 'Kelas 1B', '2021-01-09 13:36:14', '2021-01-10 15:59:48', 7, 13, NULL),
+(4, 'Kelas 3', 'K13', 'Kelas 3A', '2021-01-24 15:52:20', '2021-01-24 15:52:20', 10, 4, '2021/2022');
 
 -- --------------------------------------------------------
 
@@ -380,22 +386,23 @@ CREATE TABLE `tenaga_pendidik` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `id_rombel` bigint(20) UNSIGNED DEFAULT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '0',
-  `foto_tendik` text COLLATE utf8mb4_unicode_ci
+  `foto_tendik` text COLLATE utf8mb4_unicode_ci,
+  `order` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `tenaga_pendidik`
 --
 
-INSERT INTO `tenaga_pendidik` (`id`, `nama`, `nik`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `agama`, `pendidikan_terakhir`, `jenis_tendik`, `status_pegawai`, `nip`, `nuptk`, `jenis_ptk`, `sk_pengangkatan`, `tmt_pengangkatan`, `lembaga_pengangkat`, `sk_cpns`, `tmt_cpns`, `no_telepon`, `email`, `created_at`, `updated_at`, `id_rombel`, `status`, `foto_tendik`) VALUES
-(1, 'Felton Stokes', 12345678901234567, 'P', 'banyuwangi', '2001-01-16', '229 Hermiston Cliff Apt. 960\nNorth Steveberg, FL 28362-7755', 'islam', 'sma', 'gtk', 'gtt/ptt kab/kota', 123456789012345678, 12345678901234, 'laboran', '20/YPHP/VIII/2014', '2002-08-07', 'ketua yayasan', '', '1977-08-11', '324.909.8351', 'walker.paige@hotmail.com', '2020-12-20 14:02:59', '2020-12-20 14:02:59', NULL, 0, NULL),
-(2, 'Bell Cranel', 12345678901234567, 'L', 'Bali', '1988-10-20', '599 Waino Fords Apt. 429Margaritaport, VT 57543', 'islam', 's1', 'ptk', 'guru honor sekolah', 123456789012345678, 12345678901234, 'laboran', '101/YPHP/VII/2018', '2002-05-04', 'pemerintah pusat', NULL, NULL, '081226432', 'bell@wilkinson.org', '2020-12-20 14:02:59', '2020-12-20 17:32:05', NULL, 0, NULL),
-(3, 'Kathlyn Zulauf', 12345678901234567, 'L', 'jakarta', '1985-02-09', '910 Rachael EstatesMarquiseborough, SC 01823-7403', 'islam', 's1', 'ptk', 'pns diperbentukan', 123456789012345678, 12345678901234, 'kepala sekolah', '101/YPHP/VII/2018', '2004-01-14', 'ketua yayasan', NULL, '1976-12-18', '098187483', 'gwaelchi@stokes.org', '2020-12-20 14:02:59', '2020-12-20 17:32:54', NULL, 0, NULL),
-(4, 'Monique Christiansen', 12345678901234567, 'P', 'jakarta', '1988-07-07', '356 Emard Curve\nNew Janelle, SC 22392', 'islam', 's1', 'gtk', 'cpns', 123456789012345678, 12345678901234, 'laboran', '101/YPHP/VII/2018', '2006-07-31', 'pemerintah provinsi', '58/YPHP/VIII/2016', '1997-05-12', '(648) 717-5458 x918', 'tyrell.kozey@mohr.net', '2020-12-20 14:02:59', '2020-12-20 14:02:59', NULL, 0, NULL),
-(12, 'Maldo', 7362473, 'L', 'Jawa', '2020-01-02', 'Jl Alamat', 'islam', 'sma/smk', 'gtk', 'gty/pty', 827483, 2374932, 'tenaga administrasi sekolah', '10/2020', '2020-01-01', 'komite sekolah', '823438246', '2020-01-31', '08127637', 'joko@mail.com', '2020-12-20 16:47:33', '2020-12-20 17:30:12', NULL, 0, NULL),
-(13, 'Test', 27647324, 'L', 'Denpasar', '2021-12-31', 'Jl ksfkdhsf', 'islam', 'sma/smk', 'gtk', 'gty/pty', 8378326823, 286485, 'guru kelas', '824832', '2021-12-31', 'kepala sekolah', '276732', '2021-01-02', '09743264732', 'etshsi@mail.com', '2021-01-03 13:14:38', '2021-01-20 10:13:24', 3, 1, NULL),
-(15, 'Alan', 243634, 'L', 'Dep', '2021-12-31', 'Mars', 'islam', 'sma/smk', 'gtk', 'gty/pty', 63287237, 2364732648, 'guru kelas', '627324', '2021-01-01', 'kepala sekolah', NULL, NULL, '0982974263', 'aa@mail.com', '2021-01-20 10:20:30', '2021-01-24 14:12:33', 1, 1, 'public/1285636671.png'),
-(16, 'Rue', 23534523, 'L', 'Denpasar', '2021-01-01', 'Jl. Subur', 'islam', 'sma/smk', 'gtk', 'gty/pty', 12423432, 24343, 'guru mapel', '2324', '2021-01-01', 'kepala sekolah', NULL, NULL, '0814372643', 'rue@mail.com', '2021-01-24 14:04:42', '2021-01-24 14:16:53', NULL, 1, 'public/44214805.jpg');
+INSERT INTO `tenaga_pendidik` (`id`, `nama`, `nik`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `agama`, `pendidikan_terakhir`, `jenis_tendik`, `status_pegawai`, `nip`, `nuptk`, `jenis_ptk`, `sk_pengangkatan`, `tmt_pengangkatan`, `lembaga_pengangkat`, `sk_cpns`, `tmt_cpns`, `no_telepon`, `email`, `created_at`, `updated_at`, `id_rombel`, `status`, `foto_tendik`, `order`) VALUES
+(1, 'Felton Stokes', 12345678901234567, 'P', 'banyuwangi', '2001-01-16', '229 Hermiston Cliff Apt. 960\nNorth Steveberg, FL 28362-7755', 'islam', 'sma', 'gtk', 'gtt/ptt kab/kota', 123456789012345678, 12345678901234, 'laboran', '20/YPHP/VIII/2014', '2002-08-07', 'ketua yayasan', '', '1977-08-11', '324.909.8351', 'walker.paige@hotmail.com', '2020-12-20 14:02:59', '2020-12-20 14:02:59', NULL, 0, NULL, 0),
+(2, 'Bell Cranel', 12345678901234567, 'L', 'Bali', '1988-10-20', '599 Waino Fords Apt. 429Margaritaport, VT 57543', 'islam', 's1', 'ptk', 'guru honor sekolah', 123456789012345678, 12345678901234, 'laboran', '101/YPHP/VII/2018', '2002-05-04', 'pemerintah pusat', NULL, NULL, '081226432', 'bell@wilkinson.org', '2020-12-20 14:02:59', '2020-12-20 17:32:05', NULL, 0, NULL, 0),
+(3, 'Kathlyn Zulauf', 12345678901234567, 'L', 'jakarta', '1985-02-09', '910 Rachael EstatesMarquiseborough, SC 01823-7403', 'islam', 's1', 'ptk', 'pns diperbentukan', 123456789012345678, 12345678901234, 'kepala sekolah', '101/YPHP/VII/2018', '2004-01-14', 'ketua yayasan', NULL, '1976-12-18', '098187483', 'gwaelchi@stokes.org', '2020-12-20 14:02:59', '2020-12-20 17:32:54', NULL, 0, NULL, 0),
+(4, 'Monique Christiansen', 12345678901234567, 'P', 'jakarta', '1988-07-07', '356 Emard Curve\nNew Janelle, SC 22392', 'islam', 's1', 'gtk', 'cpns', 123456789012345678, 12345678901234, 'laboran', '101/YPHP/VII/2018', '2006-07-31', 'pemerintah provinsi', '58/YPHP/VIII/2016', '1997-05-12', '(648) 717-5458 x918', 'tyrell.kozey@mohr.net', '2020-12-20 14:02:59', '2020-12-20 14:02:59', NULL, 0, NULL, 0),
+(12, 'Maldo', 7362473, 'L', 'Jawa', '2020-01-02', 'Jl Alamat', 'islam', 'sma/smk', 'gtk', 'gty/pty', 827483, 2374932, 'tenaga administrasi sekolah', '10/2020', '2020-01-01', 'komite sekolah', '823438246', '2020-01-31', '08127637', 'joko@mail.com', '2020-12-20 16:47:33', '2020-12-20 17:30:12', NULL, 0, NULL, 0),
+(13, 'Test', 27647324, 'L', 'Denpasar', '2021-12-31', 'Jl ksfkdhsf', 'islam', 'sma/smk', 'gtk', 'gty/pty', 8378326823, 286485, 'guru kelas', '824832', '2021-12-31', 'kepala sekolah', '276732', '2021-01-02', '09743264732', 'etshsi@mail.com', '2021-01-03 13:14:38', '2021-02-01 16:12:58', 3, 1, NULL, 4),
+(15, 'Alan', 243634, 'L', 'Dep', '2021-12-31', 'Mars', 'islam', 'sma/smk', 'gtk', 'gty/pty', 63287237, 2364732648, 'guru kelas', '627324', '2021-01-01', 'kepala sekolah', NULL, NULL, '0982974263', 'aa@mail.com', '2021-01-20 10:20:30', '2021-02-01 16:11:57', 1, 1, 'public/1285636671.png', 2),
+(16, 'Rue', 23534523, 'L', 'Denpasar', '2021-01-01', 'Jl. Subur', 'islam', 'sma/smk', 'gtk', 'gty/pty', 12423432, 24343, 'guru mapel', '2324', '2021-01-01', 'kepala sekolah', NULL, NULL, '0814372643', 'rue@mail.com', '2021-01-24 14:04:42', '2021-02-01 16:11:16', NULL, 1, 'public/44214805.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -421,11 +428,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `id_peran`) VALUES
 (1, 'admin', 'admin@mail.com', NULL, '$2y$10$2WHfpuQT6Ys9FAX16QGfZe48QZrgqKfKwl6BfxzJzqBQj8t46kp.6', NULL, '2020-12-13 13:07:43', '2020-12-13 13:07:43', 1),
-(2, 'pengguna', 'pengguna@mail.com', NULL, '$2y$10$YmTYB1l5XOc8VBxuKjGR3OE2y3asaXx2SpLpVx1aSyNdazB1ocQe.', NULL, '2020-12-16 14:02:37', '2021-01-24 11:52:20', 3),
 (3, 'pegawai', 'pegawai@mail.com', NULL, '$2y$10$roO7xJL1OCY54OObDOh/IOgBiMFYzebKveFuIf0clSH6l6mAjku9i', NULL, '2020-12-29 13:53:24', '2021-01-24 11:52:14', 2),
 (4, 'kepsek', 'kepsek@mail.com', NULL, '$2y$10$RCUdOYkco5545QUX.idj.OFWSbRW.dTUpKRuU6D4ADoKZPjkhTQou', NULL, '2020-12-29 14:04:05', '2021-01-24 11:40:02', 2),
-(5, 'Admin2', 'admin2@mail.com', NULL, '$2y$10$.B17dWoMu1A.dXq0g2tKeOBw7KHoVrslYDdR7cMFFzRqvz0EUcSVO', NULL, '2021-01-12 12:04:37', '2021-01-24 11:51:55', 1),
-(6, 'Macan', 'macan@mail.com', NULL, '$2y$10$F6jeksX7JYyVh/I31qmzZejt.pH56lMzJRmHhzeOKR0/t8762gkM2', NULL, '2021-01-23 16:35:12', '2021-01-24 11:52:07', 3);
+(5, 'Admin2', 'admin2@mail.com', NULL, '$2y$10$.B17dWoMu1A.dXq0g2tKeOBw7KHoVrslYDdR7cMFFzRqvz0EUcSVO', NULL, '2021-01-12 12:04:37', '2021-01-24 11:51:55', 1);
 
 --
 -- Indexes for dumped tables
@@ -548,13 +553,13 @@ ALTER TABLE `kategori`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 
 --
 -- AUTO_INCREMENT for table `peran`
 --
 ALTER TABLE `peran`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `profil_sekolah`
@@ -566,7 +571,7 @@ ALTER TABLE `profil_sekolah`
 -- AUTO_INCREMENT for table `rombel`
 --
 ALTER TABLE `rombel`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `sarpras_ruang`
@@ -590,7 +595,7 @@ ALTER TABLE `tenaga_pendidik`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
