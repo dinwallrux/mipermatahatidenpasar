@@ -84,6 +84,7 @@
         <div class="col-sm-12 mb-3 mb-sm-0">
             <label for="visi">Visi</label>
             <textarea name="visi" id="visi" class="form-control form-control-user tinymce" cols="30" rows="10" placeholder="Visi" @error('visi') is-invalid @enderror" required>
+                {{  $data->visi }}
             </textarea>
             
             @error('visi')
@@ -97,6 +98,7 @@
         <div class="col-sm-12 mb-3 mb-sm-0">
             <label for="misi">Misi</label>
             <textarea name="misi" id="misi" class="form-control form-control-user tinymce" cols="30" rows="10" placeholder="Misi" @error('misi') is-invalid @enderror" required>
+                {{  $data->misi }}
             </textarea>
             
             @error('misi')
