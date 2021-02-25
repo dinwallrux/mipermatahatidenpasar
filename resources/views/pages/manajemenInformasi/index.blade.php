@@ -16,7 +16,9 @@
                     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-157px, 19px, 0px);">
                         <div class="dropdown-header">Actions</div>
                         <a class="dropdown-item" href="{{ route('info.lihat', $data->id) }}">Lihat</a>
+                        @if (auth()->user()->id_peran == 1)
                         <a class="dropdown-item" href="{{ route('info.edit', $data->id) }}">Edit</a>
+                        @endif
                     </div>
                 </div>
             </div>
