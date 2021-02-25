@@ -45,10 +45,14 @@ class TenagaPendidikController extends Controller
             'nama' => 'required',
         ]);
 
-        // Ganti nama file dan simpan di storage
-        $image = $request->file('foto_tendik');
-        $new_name = rand() . '.' . $image->getClientOriginalExtension();
-        $path_image = $request->file('foto_tendik')->storeAs('public', $new_name);
+        if($request->file('foto_tendik')){
+            // Ganti nama file dan simpan di storage
+            $image = $request->file('foto_tendik');
+            $new_name = rand() . '.' . $image->getClientOriginalExtension();
+            $path_image = $request->file('foto_tendik')->storeAs('public', $new_name);
+        } else{
+            $path_image = null;
+        }
 
         TenagaPendidik::create([
             'nama' => $request->nama,
@@ -74,7 +78,7 @@ class TenagaPendidikController extends Controller
             'id_rombel' => $request->id_rombel,
             'status' => $request->status,
             'foto_tendik' => $path_image,
-            'order' => $request->order
+            'order' => $request->order ? $request->order : 0
         ]);
 
         return redirect()->route('tenagaPendidik', $jenis_tendik)->with('success', 'Project created successfully.');
