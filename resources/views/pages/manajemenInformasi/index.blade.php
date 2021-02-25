@@ -17,8 +17,6 @@
                         <div class="dropdown-header">Actions</div>
                         <a class="dropdown-item" href="{{ route('info.lihat', $data->id) }}">Lihat</a>
                         <a class="dropdown-item" href="{{ route('info.edit', $data->id) }}">Edit</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{ route('info.proses.hapus', $data->id) }}">Hapus</a>
                     </div>
                 </div>
             </div>
