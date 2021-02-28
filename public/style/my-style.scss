@@ -63,3 +63,31 @@ $darkBrown: #e29578;
         margin-bottom: 0;
     }
 }
+
+#portfolio{
+    .galeri-carousel{
+        .owl-nav{
+            button{
+                width: 60px;
+                height: 60px;
+                font-size: 40px;
+                outline: none;
+                position: absolute;
+                top: 40%;
+            }
+            .owl-prev{
+                left: -120px;
+            }
+            .owl-next{
+                right: -120px;
+            }
+            span{
+                font-size: 100px;
+            }
+        }
+
+        img{
+            width: 400px;
+        }
+    }
+}

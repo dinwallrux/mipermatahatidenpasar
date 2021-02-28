@@ -35,7 +35,6 @@ class SiswaController extends Controller
             'nama' => 'required',
             'nis' => 'required',
             'nisn' => 'required|max:10',
-            'alamat' => 'required',
         );
 
         // Ganti nama file dan simpan di storage

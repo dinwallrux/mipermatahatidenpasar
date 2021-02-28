@@ -102,12 +102,8 @@
             <label for="status_pegawai">Status Pegawai</label>
             <select name="status_pegawai" class="form-control form-control-user" id="status_pegawai">
                 <option value="pns">PNS</option>
-                <option value="pns diperbentukan">PNS Diperbentukan</option>
-                <option value="pns depag">PNS Depag</option>
                 <option value="gty/pty" selected>GTY/PTY</option>
                 <option value="gtt/ptt kab/kota">GTT/PTT Kab/Kota</option>
-                <option value="guru bantu pusat">Guru Bantu Pusat</option>
-                <option value="guru honor sekolah">Guru Honor Sekolah</option>
                 <option value="tenaga honor">Tenaga Honor</option>
                 <option value="cpns">CPNS</option>
             </select>
@@ -142,9 +138,6 @@
                 @if ($jenis_tendik == 'gtk')
                 <option value="guru mapel" selected>Guru Mapel</option>
                 <option value="guru kelas">Guru Kelas</option>
-                <option value="guru bk">Guru BK</option>
-                <option value="guru inklusi">Guru Inklusi</option>
-                <option value="guru pendamping">Guru Pendamping</option>
                 <option value="guru magang">Guru Magang</option>
                 <option value="kepala sekolah">Kepala Sekolah</option>
                 <option value="guru tik">Guru TIK</option>
@@ -193,35 +186,11 @@
         <div class="col-sm-6">
             <label for="lembaga_pengangkat">Lembaga Pengangkat</label>
             <select name="lembaga_pengangkat" class="form-control form-control-user" id="lembaga_pengangkat">
-                <option value="pemerintah pusat">Pemerintah Pusat</option>
-                <option value="pemerintah provinsi">Pemerintah Provinsi</option>
                 <option value="pemerintah kab/kota">Pemerintah Kab/Kota</option>
                 <option value="ketua yayasan">Ketua Yayasan</option>
                 <option value="kepala sekolah" selected>Kepala Sekolah</option>
                 <option value="komite sekolah">Komite Sekolah</option>
             </select>
-        </div>
-    </div>
-    <div class="form-group row">
-        <div class="col-sm-6 mb-3 mb-sm-0">
-            <label for="sk_cpns">SK CPNS</label>
-            <input type="text" class="form-control form-control-user" id="sk_cpns"
-                placeholder="SK CPNS" @error('sk_cpns') is-invalid @enderror" name="sk_cpns" value="{{ old('sk_cpns') }}" autocomplete="sk_cpns" autofocus>
-            @error('sk_cpns')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-        </div>
-        <div class="col-sm-6">
-            <label for="tmt_cpns">TMT CPNS</label>
-            <input type="date" class="form-control form-control-user" id="tmt_cpns"
-                placeholder="TMT CPNS" @error('tmt_cpns') is-invalid @enderror" name="tmt_cpns" value="{{ old('tmt_cpns') }}" autocomplete="tmt_cpns" autofocus>
-            @error('tmt_cpns')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
         </div>
     </div>
     <div class="form-group row">

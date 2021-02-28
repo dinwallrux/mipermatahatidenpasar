@@ -15,6 +15,13 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{{asset('home/css/styles.css')}}" rel="stylesheet" />
+
+        <!-- Owl Carousel -->
+        <link href="{{ asset('lib/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('lib/OwlCarousel2-2.3.4/dist/assets/owl.theme.green.min.css') }}" rel="stylesheet">
+
+        <!-- Custom Style -->
+        <link href="{{ asset('style/my-style.css') }}" rel="stylesheet">
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -150,10 +157,10 @@
                     <h3 class="section-subheading text-muted">&nbsp;</h3>
                 </div>
                 <div class="row">
-                    @foreach ($galeris as $galeri)
+                    @foreach ($extractGalleries as $galeri)
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <div class="portfolio-item">
-                            <a class="portfolio-link" data-toggle="modal" href="#modal-galeri-{{$galeri->id}}">
+                            <a class="portfolio-link" data-toggle="modal" href="#modal-galeri-{{$galeri->kategori['slug']}}">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
@@ -168,23 +175,25 @@
                     </div>
 
                     <!-- Modal -->
-                    <div class="portfolio-modal modal fade" id="modal-galeri-{{$galeri->id}}" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="portfolio-modal modal fade" id="modal-galeri-{{$galeri->kategori['slug']}}" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="close-modal" data-dismiss="modal"><img src="{{asset('home/assets/img/close-icon.svg')}}" alt="Close modal" /></div>
                                 <div class="container">
                                     <div class="row justify-content-center">
-                                        <div class="col-lg-8">
+                                        <div class="col-lg-10">
                                             <div class="modal-body">
-                                                <!-- Project Details Go Here-->
-                                                <h2 class="text-uppercase">{{$galeri->nama_foto}}</h2>
-                                                <p class="item-intro text-muted">&nbsp;</p>
-                                                <img class="img-fluid d-block mx-auto" src="{{  url('storage/'.basename($galeri->image)) }}" alt="">
-                                                <p>{!! $galeri['deskripsi'] !!}</p>
-                                                <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                                    <i class="fas fa-times mr-1"></i>
-                                                    Tutup
-                                                </button>
+                                                <div class="owl-carousel owl-theme galeri-carousel">
+                                                    @foreach ($groupedGalleries[$galeri->kategori['slug']] as $item)
+                                                    <div class="item">
+                                                        <!-- Project Details Go Here-->
+                                                        <h2 class="text-uppercase">{{$item->nama_foto}}</h2>
+                                                        <p class="item-intro text-muted">&nbsp;</p>
+                                                        <img class="img-fluid d-block mx-auto" src="{{  url('storage/'.basename($item->image)) }}" alt="">
+                                                        <p>{!! $item['deskripsi'] !!}</p>
+                                                    </div>
+                                                    @endforeach
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -270,6 +279,8 @@
         <!-- Contact form JS-->
         <script src="{{asset('home/assets/mail/jqBootstrapValidation.js')}}"></script>
         <script src="{{asset('home/assets/mail/contact_me.js')}}"></script>
+        <!-- Owl Carousel -->
+        <script src="{{ asset('lib/OwlCarousel2-2.3.4/dist/owl.carousel.min.js') }}"></script>
         <!-- Core theme JS-->
         <script src="{{asset('home/js/scripts.js')}}"></script>
         <!-- Masonsry -->

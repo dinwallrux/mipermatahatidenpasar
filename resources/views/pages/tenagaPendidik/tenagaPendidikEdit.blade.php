@@ -105,12 +105,8 @@
             <label for="status_pegawai">Status Pegawai</label>
             <select name="status_pegawai" class="form-control form-control-user" id="status_pegawai">
                 <option {{ $data->status_pegawai == 'pns' ? 'selected' : '' }} value="pns">PNS</option>
-                <option {{ $data->status_pegawai == 'pns diperbentukan' ? 'selected' : '' }} value="pns diperbentukan">PNS Diperbentukan</option>
-                <option {{ $data->status_pegawai == 'pns depag' ? 'selected' : '' }} value="pns depag">PNS Depag</option>
                 <option {{ $data->status_pegawai == 'gty/pty' ? 'selected' : '' }} value="gty/pty">GTY/PTY</option>
                 <option {{ $data->status_pegawai == 'gtt/ptt kab/kota' ? 'selected' : '' }} value="gtt/ptt kab/kota">GTT/PTT Kab/Kota</option>
-                <option {{ $data->status_pegawai == 'guru bantu pusat' ? 'selected' : '' }} value="guru bantu pusat">Guru Bantu Pusat</option>
-                <option {{ $data->status_pegawai == 'guru honor sekolah' ? 'selected' : '' }} value="guru honor sekolah">Guru Honor Sekolah</option>
                 <option {{ $data->status_pegawai == 'tenaga honor' ? 'selected' : '' }} value="tenaga honor">Tenaga Honor</option>
                 <option {{ $data->status_pegawai == 'cpns' ? 'selected' : '' }} value="cpns">CPNS</option>
             </select>
@@ -145,10 +141,6 @@
                 @if ($jenis_tendik == 'gtk')
                 <option {{ $data->jenis_ptk == 'guru mapel' ? 'selected' : '' }} value="guru mapel">Guru Mapel</option>
                 <option {{ $data->jenis_ptk == 'guru kelas' ? 'selected' : '' }} value="guru kelas">Guru Kelas</option>
-                <option {{ $data->jenis_ptk == 'guru bk' ? 'selected' : '' }} value="guru bk">Guru BK</option>
-                <option {{ $data->jenis_ptk == 'guru inklusi' ? 'selected' : '' }} value="guru inklusi">Guru Inklusi</option>
-                <option {{ $data->jenis_ptk == 'guru pendamping' ? 'selected' : '' }} value="guru pendamping">Guru Pendamping</option>
-                <option {{ $data->jenis_ptk == 'guru magang' ? 'selected' : '' }} value="guru magang">Guru Magang</option>
                 <option {{ $data->jenis_ptk == 'guru tik' ? 'selected' : '' }} value="guru tik">Guru TIK</option>
                 <option {{ $data->jenis_ptk == 'kepala sekolah' ? 'selected' : '' }} value="kepala sekolah">Kepala Sekolah</option>
                 @else
@@ -196,35 +188,11 @@
         <div class="col-sm-6">
             <label for="lembaga_pengangkat">Lembaga Pengangkat</label>
             <select name="lembaga_pengangkat" class="form-control form-control-user" id="lembaga_pengangkat">
-                <option {{ $data->lembaga_pengangkat == 'pemerintah pusat' ? 'selected' : '' }} value="pemerintah pusat">Pemerintah Pusat</option>
-                <option {{ $data->lembaga_pengangkat == 'pemerintah provinsi' ? 'selected' : '' }} value="pemerintah provinsi">Pemerintah Provinsi</option>
                 <option {{ $data->lembaga_pengangkat == 'pemerintah kab/kota' ? 'selected' : '' }} value="pemerintah kab/kota">Pemerintah Kab/Kota</option>
                 <option {{ $data->lembaga_pengangkat == 'ketua yayasan' ? 'selected' : '' }} value="ketua yayasan">Ketua Yayasan</option>
                 <option {{ $data->lembaga_pengangkat == 'kepala sekolah' ? 'selected' : '' }} value="kepala sekolah">Kepala Sekolah</option>
                 <option {{ $data->lembaga_pengangkat == 'komite sekolah' ? 'selected' : '' }} value="komite sekolah">Komite Sekolah</option>
             </select>
-        </div>
-    </div>
-    <div class="form-group row">
-        <div class="col-sm-6 mb-3 mb-sm-0">
-            <label for="sk_cpns">SK CPNS</label>
-            <input type="text" class="form-control form-control-user" id="sk_cpns"
-                placeholder="SK CPNS" @error('sk_cpns') is-invalid @enderror" name="sk_cpns" value="{{ $data->sk_cpns }}" autocomplete="sk_cpns" autofocus>
-            @error('sk_cpns')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-        </div>
-        <div class="col-sm-6">
-            <label for="tmt_cpns">TMT CPNS</label>
-            <input type="date" class="form-control form-control-user" id="tmt_cpns"
-                placeholder="TMT CPNS" @error('tmt_cpns') is-invalid @enderror" name="tmt_cpns" value="{{ $data->tmt_cpns }}" autocomplete="tmt_cpns" autofocus>
-            @error('tmt_cpns')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
         </div>
     </div>
     <div class="form-group row">

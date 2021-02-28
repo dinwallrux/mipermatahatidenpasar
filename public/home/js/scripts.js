@@ -30,6 +30,15 @@
         }
     });
 
+    $('.owl-carousel.galeri-carousel').owlCarousel({
+        loop:true,
+        margin:10,
+        nav:true,
+        navText: ['<i class="fas fa-chevron-left"></i>','<i class="fas fa-chevron-right"></i>'],
+        dots: true,
+        items:1,
+    })
+
     // Closes responsive menu when a scroll trigger link is clicked
     $(".js-scroll-trigger").click(function () {
         $(".navbar-collapse").collapse("hide");
