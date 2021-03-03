@@ -21,7 +21,7 @@ class HomeController extends Controller
     public function index()
     {
         $galeris = Galeri::with('kategori')->get();
-        $groupedGalleries = $galeris->mapToGroups(function ($item, $key) {
+        $groupedGalleries = $galeris->mapToGroups(function ($item) {
             return [
                 $item->kategori['slug'] => $item
             ];
@@ -29,7 +29,9 @@ class HomeController extends Controller
         $extractGalleries = [];
         foreach (Kategori::all() as $key => $value) {
             $slug = $value->getOriginal('slug');
-            array_push($extractGalleries, $groupedGalleries->get($slug)->first());
+            if(!is_null($groupedGalleries->get($slug))){
+                array_push($extractGalleries, $groupedGalleries->get($slug)->first());
+            }
         }
         
         $profil = ProfilSekolah::get()->first();
