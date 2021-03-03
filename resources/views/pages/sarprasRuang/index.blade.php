@@ -37,17 +37,4 @@
     </tr>
     @endforeach
 </tbody>
-<tfoot>
-    <tr>
-        <th>No</th>
-        <th>Jenis Prasarana</th>
-        <th>Nama Ruang</th>
-        <th>Lantai Ke</th>
-        <th>Jumlah Ruangan</th>
-        <th>Kapasitas</th>
-        @if (auth()->user()->id_peran == 1)
-        <th>Action</th>
-        @endif
-    </tr>
-</tfoot>
 @endsection

@@ -45,19 +45,4 @@
     </tr>
     @endforeach
 </tbody>
-<tfoot>
-    <tr>
-        <th>No</th>
-        <th>Nama</th>
-        <th>Jenis Kelamin</th>
-        <th>NIS</th>
-        <th>NISN</th>
-        <th>Alamat</th>
-        <th>Kelas</th>
-        <th>Status</th>
-        @if (auth()->user()->id_peran == 1)
-        <th>Action</th>
-        @endif
-    </tr>
-</tfoot>
 @endsection

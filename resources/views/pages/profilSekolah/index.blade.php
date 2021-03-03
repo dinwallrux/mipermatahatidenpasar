@@ -16,23 +16,6 @@
                 </div>
             </div>
         </div>
-        <div class="card shadow mb-4">
-            <!-- Card Header - Dropdown -->
-            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Tentang Sekolah</h6>
-            </div>
-            <!-- Card Body -->
-            <div class="card-body">
-                <div class="chart-pie pt-4 pb-2 ">
-                    <p>Nama Sekolah : {{$data->nama_sekolah}}</p>
-                    <p>NPSN : {{$data->npsn}}</p>
-                    <p>Status Sekolah : {{$data->status_sekolah}}</p>
-                    <p>Akreditasi : {{$data->akreditasi}}</p>
-                    <p>Kurikulum : {{$data->kurikulum}}</p>
-                    <p>Kepala Sekolah : {{$data->kepala_sekolah}}</p>
-                </div>
-            </div>
-        </div>
     </div>
 
     <!-- Area Chart -->
@@ -96,12 +79,19 @@
         <div class="card shadow mb-4">
             <!-- Card Header - Dropdown -->
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Alamat Sekolah</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Tentang Sekolah</h6>
             </div>
             <!-- Card Body -->
             <div class="card-body">
-                <img src="{{asset('main/img/map.jpeg')}}" alt="" width="100%">
-                <p class="mb-0 mt-2">Alamat : {{$data->alamat}}</p>
+                <div class="pt-2 pb-2">
+                    <p>Nama Sekolah : {{$data->nama_sekolah}}</p>
+                    <p>NPSN : {{$data->npsn}}</p>
+                    <p>Status Sekolah : {{$data->status_sekolah}}</p>
+                    <p>Akreditasi : {{$data->akreditasi}}</p>
+                    <p>Kurikulum : {{$data->kurikulum}}</p>
+                    <p>Kepala Sekolah : {{$data->kepala_sekolah}}</p>
+                    <p>Alamat : {{$data->alamat}}</p>
+                </div>
             </div>
         </div>
 

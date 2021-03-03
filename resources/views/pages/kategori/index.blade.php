@@ -29,13 +29,4 @@
     </tr>
     @endforeach
 </tbody>
-<tfoot>
-    <tr>
-        <th>No</th>
-        <th>Nama</th>
-        @if (auth()->user()->id_peran == 1)
-        <th>Action</th>
-        @endif
-    </tr>
-</tfoot>
 @endsection

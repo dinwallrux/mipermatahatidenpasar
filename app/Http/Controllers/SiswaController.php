@@ -37,10 +37,14 @@ class SiswaController extends Controller
             'nisn' => 'required|max:10',
         );
 
+        if($request->hasFile('foto_siswa')){
         // Ganti nama file dan simpan di storage
         $image = $request->file('foto_siswa');
         $new_name = rand() . '.' . $image->getClientOriginalExtension();
         $path_image = $request->file('foto_siswa')->storeAs('public', $new_name);
+        } else{
+            $path_image = null;
+        }
 
         $data = [
             'nama' => $request->nama,

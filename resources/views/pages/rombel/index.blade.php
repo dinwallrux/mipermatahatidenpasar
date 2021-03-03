@@ -43,18 +43,4 @@
     </tr>
     @endforeach
 </tbody>
-<tfoot>
-    <tr>
-        <th>No</th>
-        <th>Nama Rombel</th>
-        <th>Tahun Ajaran</th>
-        <th>Kurikulum</th>
-        <th>Tingkat Pendidikan</th>
-        <th>Wali Kelas</th>
-        <th>Ruang</th>
-        @if (auth()->user()->id_peran == 1)
-        <th>Action</th>
-        @endif
-    </tr>
-</tfoot>
 @endsection

@@ -247,9 +247,6 @@
                                     <div class="portfolio-caption-subheading text-muted">{!! $informasi->isi !!}</div>
                                 </div>
                             </div>
-                            <p class="text-right text-muted mb-0">
-                                {{ date('d-m-Y', strtotime($informasi->created_at)) }}
-                            </p>
                         </div>
                     </div>
                     @endforeach

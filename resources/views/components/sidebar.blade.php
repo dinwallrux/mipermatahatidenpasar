@@ -76,7 +76,7 @@
         </div>
     </li>
     @if (auth()->user()->id_peran == 1)
-    <li class="nav-item {{ str_contains(Route::currentRouteName(), 'user') ? 'active' : '' }}">
+    {{-- <li class="nav-item {{ str_contains(Route::currentRouteName(), 'user') ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#user" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-users"></i>
             <span>Pengguna</span>
@@ -87,7 +87,7 @@
                 <a class="collapse-item" href="{{ route('peran') }}">Peran Pengguna</a>
             </div>
         </div>
-    </li>
+    </li> --}}
     @endif
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
