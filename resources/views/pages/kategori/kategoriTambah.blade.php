@@ -8,7 +8,7 @@
         <div class="col-sm-12 mb-3 mb-sm-0">
             <label for="nama">Nama</label>
             <input type="text" class="form-control form-control-user" id="nama"
-                placeholder="Nama" @error('nama') is-invalid @enderror" name="nama" value="{{ old('nama') }}" required autocomplete="nama" autofocus>
+                placeholder="Nama" @error('nama') is-invalid @enderror" name="nama" value="{{ old('nama') }}" autocomplete="nama" autofocus>
             @error('nama')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>

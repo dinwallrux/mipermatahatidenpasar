@@ -8,7 +8,7 @@
         <div class="col-sm-6 mb-3 mb-sm-0">
             <label for="nama">Nama</label>
             <input type="text" class="form-control form-control-user" id="nama"
-                placeholder="Nama" @error('nama') is-invalid @enderror" name="nama" value="{{ old('nama') }}" required autocomplete="nama" autofocus>
+                placeholder="Nama" @error('nama') is-invalid @enderror" name="nama" value="{{ old('nama') }}" autocomplete="nama" autofocus>
             @error('nama')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -38,7 +38,7 @@
         <div class="col-sm-6">
             <label for="nisn">NISN</label>
             <input type="number" class="form-control form-control-user"
-                value="{{ old('nisn') }}" id="nisn" placeholder="NISN" @error('nisn') is-invalid @enderror" name="nisn" required>
+                value="{{ old('nisn') }}" id="nisn" placeholder="NISN" @error('nisn') is-invalid @enderror" name="nisn">
     
             @error('nisn')
                 <span class="invalid-feedback" role="alert">
@@ -51,7 +51,7 @@
         <div class="col-sm-6 mb-3 mb-sm-0">
             <label for="alamat">Alamat</label>
             <input type="text" class="form-control form-control-user" id="alamat"
-                placeholder="Alamat" @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat') }}" required autocomplete="alamat" autofocus>
+                placeholder="Alamat" @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat') }}" autocomplete="alamat" autofocus>
             @error('alamat')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -96,7 +96,7 @@
         <div class="col-sm-6 mb-3 mb-sm-0">
             <label for="tempat_lahir">Tempat Lahir</label>
             <input type="text" class="form-control form-control-user" id="tempat_lahir"
-                placeholder="Tempat Lahir" @error('tempat_lahir') is-invalid @enderror" name="tempat_lahir" value="{{ old('tempat_lahir') }}" required autocomplete="tempat_lahir" autofocus>
+                placeholder="Tempat Lahir" @error('tempat_lahir') is-invalid @enderror" name="tempat_lahir" value="{{ old('tempat_lahir') }}" autocomplete="tempat_lahir" autofocus>
             @error('tempat_lahir')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -106,14 +106,14 @@
         <div class="col-sm-6">
             <label for="tanggal_lahir">Tanggal Lahir</label>
             <input type="date" class="form-control form-control-user" id="tanggal_lahir"
-                placeholder="Tanggal Lahir" @error('tanggal_lahir') is-invalid @enderror" name="tanggal_lahir" value="{{ old('tanggal_lahir') }}" required autocomplete="tanggal_lahir" autofocus>
+                placeholder="Tanggal Lahir" @error('tanggal_lahir') is-invalid @enderror" name="tanggal_lahir" value="{{ old('tanggal_lahir') }}" autocomplete="tanggal_lahir" autofocus>
         </div>
     </div>
     <div class="form-group row">
         <div class="col-sm-6 mb-3 mb-sm-0">
             <label for="tanggal_masuk">Tanggal Masuk</label>
             <input type="date" class="form-control form-control-user" id="tanggal_masuk"
-                placeholder="Tanggal Masuk" @error('tanggal_masuk') is-invalid @enderror" name="tanggal_masuk" value="{{ old('tanggal_masuk') }}" required autocomplete="tanggal_masuk" autofocus>
+                placeholder="Tanggal Masuk" @error('tanggal_masuk') is-invalid @enderror" name="tanggal_masuk" value="{{ old('tanggal_masuk') }}" autocomplete="tanggal_masuk" autofocus>
         </div>
         <div class="col-sm-6">
             <label for="agama">Agama</label>
@@ -130,7 +130,7 @@
         <div class="col-sm-6 mb-3 mb-sm-0">
             <label for="nama_ayah">Nama Ayah</label>
             <input type="text" class="form-control form-control-user" id="nama_ayah"
-                placeholder="Nama Ayah" @error('nama_ayah') is-invalid @enderror" name="nama_ayah" value="{{ old('nama_ayah') }}" required autocomplete="nama_ayah" autofocus>
+                placeholder="Nama Ayah" @error('nama_ayah') is-invalid @enderror" name="nama_ayah" value="{{ old('nama_ayah') }}" autocomplete="nama_ayah" autofocus>
             @error('nama_ayah')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -140,7 +140,7 @@
         <div class="col-sm-6">
             <label for="nama_ibu">Nama Ibu</label>
             <input type="text" class="form-control form-control-user" id="nama_ibu"
-                placeholder="Nama Ibu" @error('nama_ibu') is-invalid @enderror" name="nama_ibu" value="{{ old('nama_ibu') }}" required autocomplete="nama_ibu" autofocus>
+                placeholder="Nama Ibu" @error('nama_ibu') is-invalid @enderror" name="nama_ibu" value="{{ old('nama_ibu') }}" autocomplete="nama_ibu" autofocus>
             @error('nama_ibu')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Galeri;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 use App\Kategori;
 
 class GaleriController extends Controller
@@ -40,26 +41,36 @@ class GaleriController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $rules = array(
             'image' => 'required',
             'nama_foto' => 'required',
-        ]);
-        
-        // Ganti nama file dan simpan di storage
-        $image = $request->file('image');
-        $new_name = rand() . '.' . $image->getClientOriginalExtension();
-        $path_image = $request->file('image')->storeAs('public', $new_name);
+        );
 
-        $galleries = [
+        if($request->hasFile('image')){
+            // Ganti nama file dan simpan di storage
+            $image = $request->file('image');
+            $new_name = rand() . '.' . $image->getClientOriginalExtension();
+            $path_image = $request->file('image')->storeAs('public', $new_name);
+        } else{
+            $path_image = null;
+        }
+
+        $data = [
             'image' => $path_image,
             'nama_foto' => $request->nama_foto,
             'deskripsi' => $request->deskripsi,
             'id_kategori' => $request->id_kategori
         ];
 
-        Galeri::create($galleries);
-
-        return redirect()->route('galeri')->with('success', 'Galeri Berhasil ditambahkan.');
+        $validator = Validator::make($data, $rules);
+        if($validator->fails()){
+            $errors = $validator->errors();
+            return redirect()->route('galeri.tambah')->withErrors($errors)->withInput($request->all());
+        } else{
+            Galeri::create($data);
+            return redirect()->route('galeri')
+                ->with('success', 'Galeri berhasil ditambahkan');
+        }
     }
     /**
      * Display the specified resource.
@@ -94,9 +105,10 @@ class GaleriController extends Controller
      */
     public function update(Request $request, Galeri $galeri)
     {
-        $request->validate([
+        $rules = array(
+            'image' => 'required',
             'nama_foto' => 'required',
-        ]);
+        );
 
         // Ngambil gambar lama
         $oldPhoto = Galeri::where('id', $request->id)->first()->getOriginal('image');
@@ -114,14 +126,22 @@ class GaleriController extends Controller
             $path_image = $oldPhoto;
         }
 
-        Galeri::where('id', $request->id)->update([
+        $data = [
             'image' => $path_image,
             'nama_foto' => $request->nama_foto,
             'deskripsi' => $request->deskripsi,
             'id_kategori' => $request->id_kategori
-        ]);
-        return redirect()->route('galeri')
-            ->with('success', 'Galeri berhasil di update.');
+        ];
+
+        $validator = Validator::make($data, $rules);
+        if($validator->fails()){
+            $errors = $validator->errors();
+            return redirect()->route('galeri.edit', $request->id)->withErrors($errors)->withInput($request->all());
+        } else{
+            Galeri::where('id', $request->id)->update($data);
+            return redirect()->route('galeri')
+                ->with('success', 'Galeri berhasil diubah');
+        }
     }
 
     /**

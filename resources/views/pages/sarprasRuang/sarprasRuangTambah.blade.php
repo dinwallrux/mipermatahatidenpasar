@@ -26,7 +26,7 @@
         <div class="col-sm-6">
             <label for="nama_ruang">Nama Ruang</label>
             <input type="text" class="form-control form-control-user" id="nama_ruang"
-                placeholder="Nama Ruang" @error('nama_ruang') is-invalid @enderror" name="nama_ruang" value="{{ old('nama_ruang') }}" required autocomplete="nama_ruang" autofocus>
+                placeholder="Nama Ruang" @error('nama_ruang') is-invalid @enderror" name="nama_ruang" value="{{ old('nama_ruang') }}" autocomplete="nama_ruang" autofocus>
             @error('nama_ruang')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -38,7 +38,7 @@
         <div class="col-sm-6 mb-3 mb-sm-0">
             <label for="lantai_ke">Lantai Ke-</label>
             <input type="number" class="form-control form-control-user"
-                id="lantai_ke" placeholder="Lantai Ke-" @error('lantai_ke') is-invalid @enderror" name="lantai_ke" required>
+                id="lantai_ke" placeholder="Lantai Ke-" @error('lantai_ke') is-invalid @enderror" name="lantai_ke">
     
             @error('lantai_ke')
                 <span class="invalid-feedback" role="alert">

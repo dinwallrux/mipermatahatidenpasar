@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Kategori;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Validator;
 
 class KategoriController extends Controller
 {
@@ -38,18 +39,24 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $rules = array(
             'nama' => 'required',
-        ]);
+        );
 
-        $kategori = [
+        $data = [
             'nama' => $request->nama,
             'slug' => Str::slug($request->nama, '-'),
         ];
 
-        Kategori::create($kategori);
-
-        return redirect()->route('kategori')->with('success', 'Kategori Berhasil ditambahkan.');
+        $validator = Validator::make($data, $rules);
+        if($validator->fails()){
+            $errors = $validator->errors();
+            return redirect()->route('kategori.tambah')->withErrors($errors)->withInput($request->all());
+        } else{
+            Kategori::create($data);
+            return redirect()->route('kategori')
+                ->with('success', 'Kategori berhasil ditambahkan');
+        }
     }
 
     /**
@@ -84,16 +91,24 @@ class KategoriController extends Controller
      */
     public function update(Request $request, Kategori $kategori)
     {
-        $request->validate([
+        $rules = array(
             'nama' => 'required',
-        ]);
+        );
 
-        Kategori::where('id', $request->id)->update([
+        $data = [
             'nama' => $request->nama,
             'slug' => Str::slug($request->nama, '-'),
-        ]);
-        return redirect()->route('kategori')
-            ->with('success', 'Kategori berhasil di update.');
+        ];
+
+        $validator = Validator::make($data, $rules);
+        if($validator->fails()){
+            $errors = $validator->errors();
+            return redirect()->route('kategori.edit', $request->id)->withErrors($errors)->withInput($request->all());
+        } else{
+            Kategori::where('id', $request->id)->update($data);
+            return redirect()->route('kategori')
+                ->with('success', 'Kategori berhasil diubah');
+        }
     }
 
     /**

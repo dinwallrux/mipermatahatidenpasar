@@ -21,7 +21,7 @@
         <div class="col-sm-6">
             <label for="nama_foto">Nama Foto</label>
             <input type="text" class="form-control form-control-user" id="nama_foto"
-                placeholder="Nama Foto" @error('nama_foto') is-invalid @enderror" name="nama_foto" value="{{ $data->nama_foto }}" required autocomplete="nama_foto" autofocus>
+                placeholder="Nama Foto" @error('nama_foto') is-invalid @enderror" name="nama_foto" value="{{ $data->nama_foto }}" autocomplete="nama_foto" autofocus>
             @error('nama_foto')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -32,7 +32,7 @@
     <div class="form-group row">
         <div class="col-sm-12 mb-3 mb-sm-0">
             <label for="kategori">Deskripsi</label>
-            <textarea name="deskripsi" id="deskripsi" class="form-control form-control-user tinymce" cols="30" rows="10" placeholder="Deskripsi" @error('deskripsi') is-invalid @enderror" required>
+            <textarea name="deskripsi" id="deskripsi" class="form-control form-control-user tinymce" cols="30" rows="10" placeholder="Deskripsi" @error('deskripsi') is-invalid @enderror">
                 {{ $data->deskripsi }}
             </textarea>
             

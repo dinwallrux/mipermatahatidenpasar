@@ -7,6 +7,7 @@ use App\SarprasRuang;
 use App\Siswa;
 use App\TenagaPendidik;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class RombelController extends Controller
 {
@@ -42,13 +43,30 @@ class RombelController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $rules = array(
+            'nama_rombel' => 'required',
             'id_tenaga_pendidik' => 'required',
-        ]);
+            'tahun_ajaran' => 'required'
+        );
 
-        Rombel::create($request->all());
+        $data = [
+            'tingkat_pendidikan' => $request->tingkat_pendidikan,
+            'kurikulum' => $request->kurikulum,
+            'nama_rombel' => $request->nama_rombel,
+            'id_tenaga_pendidik' => $request->id_tenaga_pendidik,
+            'id_sarpras' => $request->id_sarpras,
+            'tahun_ajaran' => $request->tahun_ajaran
+        ];
 
-        return redirect()->route('rombel')->with('success', 'Rombel created successfully.');
+        $validator = Validator::make($data, $rules);
+        if($validator->fails()){
+            $errors = $validator->errors();
+            return redirect()->route('rombel.tambah')->withErrors($errors)->withInput($request->all());
+        } else{
+            Rombel::create($data);
+            return redirect()->route('rombel')
+                ->with('success', 'Kelas berhasil ditambahkan');
+        }
     }
 
     /**
@@ -89,18 +107,30 @@ class RombelController extends Controller
      */
     public function update(Request $request, Rombel $rombel)
     {
-        $request->validate([
+        $rules = array(
+            'nama_rombel' => 'required',
             'id_tenaga_pendidik' => 'required',
-        ]);
-        Rombel::where('id', $request->id)->update([
+            'tahun_ajaran' => 'required'
+        );
+
+        $data = [
             'tingkat_pendidikan' => $request->tingkat_pendidikan,
             'kurikulum' => $request->kurikulum,
             'nama_rombel' => $request->nama_rombel,
             'id_tenaga_pendidik' => $request->id_tenaga_pendidik,
             'id_sarpras' => $request->id_sarpras,
             'tahun_ajaran' => $request->tahun_ajaran
-        ]);
-        return redirect()->route('rombel')->with('success', 'Rombel updated.');
+        ];
+
+        $validator = Validator::make($data, $rules);
+        if($validator->fails()){
+            $errors = $validator->errors();
+            return redirect()->route('rombel.edit', $request->id)->withErrors($errors)->withInput($request->all());
+        } else{
+            Rombel::where('id', $request->id)->update($data);
+            return redirect()->route('rombel')
+                ->with('success', 'Kelas berhasil diupdate');
+        }
     }
 
     /**

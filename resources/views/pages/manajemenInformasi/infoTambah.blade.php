@@ -1,4 +1,4 @@
-@extends('layouts.card_blank', ['page_title' => 'Sarpras', 'title' => 'Tambah Sarpras'])
+@extends('layouts.card_blank', ['page_title' => 'Informasi', 'title' => 'Tambah Informasi'])
 
 @section('content_2')
 <form class="ruang-form" method="POST" action="{{ route('info.proses.tambah') }}">
@@ -8,7 +8,7 @@
         <div class="col-sm-12 mb-3 mb-sm-0">
             <label for="judul">Judul</label>
             <input type="text" class="form-control form-control-user" id="judul"
-                placeholder="Judul" @error('judul') is-invalid @enderror" name="judul" value="{{ old('judul') }}" required autocomplete="judul" autofocus>
+                placeholder="Judul" @error('judul') is-invalid @enderror" name="judul" value="{{ old('judul') }}" autocomplete="judul" autofocus>
             @error('judul')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -28,7 +28,7 @@
     <div class="form-group row">
         <div class="col-sm-12 mb-3 mb-sm-0">
             <label for="isi">Isi</label>
-            <textarea name="isi" id="isi" class="form-control form-control-user tinymce" cols="30" rows="10" placeholder="Isi" @error('isi') is-invalid @enderror" required>
+            <textarea name="isi" id="isi" class="form-control form-control-user tinymce" cols="30" rows="10" placeholder="Isi" @error('isi') is-invalid @enderror">
             </textarea>
             
             @error('isi')

@@ -43,6 +43,11 @@ class TenagaPendidikController extends Controller
     {
         $request->validate([
             'nama' => 'required',
+            'nik' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
+            'no_telepon' => 'required',
+            'alamat' => 'required',
         ]);
 
         if($request->file('foto_tendik')){
@@ -119,6 +124,10 @@ class TenagaPendidikController extends Controller
         $request->validate([
             'nama' => 'required',
             'nik' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
+            'no_telepon' => 'required',
+            'alamat' => 'required',
         ]);
 
         // Ngambil gambar lama

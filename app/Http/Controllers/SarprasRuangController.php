@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\SarprasRuang;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class SarprasRuangController extends Controller
 {
@@ -37,14 +38,28 @@ class SarprasRuangController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $rules = array(
             'jenis_prasarana' => 'required',
             'nama_ruang' => 'required',
-        ]);
+        );
 
-        SarprasRuang::create($request->all());
+        $data = [
+            'jenis_prasarana' => $request->jenis_prasarana,
+            'nama_ruang' => $request->nama_ruang,
+            'lantai_ke' => $request->lantai_ke,
+            'jumlah_ruangan' => $request->jumlah_ruangan,
+            'kapasitas' => $request->kapasitas
+        ];
 
-        return redirect()->route('sarpras.ruang')->with('success', 'Ruangan Berhasil ditambahkan.');
+        $validator = Validator::make($data, $rules);
+        if($validator->fails()){
+            $errors = $validator->errors();
+            return redirect()->route('sarpras.ruang.tambah')->withErrors($errors)->withInput($request->all());
+        } else{
+            SarprasRuang::create($data);
+            return redirect()->route('sarpras.ruang')
+                ->with('success', 'Ruang berhasil ditambahkan');
+        }
     }
 
     /**
@@ -79,20 +94,28 @@ class SarprasRuangController extends Controller
      */
     public function update(Request $request, SarprasRuang $sarprasRuang)
     {
-        $request->validate([
+        $rules = array(
             'jenis_prasarana' => 'required',
             'nama_ruang' => 'required',
-        ]);
+        );
 
-        SarprasRuang::where('id', $request->id)->update([
+        $data = [
             'jenis_prasarana' => $request->jenis_prasarana,
             'nama_ruang' => $request->nama_ruang,
             'lantai_ke' => $request->lantai_ke,
             'jumlah_ruangan' => $request->jumlah_ruangan,
-            'kapasitas' => $request->kapasitas,
-        ]);
-        return redirect()->route('sarpras.ruang')
-            ->with('success', 'Sarpras Ruang berhasil di update.');
+            'kapasitas' => $request->kapasitas
+        ];
+
+        $validator = Validator::make($data, $rules);
+        if($validator->fails()){
+            $errors = $validator->errors();
+            return redirect()->route('sarpras.ruang.edit', $request->id)->withErrors($errors)->withInput($request->all());
+        } else{
+            SarprasRuang::where('id', $request->id)->update($data);
+            return redirect()->route('sarpras.ruang')
+                ->with('success', 'Ruang berhasil diubah');
+        }
     }
 
     /**

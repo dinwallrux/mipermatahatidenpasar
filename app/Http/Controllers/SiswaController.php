@@ -33,15 +33,17 @@ class SiswaController extends Controller
     {
         $rules = array(
             'nama' => 'required',
-            'nis' => 'required',
             'nisn' => 'required|max:10',
+            'alamat' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
         );
 
         if($request->hasFile('foto_siswa')){
-        // Ganti nama file dan simpan di storage
-        $image = $request->file('foto_siswa');
-        $new_name = rand() . '.' . $image->getClientOriginalExtension();
-        $path_image = $request->file('foto_siswa')->storeAs('public', $new_name);
+            // Ganti nama file dan simpan di storage
+            $image = $request->file('foto_siswa');
+            $new_name = rand() . '.' . $image->getClientOriginalExtension();
+            $path_image = $request->file('foto_siswa')->storeAs('public', $new_name);
         } else{
             $path_image = null;
         }
@@ -92,9 +94,10 @@ class SiswaController extends Controller
     {
         $rules = array(
             'nama' => 'required',
-            'nis' => 'required',
             'nisn' => 'required|max:10',
             'alamat' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
         );
         $validator = Validator::make($request->all(), $rules);
         if($validator->fails()){

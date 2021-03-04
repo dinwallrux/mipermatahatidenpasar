@@ -77,15 +77,10 @@
     </li>
     @if (auth()->user()->id_peran == 1)
     <li class="nav-item {{ str_contains(Route::currentRouteName(), 'user') ? 'active' : '' }}">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#user" aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link" href="{{ route('user') }}">
             <i class="fas fa-users"></i>
             <span>Pengguna</span>
         </a>
-        <div id="user" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{ route('user') }}">Lihat Pengguna</a>
-            </div>
-        </div>
     </li>
     @endif
     <!-- Divider -->

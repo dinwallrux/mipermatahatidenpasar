@@ -12,7 +12,7 @@
         <div class="col-sm-6 mb-3 mb-sm-0">
             <label for="nama">Nama</label>
             <input type="text" class="form-control form-control-user" id="nama"
-                placeholder="Nama" @error('nama') is-invalid @enderror" name="nama" value="{{ $data->nama }}" required autocomplete="nama" autofocus>
+                placeholder="Nama" @error('nama') is-invalid @enderror" name="nama" value="{{ $data->nama }}" autocomplete="nama" autofocus>
             @error('nama')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -42,7 +42,7 @@
         <div class="col-sm-6">
             <label for="tempat_lahir">Tempat Lahir</label>
             <input type="text" class="form-control form-control-user" id="tempat_lahir"
-                placeholder="Tempat Lahir" @error('tempat_lahir') is-invalid @enderror" name="tempat_lahir" value="{{ $data->tempat_lahir }}" required autocomplete="tempat_lahir" autofocus>
+                placeholder="Tempat Lahir" @error('tempat_lahir') is-invalid @enderror" name="tempat_lahir" value="{{ $data->tempat_lahir }}" autocomplete="tempat_lahir" autofocus>
             @error('tempat_lahir')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -54,12 +54,12 @@
         <div class="col-sm-6 mb-3 mb-sm-0">
             <label for="tanggal_lahir">Tanggal Lahir</label>
             <input type="date" class="form-control form-control-user" id="tanggal_lahir"
-                placeholder="Tanggal Lahir" @error('tanggal_lahir') is-invalid @enderror" name="tanggal_lahir" value="{{ $data->tanggal_lahir }}" required autocomplete="tanggal_lahir" autofocus>
+                placeholder="Tanggal Lahir" @error('tanggal_lahir') is-invalid @enderror" name="tanggal_lahir" value="{{ $data->tanggal_lahir }}" autocomplete="tanggal_lahir" autofocus>
         </div>
         <div class="col-sm-6">
             <label for="no_telepon">No Telepon</label>
             <input type="number" class="form-control form-control-user" id="no_telepon"
-                placeholder="No Telepon" @error('no_telepon') is-invalid @enderror" name="no_telepon" value="{{ $data->no_telepon }}" required autocomplete="no_telepon" autofocus>
+                placeholder="No Telepon" @error('no_telepon') is-invalid @enderror" name="no_telepon" value="{{ $data->no_telepon }}" autocomplete="no_telepon" autofocus>
             @error('no_telepon')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -71,7 +71,7 @@
         <div class="col-sm-6 mb-3 mb-sm-0">
             <label for="alamat">Alamat</label>
             <input type="text" class="form-control form-control-user" id="alamat"
-                placeholder="Alamat" @error('alamat') is-invalid @enderror" name="alamat" value="{{ $data->alamat }}" required autocomplete="alamat" autofocus>
+                placeholder="Alamat" @error('alamat') is-invalid @enderror" name="alamat" value="{{ $data->alamat }}" autocomplete="alamat" autofocus>
             @error('alamat')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>

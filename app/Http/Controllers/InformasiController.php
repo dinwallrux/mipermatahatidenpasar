@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Informasi;
 use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class InformasiController extends Controller
 {
@@ -45,11 +46,11 @@ class InformasiController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $rules = array(
             'judul' => 'required',
             'jenis_pengumuman' => 'required',
             'isi' => 'required',
-        ]);
+        );
 
         // Tambah Excerpt Untuk limit text di index.blade.php
         $pagebreak = '<!-- pagebreak -->';
@@ -59,7 +60,7 @@ class InformasiController extends Controller
             $excerpt = $request->isi;
         }
 
-        $formData = [
+        $data = [
             'judul' => $request->judul,
             'jenis_pengumuman' => $request->jenis_pengumuman,
             'isi' => $request->isi,
@@ -67,9 +68,15 @@ class InformasiController extends Controller
             'publish' => $request->has('publish')
         ];
 
-        Informasi::create($formData);
-
-        return redirect()->route('info')->with('success', 'Informasi Berhasil ditambahkan.');
+        $validator = Validator::make($data, $rules);
+        if($validator->fails()){
+            $errors = $validator->errors();
+            return redirect()->route('info.tambah')->withErrors($errors)->withInput($request->all());
+        } else{
+            Informasi::create($data);
+            return redirect()->route('info')
+                ->with('success', 'Informasi berhasil ditambahkan');
+        }
     }
 
     /**
@@ -106,11 +113,11 @@ class InformasiController extends Controller
      */
     public function update(Request $request)
     {
-        $request->validate([
+        $rules = array(
             'judul' => 'required',
             'jenis_pengumuman' => 'required',
             'isi' => 'required',
-        ]);
+        );
 
         // Update excerpt nya
         $pagebreak = '<!-- pagebreak -->';
@@ -120,15 +127,23 @@ class InformasiController extends Controller
             $excerpt = $request->isi;
         }
 
-        Informasi::where('id', $request->id)->update([
+        $data = [
             'judul' => $request->judul,
             'jenis_pengumuman' => $request->jenis_pengumuman,
             'isi' => $request->isi,
             'excerpt' => $excerpt,
-            'publish' => $request->has('publish') // Untuk checkbox(Boolean value)
-        ]);
-        return redirect()->route('info')
-            ->with('success', 'Informasi berhasil di update.');
+            'publish' => $request->has('publish')
+        ];
+
+        $validator = Validator::make($data, $rules);
+        if($validator->fails()){
+            $errors = $validator->errors();
+            return redirect()->route('info.edit', $request->id)->withErrors($errors)->withInput($request->all());
+        } else{
+            Informasi::where('id', $request->id)->update($data);
+            return redirect()->route('info')
+                ->with('success', 'Informasi berhasil diubah');
+        }
     }
 
     /**
