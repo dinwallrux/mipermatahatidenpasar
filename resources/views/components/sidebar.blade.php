@@ -61,6 +61,7 @@
         </a>
     </li>
     @endif
+    @if (auth()->user()->id_peran == 1)
     <li class="nav-item {{ str_contains(Route::currentRouteName(), 'galeri') ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#galeri" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-images"></i>
@@ -69,12 +70,18 @@
         <div id="galeri" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="{{ route('galeri') }}">Lihat Galeri</a>
-                @if (auth()->user()->id_peran == 1)
                 <a class="collapse-item" href="{{ route('kategori') }}">Kategori</a>
-                @endif
             </div>
         </div>
     </li>
+    @else
+    <li class="nav-item {{ str_contains(Route::currentRouteName(), 'galeri') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('galeri') }}">
+            <i class="fas fa-images"></i>
+            <span>Galeri</span>
+        </a>
+    </li>
+    @endif
     @if (auth()->user()->id_peran == 1)
     <li class="nav-item {{ str_contains(Route::currentRouteName(), 'user') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('user') }}">
