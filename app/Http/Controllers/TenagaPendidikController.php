@@ -18,7 +18,12 @@ class TenagaPendidikController extends Controller
     {
         // Passing Data
         $number = 1;
-        $datas = TenagaPendidik::with('rombel')->first()->where('jenis_tendik', $jenis_tendik)->latest()->get();
+        $getData = TenagaPendidik::with('rombel')->get();
+        if($getData->isEmpty()) {
+            $datas = TenagaPendidik::with('rombel')->get();
+        } else {
+            $datas = TenagaPendidik::with('rombel')->first()->where('jenis_tendik', $jenis_tendik)->latest()->get();
+        }
         return view('pages.tenagaPendidik.index', ['number' => $number, 'datas' => $datas, 'jenis_tendik' => $jenis_tendik]);
     }
 
