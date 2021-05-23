@@ -22,6 +22,7 @@
 
         <!-- Custom Style -->
         <link href="{{ asset('style/my-style.css') }}" rel="stylesheet">
+        <link href="{{ asset('style/style.css') }}" rel="stylesheet">
     </head>
     <body id="page-top">
         <!-- Navigation-->

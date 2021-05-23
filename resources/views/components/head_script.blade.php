@@ -5,4 +5,5 @@
 <link href="{{asset('/main/css/sb-admin-2.css')}}" rel="stylesheet">
 {{-- My Custom CSS --}}
 <link rel="stylesheet" href="{{asset('style/my-style.css')}}">
+<link rel="stylesheet" href="{{asset('style/style.css')}}">
 <link href="{{asset('/main/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet" type="text/css">
