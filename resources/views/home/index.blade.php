@@ -49,7 +49,7 @@
             <div class="container">
                 <div class="masthead-subheading">Selamat Datang Di Sekolah Kami!</div>
                 <div class="masthead-heading text-uppercase">Senang Berjumpa Dengan Anda</div>
-                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Selengkapnya</a>
+                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#profil">Selengkapnya</a>
             </div>
         </header>
 
