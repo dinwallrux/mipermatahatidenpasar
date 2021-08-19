@@ -60,7 +60,11 @@
 
 .guru-modal .modal-body img {
   width: 300px;
-  height: 300px; }
+  height: 300px;
+  margin-right: 50px; }
+.guru-modal th,
+.guru-modal td {
+  font-size: 14px; }
 
 a.guru-link img {
   transition: .3s all ease-in-out; }

@@ -237,15 +237,15 @@
                                 <div class="container">
                                     <div class="row justify-content-center">
                                         <div class="col-lg-11">
-                                            <div class="modal-body">
+                                            <div class="modal-body d-flex">
                                                 @if (isset($guru->foto_tendik))
-                                                <img class="mx-auto rounded-circle" src="{{  url('storage/'.basename($guru['foto_tendik'])) }}" alt="">
+                                                <img src="{{  url('storage/'.basename($guru['foto_tendik'])) }}" alt="">
                                                 @else
-                                                <img class="mx-auto rounded-circle" src="{{asset('home/assets/img/team/2.jpg')}}" alt="" />
+                                                <img src="{{asset('home/assets/img/team/2.jpg')}}" alt="" />
                                                 @endif
                                                 <table class="table">
                                                     <tr>
-                                                        <th>Nama</th>
+                                                        <th width="400">Nama</th>
                                                         <td>:</td>
                                                         <td>{{$guru->nama}}</td>
                                                     </tr>
