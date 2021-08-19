@@ -216,16 +216,122 @@
                 <div class="row">
                     @foreach ($gurus as $guru)
                     <div class="col-lg-4">
-                        <div class="team-member">
-                            @if (isset($guru->foto_tendik))
-                            <img class="mx-auto rounded-circle" src="{{  url('storage/'.basename($guru['foto_tendik'])) }}" alt="">
-                            @else
-                            <img class="mx-auto rounded-circle" src="{{asset('home/assets/img/team/2.jpg')}}" alt="" />
-                            @endif
-                            <h4>{{$guru->nama}}</h4>
-                            <p class="text-muted">&nbsp;</p>
-                        </div>
+                        <a class="guru-link" data-toggle="modal" href="#modal-guru-{{$guru['id']}}" style="color: black; text-decoration: none;">
+                            <div class="team-member">
+                                @if (isset($guru->foto_tendik))
+                                <img class="mx-auto rounded-circle" src="{{  url('storage/'.basename($guru['foto_tendik'])) }}" alt="">
+                                @else
+                                <img class="mx-auto rounded-circle" src="{{asset('home/assets/img/team/2.jpg')}}" alt="" />
+                                @endif
+                                <h4>{{$guru->nama}}</h4>
+                                <p class="text-muted">&nbsp;</p>
+                            </div>
+                        </a>
                     </div>
+
+                    <!-- Modal -->
+                    <div class="portfolio-modal guru-modal modal fade" id="modal-guru-{{$guru['id']}}" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="close-modal" data-dismiss="modal"><img src="{{asset('home/assets/img/close-icon.svg')}}" alt="Close modal" /></div>
+                                <div class="container">
+                                    <div class="row justify-content-center">
+                                        <div class="col-lg-11">
+                                            <div class="modal-body">
+                                                @if (isset($guru->foto_tendik))
+                                                <img class="mx-auto rounded-circle" src="{{  url('storage/'.basename($guru['foto_tendik'])) }}" alt="">
+                                                @else
+                                                <img class="mx-auto rounded-circle" src="{{asset('home/assets/img/team/2.jpg')}}" alt="" />
+                                                @endif
+                                                <table class="table">
+                                                    <tr>
+                                                        <th>Nama</th>
+                                                        <td>:</td>
+                                                        <td>{{$guru->nama}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>NIK</th>
+                                                        <td>:</td>
+                                                        <td>{{$guru->nik}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Jenis Kelamin</th>
+                                                        <td>:</td>
+                                                        <td>{{$guru->jenis_kelamin == 'L' ? 'Laki - Laki' : 'Perempuan'}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Tempat Lahir</th>
+                                                        <td>:</td>
+                                                        <td>{{$guru->tempat_lahir}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Tanggal Lahir</th>
+                                                        <td>:</td>
+                                                        <td>{{date("d-m-Y", strtotime($guru->tanggal_lahir))}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Alamat</th>
+                                                        <td>:</td>
+                                                        <td>{{$guru->alamat}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Agama</th>
+                                                        <td>:</td>
+                                                        <td>{{$guru->agama}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Pendidikan Terakhir</th>
+                                                        <td>:</td>
+                                                        <td>{{$guru->pendidikan_terakhir}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>NIP</th>
+                                                        <td>:</td>
+                                                        <td>{{$guru->nip}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>NUPTK</th>
+                                                        <td>:</td>
+                                                        <td>{{$guru->nuptk}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Jenis PTK</th>
+                                                        <td>:</td>
+                                                        <td>{{$guru->jenis_ptk}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>SK Pengangkatan</th>
+                                                        <td>:</td>
+                                                        <td>{{$guru->sk_pengangkatan}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Terhitung Mulai Tanggal Pengangkatan</th>
+                                                        <td>:</td>
+                                                        <td>{{$guru->tmt_pengangkatan}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Lembaga Pengangkat</th>
+                                                        <td>:</td>
+                                                        <td>{{$guru->lembaga_pengangkat}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>No. Telepon</th>
+                                                        <td>:</td>
+                                                        <td>{{$guru->no_telepon}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Email</th>
+                                                        <td>:</td>
+                                                        <td>{{$guru->email}}</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- End Modal -->
                     @endforeach
                 </div>
             </div>

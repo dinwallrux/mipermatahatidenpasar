@@ -54,4 +54,17 @@
 #portfolio .galeri-carousel img {
   width: 400px; }
 
+.portfolio-modal table th,
+.portfolio-modal table td {
+  text-align: left; }
+
+.guru-modal .modal-body img {
+  width: 24rem;
+  height: 24rem; }
+
+a.guru-link img {
+  transition: .3s all ease-in-out; }
+a.guru-link:hover img {
+  border-color: #00a85a; }
+
 /*# sourceMappingURL=my-style.css.map */

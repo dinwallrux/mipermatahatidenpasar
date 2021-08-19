@@ -80,10 +80,6 @@
                                             <td>{{$data->lembaga_pengangkat}}</td>
                                         </tr>
                                         <tr>
-                                            <th>Terhitung Mulai Tanggal CPNS</th>
-                                            <td>{{$data->tmt_cpns}}</td>
-                                        </tr>
-                                        <tr>
                                             <th>No. Telepon</th>
                                             <td>{{$data->no_telepon}}</td>
                                         </tr>

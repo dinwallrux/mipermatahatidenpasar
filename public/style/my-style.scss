@@ -91,3 +91,33 @@ $darkBrown: #e29578;
         }
     }
 }
+
+.portfolio-modal {
+    table {
+        th,
+        td {
+            text-align: left;
+        }
+    }
+}
+
+// extend from portfolio modal
+.guru-modal {
+    .modal-body {
+        img {
+            width: 24rem;
+            height: 24rem;
+        }
+    }
+}
+
+a.guru-link {
+    img {
+        transition: .3s all ease-in-out;
+    }
+    &:hover {
+        img {
+            border-color: #00a85a;
+        }
+    }
+}
