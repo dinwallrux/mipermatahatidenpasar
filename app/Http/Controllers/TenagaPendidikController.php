@@ -173,7 +173,7 @@ class TenagaPendidikController extends Controller
             'id_rombel' => $request->id_rombel,
             'status' => $request->status,
             'foto_tendik' => $path_image,
-            'order' => $request->order
+            'order' => $request->order ? $request->order : 0
         ]);
         return redirect()->route('tenagaPendidik', $request->jenis_tendik)
             ->with('success', 'Project created successfully.');
