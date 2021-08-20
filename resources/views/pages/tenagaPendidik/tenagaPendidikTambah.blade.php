@@ -223,6 +223,7 @@
                 </span>
             @enderror
         </div>
+        @if ($jenis_tendik == 'gtk')
         <div class="col-sm-6">
             <label for="order">Urutan ke-</label>
             <input type="number" class="form-control form-control-user"
@@ -234,6 +235,7 @@
                 </span>
             @enderror
         </div>
+        @endif
     </div>
     <div class="form-group row">
         <div class="col-sm-12 mb-3 mb-sm-0">
