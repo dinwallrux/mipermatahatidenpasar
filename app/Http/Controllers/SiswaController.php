@@ -33,7 +33,9 @@ class SiswaController extends Controller
     {
         $rules = array(
             'nama' => 'required',
-            'nisn' => 'required|max:10',
+            'nisn' => 'required|min:10|max:10|unique:siswa,nisn',
+            'nik' => 'required|min:16|max:16|unique:siswa,nik',
+            'nis' => 'required|min:6|max:6|unique:siswa,nis',
             'alamat' => 'required',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
@@ -94,7 +96,9 @@ class SiswaController extends Controller
     {
         $rules = array(
             'nama' => 'required',
-            'nisn' => 'required|max:10',
+            'nisn' => 'required|min:10|max:10|unique:siswa,nisn,' . $request->id,
+            'nik' => 'required|min:16|max:16|unique:siswa,nik,' . $request->id,
+            'nis' => 'required|min:6|max:6|unique:siswa,nis,' . $request->id,
             'alamat' => 'required',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',

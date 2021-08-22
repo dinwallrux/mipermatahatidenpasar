@@ -19,10 +19,18 @@
     <div class="form-group row">
         <div class="col-sm-12 mb-3 mb-sm-0">
             <label for="jenis_pengumuman">Jenis Pengumuman</label>
-            <select name="jenis_pengumuman" class="form-control form-control-user" id="jenis_pengumuman">
-                <option value="siswa" selected>Siswa</option>
-                <option value="guru dan pegawai">Guru & Pegawai</option>
-            </select>
+            <div class="form-check">
+                <input class="form-check-input" name="jenis_pengumuman[]" type="checkbox" value="guru_dan_pegawai" id="guru_dan_pegawai">
+                <label class="form-check-label" for="guru_dan_pegawai">
+                    Guru & Pegawai
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" name="jenis_pengumuman[]" type="checkbox" value="siswa" id="siswa">
+                <label class="form-check-label" for="siswa">
+                    Siswa
+                </label>
+            </div>
         </div>
     </div>
     <div class="form-group row">

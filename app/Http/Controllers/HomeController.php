@@ -36,7 +36,7 @@ class HomeController extends Controller
         
         $profil = ProfilSekolah::get()->first();
         $gurus = TenagaPendidik::where(['jenis_tendik' => 'gtk', 'status' => 1])->orderBy('order', 'ASC')->get();
-        $informasis = Informasi::where(['jenis_pengumuman' =>'siswa', 'publish' => 1])->get();
+        $informasis = Informasi::where(['publish' => 1])->get();
         return view('home.index', compact('profil', 'groupedGalleries', 'extractGalleries', 'gurus', 'informasis'));
     }
 }

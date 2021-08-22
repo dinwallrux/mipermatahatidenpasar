@@ -19,7 +19,7 @@
         <div class="col-sm-6">
             <label for="nik">NIK</label>
             <input type="number" class="form-control form-control-user"
-                id="nik" placeholder="NIK" @error('nik') is-invalid @enderror" name="nik">
+                value="{{ old('nik') }}" id="nik" placeholder="NIK" @error('nik') is-invalid @enderror" name="nik">
     
             @error('nik')
                 <span class="invalid-feedback" role="alert">
@@ -227,7 +227,7 @@
         <div class="col-sm-6">
             <label for="order">Urutan ke-</label>
             <input type="number" class="form-control form-control-user"
-                id="order" placeholder="Urutan ke-" @error('order') is-invalid @enderror" name="order">
+                value="{{ old('order') }}" id="order" placeholder="Urutan ke-" @error('order') is-invalid @enderror" name="order">
     
             @error('order')
                 <span class="invalid-feedback" role="alert">

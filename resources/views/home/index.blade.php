@@ -346,16 +346,20 @@
                 </div>
                 <div class="row" data-masonry='{"percentPosition": true }'>
                     @foreach ($informasis as $informasi)
-                    <div class="col-lg-4 col-sm-6 mb-4">
-                        <div class="card p-3">
-                            <div class="portfolio-item">
-                                <div class="portfolio-caption">
-                                    <div class="portfolio-caption-heading">{{$informasi->judul}}</div>
-                                    <div class="portfolio-caption-subheading text-muted">{!! $informasi->isi !!}</div>
+                        @if (is_array(json_decode($informasi->jenis_pengumuman)))
+                            @if (in_array("siswa", json_decode($informasi->jenis_pengumuman)))
+                                <div class="col-lg-4 col-sm-6 mb-4">
+                                    <div class="card p-3">
+                                        <div class="portfolio-item">
+                                            <div class="portfolio-caption">
+                                                <div class="portfolio-caption-heading">{{$informasi->judul}}</div>
+                                                <div class="portfolio-caption-subheading text-muted">{!! $informasi->isi !!}</div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
+                            @endif
+                        @endif
                     @endforeach
                 </div>
             </div>

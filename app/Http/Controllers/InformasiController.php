@@ -62,7 +62,7 @@ class InformasiController extends Controller
 
         $data = [
             'judul' => $request->judul,
-            'jenis_pengumuman' => $request->jenis_pengumuman,
+            'jenis_pengumuman' => json_encode($request->jenis_pengumuman),
             'isi' => $request->isi,
             'excerpt' => $excerpt,
             'publish' => $request->has('publish')
@@ -129,7 +129,7 @@ class InformasiController extends Controller
 
         $data = [
             'judul' => $request->judul,
-            'jenis_pengumuman' => $request->jenis_pengumuman,
+            'jenis_pengumuman' => json_encode($request->jenis_pengumuman),
             'isi' => $request->isi,
             'excerpt' => $excerpt,
             'publish' => $request->has('publish')
