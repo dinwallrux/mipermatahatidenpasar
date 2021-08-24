@@ -51,6 +51,8 @@ class TenagaPendidikController extends Controller
             'nik' => 'required|min:16|max:16|unique:tenaga_pendidik,nik',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
+            'nip' => 'required|min:12|max:12|unique:tenaga_pendidik,nip',
+            'nuptk' => 'required|min:16|max:16|unique:tenaga_pendidik,nuptk',
             'no_telepon' => 'required',
             'alamat' => 'required',
             'order' => 'required|unique:tenaga_pendidik,order'
@@ -132,6 +134,8 @@ class TenagaPendidikController extends Controller
             'nik' => 'required|min:16|max:16|unique:tenaga_pendidik,nik,' . $request->id,
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
+            'nip' => 'required|min:12|max:12|unique:tenaga_pendidik,nip,' . $request->id,
+            'nuptk' => 'required|min:16|max:16|unique:tenaga_pendidik,nuptk,' . $request->id,
             'no_telepon' => 'required',
             'alamat' => 'required',
             'order' => 'required|unique:tenaga_pendidik,order,' . $request->id

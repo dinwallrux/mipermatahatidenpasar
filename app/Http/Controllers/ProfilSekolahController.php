@@ -79,6 +79,7 @@ class ProfilSekolahController extends Controller
         $request->validate([
             'nama_sekolah' => 'required',
             'kepala_sekolah' => 'required',
+            'npsn' => 'required|min:8|max:8'
         ]);
 
         ProfilSekolah::where('id', $request->id)->update([
@@ -90,7 +91,10 @@ class ProfilSekolahController extends Controller
             'kurikulum' => $request->kurikulum,
             'kepala_sekolah' => $request->kepala_sekolah,
             'visi' => $request->visi,
-            'misi' => $request->misi
+            'misi' => $request->misi,
+            'deskripsi' => $request->deskripsi,
+            'no_telepon' => $request->no_telepon,
+            'email' => $request->email
         ]);
         return redirect()->route('profil')
             ->with('success', 'Profil Sekolah berhasil di update.');

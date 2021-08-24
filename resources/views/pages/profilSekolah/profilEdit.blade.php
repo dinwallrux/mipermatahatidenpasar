@@ -69,6 +69,28 @@
         </div>
     </div>
     <div class="form-group row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            <label for="no_telepon">No Telepon</label>
+            <input type="text" class="form-control form-control-user" id="no_telepon"
+                placeholder="No Telepon" @error('no_telepon') is-invalid @enderror" name="no_telepon" value="{{ $data->no_telepon }}" required autocomplete="no_telepon" autofocus>
+            @error('no_telepon')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+        <div class="col-sm-6">
+            <label for="email">Email</label>
+            <input type="text" class="form-control form-control-user" id="email"
+                placeholder="Email" @error('email') is-invalid @enderror" name="email" value="{{ $data->email }}" required autocomplete="email" autofocus>
+            @error('email')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+    </div>
+    <div class="form-group row">
         <div class="col-sm-12 mb-3 mb-sm-0">
             <label for="kepala_sekolah">Kepala Sekolah</label>
             <input type="text" class="form-control form-control-user" id="kepala_sekolah"
@@ -102,6 +124,20 @@
             </textarea>
             
             @error('misi')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-12 mb-3 mb-sm-0">
+            <label for="deskripsi">Deskripsi Sekolah</label>
+            <textarea name="deskripsi" id="deskripsi" class="form-control form-control-user tinymce" cols="30" rows="10" placeholder="Deskripsi" @error('deskripsi') is-invalid @enderror" required>
+                {{  $data->deskripsi }}
+            </textarea>
+            
+            @error('deskripsi')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>

@@ -101,6 +101,16 @@
                                 <td>:</td>
                                 <td>{{$profil->kepala_sekolah}}</td>
                             </tr>
+                            <tr>
+                                <th scope="row">No Telepon</th>
+                                <td>:</td>
+                                <td>{{$profil->no_telepon}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Email</th>
+                                <td>:</td>
+                                <td>{{$profil->email}}</td>
+                            </tr>
                         </table>
                     </div>
                 </div>
