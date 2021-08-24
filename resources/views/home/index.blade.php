@@ -111,6 +111,11 @@
                                 <td>:</td>
                                 <td>{{$profil->email}}</td>
                             </tr>
+                            <tr>
+                                <th scope="row">Deskripsi Sekolah</th>
+                                <td>:</td>
+                                <td>{!! $profil->deskripsi !!}</td>
+                            </tr>
                         </table>
                     </div>
                 </div>
