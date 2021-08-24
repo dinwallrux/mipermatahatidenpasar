@@ -55,7 +55,7 @@ class TenagaPendidikController extends Controller
             'nuptk' => 'required|min:16|max:16|unique:tenaga_pendidik,nuptk',
             'no_telepon' => 'required',
             'alamat' => 'required',
-            'order' => 'required|unique:tenaga_pendidik,order'
+            'order' => 'required_if:jenis_tendik,gtk|unique:tenaga_pendidik,order'
         ]);
 
         if($request->file('foto_tendik')){
@@ -89,7 +89,7 @@ class TenagaPendidikController extends Controller
             'id_rombel' => $request->id_rombel,
             'status' => $request->status,
             'foto_tendik' => $path_image,
-            'order' => $request->order ? $request->order : 0
+            'order' => $request->order
         ]);
 
         return redirect()->route('tenagaPendidik', $jenis_tendik)->with('success', 'Project created successfully.');
@@ -138,7 +138,7 @@ class TenagaPendidikController extends Controller
             'nuptk' => 'required|min:16|max:16|unique:tenaga_pendidik,nuptk,' . $request->id,
             'no_telepon' => 'required',
             'alamat' => 'required',
-            'order' => 'required|unique:tenaga_pendidik,order,' . $request->id
+            'order' => 'required_if:jenis_tendik,gtk|unique:tenaga_pendidik,order,' . $request->id
         ]);
 
         // Ngambil gambar lama
@@ -179,7 +179,7 @@ class TenagaPendidikController extends Controller
             'id_rombel' => $request->id_rombel,
             'status' => $request->status,
             'foto_tendik' => $path_image,
-            'order' => $request->order ? $request->order : 0
+            'order' => $request->order
         ]);
         return redirect()->route('tenagaPendidik', $request->jenis_tendik)
             ->with('success', 'Project created successfully.');
